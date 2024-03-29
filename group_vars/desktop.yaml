@@ -1,0 +1,36 @@
+packages:
+  text:
+    - vim
+    - meld
+    - texlive-full
+    - texstudio
+  development:
+    - git
+  admin:
+    - keepassxc
+    - ansible
+    - rsync
+  entertainment:
+    - vlc
+    - oneko
+  finance:
+    - gnucash
+
+software:
+  communication:
+    - telegram
+    - teamspeak
+  finance:
+    - portfolio-performance
+
+nas:
+  wunderhort:
+    - backup
+    - dokumente
+    - programming
+    - stl
+    - tabletop
+    - passwoerter
+    - medien
+    - projekte
+    - k8s-nfs-storage

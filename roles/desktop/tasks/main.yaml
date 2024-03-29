@@ -1,0 +1,11 @@
+---
+- name: Install software using apt
+  when: ansible_os_family == 'Debian'
+  apt:
+    pkg: "{{ item }}"
+  with_items:
+    - "{{  packages.text }}"
+    - "{{  packages.development }}"
+    - "{{  packages.admin }}"
+    - "{{  packages.entertainment }}"
+    - "{{  packages.finance }}"

@@ -1,0 +1,4 @@
+---
+- name: Include desktop variables if host is localhost and host_type is set to 'desktop'
+  include_vars: "{{ ansible_env.PWD }}/group_vars/desktop.yaml"
+  when: "host_type == 'desktop'"
