@@ -10,6 +10,7 @@ packages:
     - keepassxc
     - ansible
     - rsync
+    - wget
   entertainment:
     - vlc
     - oneko

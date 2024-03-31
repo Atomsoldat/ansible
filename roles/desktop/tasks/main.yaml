@@ -10,3 +10,20 @@
     - "{{  packages.entertainment }}"
     - "{{  packages.finance }}"
     - "{{  packages.storage }}"
+
+- name: Create lightdm.conf
+  ansible.builtin.template:
+    src: lightdm.conf.j2
+    dest: /etc/lightdm/lightdm.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Create display-setup.sh
+  ansible.builtin.template:
+    src: display-setup.sh.j2
+    dest: /usr/local/bin/display-setup.sh
+    owner: root
+    group: root
+    mode: '0755'
+
