@@ -4,6 +4,9 @@ packages:
     - meld
     - texlive-full
     - texstudio
+  design:
+    - gimp
+    - f3d
   development:
     - git
   admin:

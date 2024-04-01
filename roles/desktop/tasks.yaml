@@ -1,5 +1,0 @@
----
-
-- name: Install software for desktop pcs
-  apt:
-    pkg: {{ packages.desktop }}
