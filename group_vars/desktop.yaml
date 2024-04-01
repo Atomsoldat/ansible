@@ -21,6 +21,8 @@ packages:
     - gnucash
   storage:
     - nfs-common
+  communication:
+    - thunderbird
 
 software:
   communication:

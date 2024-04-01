@@ -11,6 +11,7 @@
     - "{{  packages.design }}"
     - "{{  packages.finance }}"
     - "{{  packages.storage }}"
+    - "{{  packages.communication }}"
 
 - name: Create lightdm.conf
   ansible.builtin.template:
