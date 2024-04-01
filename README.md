@@ -1,4 +1,4 @@
-
+These roles and playbooks are  currently written for a fresh `debian 12` installation with `XFCE4`.
 
 ```
 ansible-playbook  playbook_desktop_setup.yaml --ask-become-pass -e 'host_type=desktop'
