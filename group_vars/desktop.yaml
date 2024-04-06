@@ -1,33 +1,47 @@
-packages:
-  text:
-    - vim
-    - meld
-    - texlive-full
-    - texstudio
-  design:
-    - gimp
-    - f3d
-  development:
-    - git
-  admin:
-    - keepassxc
-    - ansible
-    - rsync
-    - wget
-  entertainment:
-    - vlc
-    - oneko
-  finance:
-    - gnucash
-  storage:
-    - nfs-common
-  communication:
-    - thunderbird
+apt_packages:
+  - category: text
+    pkgs:
+      - vim
+      - meld
+      - texlive-full
+      - texstudio
+  - category: design
+    pkgs:
+      - gimp
+      - f3d
+      - openscad
+  - category: development
+    pkgs:
+      - git
+  - category: admin
+    pkgs:
+      - keepassxc
+      - ansible
+      - rsync
+  - category: entertainment
+    pkgs:
+      - vlc
+      - oneko
+  - category: finances
+    pkgs:
+      - gnucash
+  - category: storage
+    pkgs:
+      - nfs-common
+      - cachefilesd
+  - category: files
+    pkgs:
+      - wget
+      - deluge
+  - category: communication
+    pkgs:
+      - thunderbird
 
 software:
   communication:
     - telegram
     - teamspeak
+    - discord
   finance:
     - portfolio-performance
 
@@ -41,4 +55,5 @@ nas:
     - passwoerter
     - medien
     - projekte
+    - research
     - k8s-nfs-storage
