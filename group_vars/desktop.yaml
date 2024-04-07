@@ -56,4 +56,5 @@ nas:
     - medien
     - projekte
     - research
-    - k8s-nfs-storage
+    - k8s-nfs-storage-hdd
+    - steam
