@@ -13,6 +13,8 @@ apt_packages:
   - category: development
     pkgs:
       - git
+      - zsh
+      - shellcheck
   - category: admin
     pkgs:
       - keepassxc
