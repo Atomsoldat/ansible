@@ -36,14 +36,23 @@ apt_packages:
   - category: communication
     pkgs:
       - thunderbird
+      - telegram-desktop
 
 software:
-  communication:
-    - telegram
-    - teamspeak
-    - discord
-  finance:
-    - portfolio-performance
+  - category: communication
+    programs:
+      - teamspeak
+      - discord
+  - category: finance
+    programs:
+      - portfolio-performance
+  - category: media
+    programs:
+      - yt-dlp
+  - category: files
+    programs:
+      - jdownloader
+
 
 nas:
   wunderhort:
