@@ -44,6 +44,9 @@ apt_packages:
     pkgs:
       - thunderbird
       - telegram-desktop
+  - category: system
+    pkgs:
+      - ntp
 
 software:
   - category: communication
