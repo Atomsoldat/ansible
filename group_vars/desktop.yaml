@@ -5,6 +5,7 @@ apt_packages:
       - meld
       - texlive-full
       - texstudio
+      - okular
   - category: design
     pkgs:
       - gimp
@@ -20,9 +21,12 @@ apt_packages:
       - keepassxc
       - ansible
       - rsync
-  - category: entertainment
+  - category: media
     pkgs:
       - vlc
+      - ffmpeg
+  - category: entertainment
+    pkgs:
       - oneko
   - category: finances
     pkgs:
@@ -35,6 +39,7 @@ apt_packages:
     pkgs:
       - wget
       - deluge
+      - ncdu
   - category: communication
     pkgs:
       - thunderbird
