@@ -12,7 +12,8 @@ sudo apt update && sudo apt install ansible
 ```
 
 ```
-ansible-playbook  playbook_desktop_setup.yaml --ask-become-pass -e 'host_type=desktop'
+ansible-playbook  playbook_computer_setup.yaml --ask-become-pass -e 'host_type=desktop'
+ansible-playbook  playbook_computer_setup.yaml --ask-become-pass -e 'host_type=laptop'
 ```
 
 The roles use `ansible_env.PWD` to find files. Hence, any playbook must be executed from the topmost directory. `host_type` must be set to the correct value so the respective group vars are included

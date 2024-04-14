@@ -9,4 +9,5 @@
   roles:
     - ../roles/variable_definitions
     - ../roles/desktop
+    - ../roles/time
     - ../roles/nas-storage
