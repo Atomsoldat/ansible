@@ -1,0 +1,11 @@
+---
+
+- name: Ensure /var/ansible-cache exists
+  file:
+    path: /var/ansible-cache
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- include_tasks: sweet_home_3d.yaml

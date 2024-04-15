@@ -7,7 +7,10 @@
   gather_facts: true
 
   roles:
+    ## BEGIN ALWAYS REQUIRED ##
     - ../roles/variable_definitions
+    ## END ALWAYS REQUIRED ##
     - ../roles/desktop
+    - ../roles/unpackaged_software
     - ../roles/time
     - ../roles/nas-storage
