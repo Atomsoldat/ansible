@@ -1,0 +1,33 @@
+---
+- name: Check for existance of installation dir
+  stat:
+    path: /opt/portfolio
+  register: install_dir
+
+- name: Download archive with check (md5)
+  ansible.builtin.get_url:
+    url: https://github.com/portfolio-performance/portfolio/releases/download/0.68.3/PortfolioPerformance-0.68.3-linux.gtk.x86_64.tar.gz
+    dest: /var/ansible-cache/PortfolioPerformance-0.68.3-linux.gtk.x86_64.tar.gz
+    checksum: md5:e2c8e9ef3c8a6ec72fe4d9d615cde69d
+  when:
+    - install_dir.stat.exists == false
+
+
+- name: Unarchive file on the remote machine
+  ansible.builtin.unarchive:
+    # md5sum matches either way
+    src: /var/ansible-cache/PortfolioPerformance-0.68.3-linux.gtk.x86_64.tar.gz
+    dest: /opt
+    remote_src: yes
+  when:
+    - install_dir.stat.exists == false
+
+- name: Create .desktop shortcut
+  ansible.builtin.copy:
+    src: portfolio_performance.desktop
+    dest: /usr/share/applications/portfolio.desktop
+    owner: root
+    group: root
+    mode: '0644'
+  when: 
+    - install_dir.stat.exists == false
