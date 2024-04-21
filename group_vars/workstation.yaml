@@ -26,6 +26,8 @@ apt_packages:
     pkgs:
       - vlc
       - ffmpeg
+      - cheese
+      - genisoimage
   - category: entertainment
     pkgs:
       - oneko
@@ -41,6 +43,7 @@ apt_packages:
       - wget
       - deluge
       - ncdu
+      - 7zip
   - category: communication
     pkgs:
       - thunderbird
@@ -48,6 +51,7 @@ apt_packages:
   - category: system
     pkgs:
       - ntp
+      - dex
 
 software:
   - category: communication
