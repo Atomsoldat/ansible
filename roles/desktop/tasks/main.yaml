@@ -13,15 +13,16 @@
   apt:
     pkg: "{{ all_packages }}"
 
-- name: Create lightdm.conf
-  ansible.builtin.template:
-    src: lightdm.conf.j2
-    dest: /etc/lightdm/lightdm.conf
-    owner: root
-    group: root
-    mode: '0644'
-  when:
-    - "host_type == 'desktop'"
+# Setting a default screen setup in  lightdm.conf causes issues when some screens are not connected
+#- name: Create lightdm.conf
+#  ansible.builtin.template:
+#    src: lightdm.conf.j2
+#    dest: /etc/lightdm/lightdm.conf
+#    owner: root
+#    group: root
+#    mode: '0644'
+#  when:
+#    - "host_type == 'desktop'"
 
 - name: Create display-setup.sh
   ansible.builtin.template:
