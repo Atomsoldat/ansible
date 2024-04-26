@@ -10,3 +10,4 @@
 
 - include_tasks: sweet_home_3d.yaml
 - include_tasks: portfolio_performance.yaml
+- include_tasks: vscodium.yaml

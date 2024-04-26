@@ -1,0 +1,20 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/bin/codium
+  register: installed_binary
+
+- name: Download archive with check (md5)
+  ansible.builtin.get_url:
+    url: https://github.com/VSCodium/vscodium/releases/download/1.88.1.24104/codium_1.88.1.24104_amd64.deb
+    dest: /var/ansible-cache/codium_1.88.1.24104_amd64.deb
+    checksum: md5:0e6c441921c4cec84a70c4fb2bac9806
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Install vscodium .deb package
+  ansible.builtin.apt:
+    deb: /var/ansible-cache/codium_1.88.1.24104_amd64.deb
+  when:
+    - installed_binary.stat.exists == false
+
