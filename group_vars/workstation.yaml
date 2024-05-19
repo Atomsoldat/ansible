@@ -22,6 +22,8 @@ apt_packages:
       - keepassxc
       - ansible
       - rsync
+      - nmap
+      - nix-bin
   - category: media
     pkgs:
       - vlc
