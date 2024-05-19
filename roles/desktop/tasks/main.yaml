@@ -34,3 +34,20 @@
   when:
     - "host_type == 'desktop'"
 
+- name: Create /etc/nix/nix.conf
+  ansible.builtin.file:
+    path: /etc/nix
+    state: directory
+    owner: root
+    group: root
+    mode: '0655'
+
+- name: Create /etc/nix/nix.conf
+  ansible.builtin.template:
+    src: nix.conf.j2
+    dest: /etc/nix/nix.conf
+    owner: root
+    group: root
+    mode: '0744'
+  when:
+    - "host_type == 'desktop'"

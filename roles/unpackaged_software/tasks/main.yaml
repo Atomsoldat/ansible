@@ -12,3 +12,4 @@
 - include_tasks: portfolio_performance.yaml
 - include_tasks: vscodium.yaml
 - include_tasks: kubectl.yaml
+- include_tasks: helm.yaml
