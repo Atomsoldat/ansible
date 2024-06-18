@@ -6,6 +6,7 @@ apt_packages:
       - texlive-full
       - texstudio
       - okular
+      - pandoc
   - category: design
     pkgs:
       - gimp
@@ -24,6 +25,7 @@ apt_packages:
       - rsync
       - nmap
       - nix-bin
+      - htop
   - category: media
     pkgs:
       - vlc
