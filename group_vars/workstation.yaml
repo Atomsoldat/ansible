@@ -18,6 +18,7 @@ apt_packages:
       - zsh
       - shellcheck
       - hugo
+      - docker
   - category: admin
     pkgs:
       - keepassxc
@@ -26,6 +27,7 @@ apt_packages:
       - nmap
       - nix-bin
       - htop
+      - powertop
   - category: media
     pkgs:
       - vlc
