@@ -18,7 +18,7 @@ apt_packages:
       - zsh
       - shellcheck
       - hugo
-      - docker
+      - docker.io
   - category: admin
     pkgs:
       - keepassxc
@@ -34,6 +34,7 @@ apt_packages:
       - ffmpeg
       - cheese
       - genisoimage
+      - feh
   - category: entertainment
     pkgs:
       - oneko
@@ -50,6 +51,7 @@ apt_packages:
       - deluge
       - ncdu
       - 7zip
+      - pax
   - category: communication
     pkgs:
       - thunderbird
