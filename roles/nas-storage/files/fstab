@@ -7,6 +7,7 @@ nas:/wunderhort/medien /wunderhort/medien nfs noauto,noatime,x-systemd.automount
 nas:/wunderhort/projekte /wunderhort/projekte nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
 nas:/wunderhort/research /wunderhort/research nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
 nas:/wunderhort/k8s-nfs-storage-hdd /wunderhort/k8s-nfs-storage-hdd nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+nas:/wunderhort/scratch /wunderhort/scratch nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
 
 # enable fsc option for local caching
 nas:/wunderhort/tabletop /wunderhort/tabletop nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
