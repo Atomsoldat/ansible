@@ -1,0 +1,36 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/bin/nvim
+  register: installed_binary
+
+- name: Download archive with check (md5)
+  ansible.builtin.get_url:
+    url: https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
+    dest: /usr/bin/nvim
+    checksum: md5:dc94019d6624a61542792a124d2d2484
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Set up permissions for neovim appimage
+  ansible.builtin.file:
+    dest: /usr/bin/nvim
+    owner: root
+    group: root
+    mode: '0755' 
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Make sure vim package is not installed
+  ansible.builtin.apt:
+    package: vim
+    state: absent
+
+- name: Create vim -> nvim symlink
+  ansible.builtin.file:
+    src: /usr/bin/nvim
+    dest: /usr/bin/vim
+    owner: root
+    group: root
+    state: link
+

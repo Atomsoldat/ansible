@@ -19,6 +19,8 @@ apt_packages:
       - shellcheck
       - hugo
       - docker.io
+      - python3-pip
+      - pipx
   - category: admin
     pkgs:
       - keepassxc
@@ -28,6 +30,7 @@ apt_packages:
       - nix-bin
       - htop
       - powertop
+      - fuse
   - category: media
     pkgs:
       - vlc
@@ -75,8 +78,6 @@ software:
   - category: files
     programs:
       - jdownloader
-
-
 nas:
   wunderhort:
     - backup
