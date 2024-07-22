@@ -1,4 +1,9 @@
 ---
+- name: Check for existance of installation dir
+  stat:
+    path: /home/leon/.SpaceVim
+  register: install_dir
+
 # doesn't work for libraries
 #- name: Install pynvim package from pipx
 #  community.general.pipx:
@@ -8,6 +13,8 @@
   ansible.builtin.apt:
     package: python3-pynvim
     state: present
+  when:
+    - install_dir.stat.exists == false
 
 # the script file will need to be updated when new versions are released
 # the devs expect you to pipe curl into bash like some maniac
@@ -17,4 +24,14 @@
   ansible.builtin.script:
     cmd: spacevim-install.sh --install
   become_user: leon
+  when:
+    - install_dir.stat.exists == false
 
+  
+- name: Copy spacevim init.toml
+  ansible.builtin.copy:
+    src: init.toml
+    dest: /home/leon/.SpaceVim.d/init.toml
+    owner: leon
+    group: leon
+    mode: '0644'
