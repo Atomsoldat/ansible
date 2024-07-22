@@ -27,5 +27,3 @@
     validate: /usr/bin/findmnt -F %s
     append_newline: true
     prepend_newline: true
-
-- include_tasks: homedir_share.yaml
