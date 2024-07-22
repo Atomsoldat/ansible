@@ -1,13 +1,15 @@
 ---
-- name: Create nas mount directory if it does not exist
+- name: Create /wunderhort directory if it does not exist
   ansible.builtin.file:
     path: /wunderhort
     state: directory
-    owner: root
-    group: root
+    owner: leon
+    group: leon
     mode: '0755'
 
-- name: Create nas mount directory if it does not exist
+# our nfs shares squash the root user to "nobody" on the remote server
+# operations must use a user with permissions, i.e. leon
+- name: Create /wunderhort/MOUNTPOINT directory if it does not exist
   ansible.builtin.file:
     path: /wunderhort/{{ item }}
     state: directory
@@ -25,3 +27,5 @@
     validate: /usr/bin/findmnt -F %s
     append_newline: true
     prepend_newline: true
+
+- include_tasks: homedir_share.yaml

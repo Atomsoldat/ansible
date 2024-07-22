@@ -82,6 +82,7 @@ nas:
     - backup
     - dokumente
     - programming
+    - home
     - stl
     - tabletop
     - passwoerter
@@ -91,3 +92,5 @@ nas:
     - k8s-nfs-storage-hdd
     - steam
     - scratch
+  homedirs:
+    - Downloads
