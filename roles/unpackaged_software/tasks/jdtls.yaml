@@ -1,0 +1,43 @@
+---
+- name: Check for existence of installation dir
+  stat:
+    path: /opt/jdtls
+  register: install_dir
+
+- name: Create /opt/jdtls 
+  ansible.builtin.file:
+    path: /opt/jdtls
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  when:
+    - install_dir.stat.exists == false
+
+- name: Download archive with check (md5)
+  ansible.builtin.get_url:
+    url: https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.38.0/jdt-language-server-1.38.0-202408011337.tar.gz
+    dest: /var/ansible-cache/jdt-language-server-1.38.0-202408011337.tar.gz
+    checksum: md5:a4a5739cad5c9720e8e4d8c885238bfd
+  when:
+    - install_dir.stat.exists == false
+
+- name: Unarchive file on the remote machine
+  ansible.builtin.unarchive:
+    # md5sum matches either way
+    src: /var/ansible-cache/jdt-language-server-1.38.0-202408011337.tar.gz
+    dest: /opt/jdtls
+    remote_src: yes
+  when:
+    - install_dir.stat.exists == false
+
+
+- name: Create symmlink under /usr/local/bin/jdtls
+  ansible.builtin.file:
+    src: /opt/jdtls/bin/jdtls
+    dest: /usr/local/bin/jdtls
+    state: link
+    owner: root
+    group: root
+  when:
+    - install_dir.stat.exists == false
