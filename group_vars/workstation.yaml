@@ -16,6 +16,7 @@ apt_packages:
     pkgs:
       - git
       - zsh
+      - ripgrep
       - shellcheck
       - hugo
       - docker.io
