@@ -22,6 +22,7 @@ apt_packages:
       - docker.io
       - python3-pip
       - pipx
+      - maven
   - category: admin
     pkgs:
       - keepassxc
