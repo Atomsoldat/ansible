@@ -16,3 +16,4 @@
 - include_tasks: neovim.yaml
 - include_tasks: spacevim.yaml
 - include_tasks: jdtls.yaml
+- include_tasks: flatpaks.yaml

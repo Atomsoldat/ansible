@@ -23,6 +23,9 @@ apt_packages:
       - python3-pip
       - pipx
       - maven
+      - flatpak
+      # some stuff (e.h. zed) relies on gnome services and functionality
+      - gnome
   - category: admin
     pkgs:
       - keepassxc
@@ -65,6 +68,8 @@ apt_packages:
     pkgs:
       - ntp
       - dex
+flatpaks:
+  - dev.zed.Zed
 
 software:
   - category: communication
