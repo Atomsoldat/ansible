@@ -24,8 +24,10 @@ apt_packages:
       - pipx
       - maven
       - flatpak
+      - distrobox
+      # we install zed via flatpak, so we shouldnt need those dependencies
       # some stuff (e.h. zed) relies on gnome services and functionality
-      - gnome
+      #- gnome
   - category: admin
     pkgs:
       - keepassxc
@@ -35,7 +37,6 @@ apt_packages:
       - nix-bin
       - htop
       - powertop
-      - fuse
   - category: media
     pkgs:
       - vlc
