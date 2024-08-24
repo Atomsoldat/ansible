@@ -10,6 +10,6 @@
     ## BEGIN ALWAYS REQUIRED ##
     - ../roles/variable_definitions
     ## END ALWAYS REQUIRED ##
-    - ../roles/desktop
+    - ../roles/packaged_software
     - ../roles/unpackaged_software
     - ../roles/time
