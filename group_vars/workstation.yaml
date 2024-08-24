@@ -28,6 +28,9 @@ apt_packages:
       # we install zed via flatpak, so we shouldnt need those dependencies
       # some stuff (e.h. zed) relies on gnome services and functionality
       #- gnome
+  - category: development-3rd-party-repos
+    pkgs:
+      - temurin-21-jdk
   - category: admin
     pkgs:
       - keepassxc

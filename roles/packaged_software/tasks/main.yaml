@@ -1,4 +1,9 @@
 ---
+
+# BEGIN THIRD  PARTY REPO SETUP
+- include_tasks: temurin-jdk.yaml
+# END THIRD  PARTY REPO SETUP
+
 - name: Build list of all packages
   set_fact:
     all_packages: "{{ all_packages | default([]) | union(item.pkgs) }}"
