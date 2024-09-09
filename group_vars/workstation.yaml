@@ -74,6 +74,7 @@ apt_packages:
       - dex
 flatpaks:
   - dev.zed.Zed
+  - com.github.qarmin.czkawka
 
 software:
   - category: communication

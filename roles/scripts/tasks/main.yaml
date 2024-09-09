@@ -1,0 +1,8 @@
+- name: Template yt-dlp-archive-script
+  ansible.builtin.template:
+    src: yt-dlp-archive
+    dest: /usr/local/bin/yt-dlp-archive
+    owner: root
+    group: root
+    mode: '0755'
+
