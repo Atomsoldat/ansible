@@ -6,9 +6,9 @@
 
 - name: Download archive with check (md5)
   ansible.builtin.get_url:
-    url: https://github.com/portfolio-performance/portfolio/releases/download/0.69.1/PortfolioPerformance-0.69.1-linux.gtk.x86_64.tar.gz
-    dest: /var/ansible-cache/PortfolioPerformance-0.69.1-linux.gtk.x86_64.tar.gz
-    checksum: md5:ed53c0104e1dd29dc2eb7eecc256d2bb
+    url: https://github.com/buchen/portfolio/releases/download/0.70.4/PortfolioPerformance-0.70.4-linux.gtk.x86_64.tar.gz
+    dest: /var/ansible-cache/PortfolioPerformance.tar.gz
+    checksum: md5:f5939b2299db8c0bd0d402c116dccc7f
   when:
     - install_dir.stat.exists == false
 
@@ -16,7 +16,7 @@
 - name: Unarchive file on the remote machine
   ansible.builtin.unarchive:
     # md5sum matches either way
-    src: /var/ansible-cache/PortfolioPerformance-0.69.1-linux.gtk.x86_64.tar.gz
+    src: /var/ansible-cache/PortfolioPerformance.tar.gz
     dest: /opt
     remote_src: yes
   when:
