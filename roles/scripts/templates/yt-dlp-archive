@@ -1,2 +1,4 @@
 #!/bin/bash
+echo "yt-dlp --cookies-from-browser firefox --download-archive ./fetched.log $@" > fetch.sh
+chmod +x fetch.sh
 yt-dlp --cookies-from-browser firefox --download-archive ./fetched.log $@
