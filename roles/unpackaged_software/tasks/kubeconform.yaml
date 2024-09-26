@@ -1,0 +1,30 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/local/bin/kubeconform
+  register: installed_binary
+
+- name: Download archive wijth check (md5)
+  ansible.builtin.get_url:
+    url: https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz
+    dest: /var/ansible-cache/kubeconform.tar.gz
+    checksum: sha256:95f14e87aa28c09d5941f11bd024c1d02fdc0303ccaa23f61cef67bc92619d73
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Unarchive file on the remote machine
+  ansible.builtin.unarchive:
+    src: /var/ansible-cache/kubeconform.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Set up permissions for binary
+  ansible.builtin.file:
+    dest: /usr/local/bin/kubeconform
+    owner: root
+    group: root
+    mode: '0755' 
+  when:
+    - installed_binary.stat.exists == false
