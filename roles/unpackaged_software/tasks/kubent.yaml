@@ -1,0 +1,30 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/local/bin/kubent
+  register: installed_binary
+
+- name: Download archive wijth check (md5)
+  ansible.builtin.get_url:
+    url: https://github.com/doitintl/kube-no-trouble/releases/download/0.7.3/kubent-0.7.3-linux-amd64.tar.gz
+    dest: /var/ansible-cache/kubent.tar.gz
+    checksum: sha256:ac96ace138f18a864a6b5bd64643cecbab2887f868da35853812cfdecd307b6d
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Unarchive file on the remote machine
+  ansible.builtin.unarchive:
+    src: /var/ansible-cache/kubent.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Set up permissions for binary
+  ansible.builtin.file:
+    dest: /usr/local/bin/kubent
+    owner: root
+    group: root
+    mode: '0755' 
+  when:
+    - installed_binary.stat.exists == false
