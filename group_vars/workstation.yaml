@@ -43,6 +43,9 @@ apt_packages:
       - htop
       - powertop
       - oathtool
+      - vault
+      - ansible
+      - terraform
   - category: media
     pkgs:
       - vlc
