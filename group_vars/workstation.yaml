@@ -9,6 +9,7 @@ apt_packages:
       - pandoc
       - jq
       - yq
+      - wcalc
   - category: design
     pkgs:
       - gimp
@@ -27,9 +28,17 @@ apt_packages:
       - maven
       - flatpak
       - distrobox
+      # BEGIN docker stuff
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+      # END docker stuff
       # we install zed via flatpak, so we shouldnt need those dependencies
       # some stuff (e.h. zed) relies on gnome services and functionality
       #- gnome
+      - telnet
   - category: development-3rd-party-repos
     pkgs:
       - temurin-21-jdk
@@ -46,6 +55,7 @@ apt_packages:
       - vault
       - ansible
       - terraform
+      - netcat-openbsd
   - category: media
     pkgs:
       - vlc
