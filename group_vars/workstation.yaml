@@ -24,6 +24,7 @@ apt_packages:
       - hugo
       - docker.io
       - python3-pip
+      - python-is-python3
       - pipx
       - maven
       - flatpak
