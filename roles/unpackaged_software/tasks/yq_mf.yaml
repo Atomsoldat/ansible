@@ -1,0 +1,53 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/local/bin/yq_mf
+  register: installed_binary
+
+- name: Download archive with check (md5)
+  ansible.builtin.get_url:
+    url: https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64.tar.gz
+    dest: /var/ansible-cache/yq_mf.tar.gz
+    checksum: sha256:a347ccde5e32c607670e15526e295c58a555a68cbb36d15cf18d24fd7af0e2fd
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Create ansible-scratch-dir
+  ansible.builtin.file:
+    state: directory
+    path: /tmp/ansible-scratch
+    owner: root
+    group: root
+    mode: '0755'
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Unarchive file on the remote machine
+  ansible.builtin.unarchive:
+    src: /var/ansible-cache/yq_mf.tar.gz
+    dest: /tmp/ansible-scratch
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Copy binary to destination
+  ansible.builtin.copy:
+    src: /tmp/ansible-scratch/yq_linux_amd64
+    dest: /usr/local/bin/yq_mf
+    owner: root
+    group: root
+    mode: '0755' 
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Copy manpage to destination
+  ansible.builtin.copy:
+    src: /tmp/ansible-scratch/yq.1
+    dest: /usr/share/man/man1/yq_mf.1
+    owner: root
+    group: root
+    mode: '0644' 
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
