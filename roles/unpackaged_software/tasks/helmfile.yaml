@@ -1,0 +1,30 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/local/bin/helmfile
+  register: installed_binary
+
+- name: Download archive with check (md5)
+  ansible.builtin.get_url:
+    url: https://github.com/helmfile/helmfile/releases/download/v0.168.0/helmfile_0.168.0_linux_amd64.tar.gz
+    dest: /var/ansible-cache/helmfile.tar.gz
+    checksum: sha256:6df25a7ea49d4ba4b4a192100b7cf648a89c6c99e02a440f6938f78fb89cad8d
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Unarchive file on the remote machine
+  ansible.builtin.unarchive:
+    src: /var/ansible-cache/helmfile.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Set up permissions for binary
+  ansible.builtin.file:
+    dest: /usr/local/bin/helmfile
+    owner: root
+    group: root
+    mode: '0755' 
+  when:
+    - installed_binary.stat.exists == false

@@ -19,6 +19,7 @@
 - include_tasks: kustomize.yaml
 - include_tasks: kubeconform.yaml
 - include_tasks: kubent.yaml
+- include_tasks: helmfile.yaml
 # we try to let our IDE manage this for now 20240820
 #- include_tasks: jdtls.yaml
 - include_tasks: flatpaks.yaml
