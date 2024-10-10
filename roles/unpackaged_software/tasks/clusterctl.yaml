@@ -1,0 +1,30 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/local/bin/clusterctl
+  register: installed_binary
+
+- name: Download binary with sha256 check 
+  ansible.builtin.get_url:
+    url: https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.8.4/clusterctl-linux-amd64
+    dest: /var/ansible-cache/clusterctl
+    checksum: sha256:a7f40cde4e4a4f7119a52713386238ebcfa8691e7683b5afb823439ea81a8729
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Copy file on the remote machine
+  ansible.builtin.copy:
+    src: /var/ansible-cache/clusterctl
+    dest: /usr/local/bin
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Set up permissions for clusterctl binary
+  ansible.builtin.file:
+    dest: /usr/local/bin/clusterctl
+    owner: root
+    group: root
+    mode: '0755' 
+  when:
+    - installed_binary.stat.exists == false

@@ -20,6 +20,8 @@
 - include_tasks: kubeconform.yaml
 - include_tasks: kubent.yaml
 - include_tasks: helmfile.yaml
+- include_tasks: clusterctl.yaml
+- include_tasks: istioctl.yaml
 - include_tasks: yq_mf.yaml
 # we try to let our IDE manage this for now 20240820
 #- include_tasks: jdtls.yaml

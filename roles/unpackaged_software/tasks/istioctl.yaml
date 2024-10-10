@@ -1,0 +1,30 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/local/bin/istioctl
+  register: installed_binary
+
+- name: Download archive with check (md5)
+  ansible.builtin.get_url:
+    url: https://github.com/istio/istio/releases/download/1.23.2/istioctl-1.23.2-linux-amd64.tar.gz
+    dest: /var/ansible-cache/istioctl.tar.gz
+    checksum: sha256:be229aeb998ecb9f891e6ec88021f52511644af1ad9326196559856afb599d33
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Unarchive file on the remote machine
+  ansible.builtin.unarchive:
+    src: /var/ansible-cache/istioctl.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Set up permissions for istioctl binary
+  ansible.builtin.file:
+    dest: /usr/local/bin/istioctl
+    owner: root
+    group: root
+    mode: '0755' 
+  when:
+    - installed_binary.stat.exists == false
