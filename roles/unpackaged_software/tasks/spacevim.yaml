@@ -4,6 +4,11 @@
     path: /home/leon/.SpaceVim
   register: install_dir
 
+- name: Check for existance of init.toml
+  stat:
+    path: /home/leon/.SpaceVim.d/init.toml
+  register: init_toml
+
 # doesn't work for libraries
 #- name: Install pynvim package from pipx
 #  community.general.pipx:
@@ -27,11 +32,21 @@
   when:
     - install_dir.stat.exists == false
 
+- name: Create init.toml to configure SpaceVim
+  ansible.builtin.file:
+    path: /home/leon/.SpaceVim.d
+    state: directory
+    owner: leon
+    group: leon
+    mode: '0644'
+    
   
-- name: Copy spacevim init.toml
+- name: Copy spacevim init.toml to configure spacevim
   ansible.builtin.copy:
     src: init.toml
     dest: /home/leon/.SpaceVim.d/init.toml
     owner: leon
     group: leon
     mode: '0644'
+  when:
+    - init_toml.stat.exists == false
