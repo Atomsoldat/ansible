@@ -21,7 +21,6 @@ apt_packages:
       - zsh
       - ripgrep
       - shellcheck
-      - hugo
       - docker.io
       - python3-pip
       - python-is-python3
@@ -29,6 +28,7 @@ apt_packages:
       - maven
       - flatpak
       - distrobox
+      - hugo
       # BEGIN docker stuff
       - docker-ce
       - docker-ce-cli
@@ -51,6 +51,7 @@ apt_packages:
       - rsync
       - nmap
       - nix-bin
+      - snapd
       - htop
       - powertop
       - oathtool
@@ -94,7 +95,9 @@ apt_packages:
 flatpaks:
   - dev.zed.Zed
   - com.github.qarmin.czkawka
-
+# these need to be massaged more to actually work
+snaps:
+  - hugo
 software:
   - category: communication
     programs:
