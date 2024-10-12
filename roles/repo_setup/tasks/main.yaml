@@ -1,0 +1,9 @@
+---
+
+- include_tasks: debian.yaml
+
+# BEGIN THIRD  PARTY REPO SETUP
+- include_tasks: temurin-jdk.yaml
+- include_tasks: hashicorp.yaml
+- include_tasks: docker.yaml
+# END THIRD  PARTY REPO SETUP

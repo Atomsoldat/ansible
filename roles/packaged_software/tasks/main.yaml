@@ -1,11 +1,5 @@
 ---
 
-# BEGIN THIRD  PARTY REPO SETUP
-- include_tasks: temurin-jdk.yaml
-- include_tasks: hashicorp.yaml
-- include_tasks: docker.yaml
-# END THIRD  PARTY REPO SETUP
-
 - name: Build list of all packages
   set_fact:
     all_packages: "{{ all_packages | default([]) | union(item.pkgs) }}"
@@ -19,42 +13,3 @@
   when: ansible_os_family == 'Debian'
   apt:
     pkg: "{{ all_packages }}"
-
-# Setting a default screen setup in  lightdm.conf causes issues when some screens are not connected
-#- name: Create lightdm.conf
-#  ansible.builtin.template:
-#    src: lightdm.conf.j2
-#    dest: /etc/lightdm/lightdm.conf
-#    owner: root
-#    group: root
-#    mode: '0644'
-#  when:
-#    - "host_type == 'desktop'"
-
-- name: Create display-setup.sh
-  ansible.builtin.template:
-    src: display-setup.sh.j2
-    dest: /usr/local/bin/display-setup.sh
-    owner: root
-    group: root
-    mode: '0755'
-  when:
-    - "host_type == 'desktop'"
-
-- name: Create /etc/nix/nix.conf
-  ansible.builtin.file:
-    path: /etc/nix
-    state: directory
-    owner: root
-    group: root
-    mode: '0655'
-
-- name: Create /etc/nix/nix.conf
-  ansible.builtin.template:
-    src: nix.conf.j2
-    dest: /etc/nix/nix.conf
-    owner: root
-    group: root
-    mode: '0744'
-  when:
-    - "host_type == 'desktop'"
