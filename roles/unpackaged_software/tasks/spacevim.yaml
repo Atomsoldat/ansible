@@ -32,13 +32,13 @@
   when:
     - install_dir.stat.exists == false
 
-- name: Create init.toml to configure SpaceVim
+- name: Create init.toml dir to configure SpaceVim
   ansible.builtin.file:
     path: /home/leon/.SpaceVim.d
     state: directory
     owner: leon
     group: leon
-    mode: '0644'
+    mode: '0755'
     
   
 - name: Copy spacevim init.toml to configure spacevim
