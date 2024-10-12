@@ -8,8 +8,8 @@
         dest: /etc/apt/trusted.gpg.d/docker.asc
         checksum: sha256:1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570
 
-    - name: docker repo | add apt config file
-      ansible.builtin.apt_repository:
-        repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.asc] https://download.docker.com/linux/debian  {{ ansible_distribution_release }} stable"
-        filename: docker.list
-        state: present
+- name: docker repo | add apt config file
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.asc] https://download.docker.com/linux/debian  bookworm stable"
+    filename: docker.list
+    state: present

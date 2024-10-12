@@ -24,8 +24,8 @@
         dest: /etc/apt/trusted.gpg.d/hashicorp.asc
         checksum: sha256:cafb01beac341bf2a9ba89793e6dd2468110291adfbb6c62ed11a0cde6c09029
 
-    - name: adoptium-temurin-openjdk repo | add apt config file
-      ansible.builtin.apt_repository:
-        repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/hashicorp.asc] https://apt.releases.hashicorp.com  {{ ansible_distribution_release }} main"
-        filename: hashicorp.list
-        state: present
+- name: hashicorp repo | add apt config file
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/hashicorp.asc] https://apt.releases.hashicorp.com  bookworm main"
+    filename: hashicorp.list
+    state: present
