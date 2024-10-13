@@ -66,6 +66,7 @@ apt_packages:
       - cheese
       - genisoimage
       - feh
+      - firefox-esr
   - category: entertainment
     pkgs:
       - oneko
@@ -95,6 +96,8 @@ apt_packages:
       # desktop stuff
       - lightdm
       - awesome
+      - xfce4-terminal
+      - thunar
       # networkstuff
       - network-manager
 flatpaks:
