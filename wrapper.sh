@@ -12,5 +12,8 @@ case $arg in
 	shares)
 		ansible-playbook  playbook_nas_client.yaml --ask-become-pass -e 'host_type=desktop'
 	;;
+	fonts)
+		ansible-playbook  playbook_fonts.yaml --ask-become-pass -e 'host_type=desktop'
+	;;
 esac
 

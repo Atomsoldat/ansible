@@ -1,0 +1,13 @@
+
+---
+- name: Desktop PC setup playbook
+  hosts: localhost
+  remote_user: leon
+  become: true
+  gather_facts: true
+
+  roles:
+    ## BEGIN ALWAYS REQUIRED ##
+    - ../roles/variable_definitions
+    ## END ALWAYS REQUIRED ##
+    - ../roles/fonts
