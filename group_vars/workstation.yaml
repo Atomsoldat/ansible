@@ -1,6 +1,7 @@
 apt_packages:
   - category: text
     pkgs:
+      - libreoffice
       - vim
       - meld
       - texlive-full
