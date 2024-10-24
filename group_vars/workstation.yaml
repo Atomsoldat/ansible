@@ -104,6 +104,7 @@ apt_packages:
 flatpaks:
   - dev.zed.Zed
   - com.github.qarmin.czkawka
+  - com.vscodium.codium
 # these need to be massaged more to actually work
 snaps:
   - hugo

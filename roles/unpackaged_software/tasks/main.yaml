@@ -10,7 +10,10 @@
 
 - include_tasks: sweet_home_3d.yaml
 - include_tasks: portfolio_performance.yaml
-- include_tasks: vscodium.yaml
+# 20241024 - currently the vscodium .deb package released by the developers depends on
+# libglib2.0-0, which has been removed in debian testing in favour of libglib2.0-0t64
+# so for now, we will use the flatpak instead 
+# - include_tasks: vscodium.yaml
 - include_tasks: kubectl.yaml
 - include_tasks: helm.yaml
 - include_tasks: neovim.yaml
