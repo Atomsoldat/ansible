@@ -4,16 +4,16 @@ arg=$1
 
 case $arg in
 	repos)
-		ansible-playbook  playbook_repo_setup.yaml --ask-become-pass -e 'host_type=desktop'
+		ansible-playbook  playbook_repo_setup.yaml --ask-become-pass -e 'host_type=workstation'
 	;;
 	software)
-		ansible-playbook  playbook_computer_setup.yaml --ask-become-pass -e 'host_type=desktop'
+		ansible-playbook  playbook_computer_setup.yaml --ask-become-pass -e 'host_type=workstation'
 	;;
 	shares)
-		ansible-playbook  playbook_nas_client.yaml --ask-become-pass -e 'host_type=desktop'
+		ansible-playbook  playbook_nas_client.yaml --ask-become-pass -e 'host_type=workstation'
 	;;
 	fonts)
-		ansible-playbook  playbook_fonts.yaml --ask-become-pass -e 'host_type=desktop'
+		ansible-playbook  playbook_fonts.yaml --ask-become-pass -e 'host_type=workstation'
 	;;
 esac
 

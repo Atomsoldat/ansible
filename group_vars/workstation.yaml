@@ -1,143 +1,70 @@
-apt_packages:
-  - category: text
-    pkgs:
-      - libreoffice
-      - vim
-      - meld
-      - texlive-full
-      - texstudio
-      - okular
-      - pandoc
-      - jq
-      - yq
-      - wcalc
-  - category: design
-    pkgs:
-      - gimp
-      - f3d
-      - openscad
-  - category: development
-    pkgs:
-      - git
-      - zsh
-      - ripgrep
-      - shellcheck
-      - docker.io
-      - python3-pip
-      - python-is-python3
-      - pipx
-      - maven
-      - flatpak
-      - distrobox
-      - hugo
-      # BEGIN docker stuff
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-      - docker-buildx-plugin
-      - docker-compose-plugin
-      - yamllint
-      # END docker stuff
-      # we install zed via flatpak, so we shouldnt need those dependencies
-      # some stuff (e.h. zed) relies on gnome services and functionality
-      #- gnome
-      - telnet
-  - category: development-3rd-party-repos
-    pkgs:
-      - temurin-21-jdk
-  - category: admin
-    pkgs:
-      - keepassxc
-      - ansible
-      - rsync
-      - nmap
-      - nix-bin
-      - snapd
-      - htop
-      - powertop
-      - oathtool
-      - vault
-      - ansible
-      - terraform
-      - netcat-openbsd
-  - category: media
-    pkgs:
-      - vlc
-      - ffmpeg
-      - cheese
-      - genisoimage
-      - feh
-      - firefox-esr
-  - category: entertainment
-    pkgs:
-      - oneko
-  - category: finances
-    pkgs:
-      - gnucash
-  - category: storage
-    pkgs:
-      - nfs-common
-      - cachefilesd
-  - category: files
-    pkgs:
-      - wget
-      - deluge
-      - ncdu
-      - 7zip
-      - pax
-      - owncloud-client
-  - category: communication
-    pkgs:
-      - thunderbird
-      - telegram-desktop
-  - category: system
-    pkgs:
-      - ntp
-      - dex
-      # desktop stuff
-      - lightdm
-      - awesome
-      - xfce4-terminal
-      - xfce4
-      - xfce4-goodies
-      - thunar
-      # networkstuff
-      - network-manager
+deb_packages_workstation:
+  # text
+  - libreoffice
+  - vim
+  - meld
+  - texlive-full
+  - texstudio
+  - pandoc
+    # design:
+  - gimp
+  - f3d
+  - openscad
+  - python3-pip
+  - pipx
+  - maven
+  - hugo
+  # BEGIN docker stuff
+  - docker.io
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+  - yamllint
+  # END docker stuff
+  # BEGIN temurin repo
+  - temurin-21-jdk
+  # END temurin repo
+  # admin
+  - keepassxc
+  # media
+  - okular
+  - vlc
+  - ffmpeg
+  - genisoimage
+  - feh
+  - firefox-esr
+  # entertainment
+  - cheese
+  - oneko
+  # finances
+  - gnucash
+  # files
+  - deluge
+  - thunar
+  - owncloud-client
+  # communication
+  - thunderbird
+  - telegram-desktop
+  # system
+  # desktop stuff
+  # BEGIN awesome stuff
+  - lightdm
+  - awesome
+  # outputs battery charge
+  - acpi
+  # screen brightness
+  - brightnessctl
+  # END awesome stuff
+  # xfce4 stuff
+  - xfce4-terminal
+  - xfce4
+  - xfce4-goodies
+  # networkstuff
+  - network-manager
+
 flatpaks:
   - dev.zed.Zed
   - com.github.qarmin.czkawka
   - com.vscodium.codium
-# these need to be massaged more to actually work
-snaps:
-  - hugo
-software:
-  - category: communication
-    programs:
-      - teamspeak
-      - discord
-  - category: finance
-    programs:
-      - portfolio-performance
-  - category: media
-    programs:
-      - yt-dlp
-  - category: files
-    programs:
-      - jdownloader
-nas:
-  wunderhort:
-    - backup
-    - dokumente
-    - programming
-    - home
-    - stl
-    - tabletop
-    - passwoerter
-    - medien
-    - projekte
-    - research
-    - k8s-nfs-storage-hdd
-    - steam
-    - scratch
-  homedirs:
-    - Downloads

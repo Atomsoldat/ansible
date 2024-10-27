@@ -1,0 +1,58 @@
+deb_packages:
+  # text
+  - jq
+  - yq
+  - wcalc
+  # development
+  - git
+  - zsh
+  - ripgrep
+  - shellcheck
+  - python-is-python3
+  # BEGIN temurin repo
+  # END temurin repo
+  - telnet
+  # admin
+  - ansible
+  - rsync
+  - nmap
+  - snapd
+  - htop
+  - powertop
+  - oathtool
+  - vault
+  - ansible
+  - terraform
+  - netcat-openbsd
+  # media
+  # storage
+  - nfs-common
+  - cachefilesd
+  # files
+  - wget
+  - ncdu
+  - 7zip
+  - pax
+  # communication
+  # system
+  - ntp
+  - dex
+
+
+nas:
+  wunderhort:
+    - backup
+    - dokumente
+    - programming
+    - home
+    - stl
+    - tabletop
+    - passwoerter
+    - medien
+    - projekte
+    - research
+    - k8s-nfs-storage-hdd
+    - steam
+    - scratch
+  homedirs:
+    - Downloads

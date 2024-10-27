@@ -1,5 +1,13 @@
 ---
-- name: Include desktop variables if host is localhost and host_type is set to 'desktop'
+- name: Always include general variables
+  include_vars: "{{ ansible_env.PWD }}/group_vars/general.yaml"
+
+- name: Include workstation variables if we pass the host_type manually
   include_vars: "{{ ansible_env.PWD }}/group_vars/workstation.yaml"
-  when: host_type == 'desktop' or
-    host_type == 'laptop'
+  when: host_type == 'workstation'
+
+- name: Define list of debian packages to be installed  
+  ansible.builtin.set_fact:
+    deb_packages: "{{ deb_packages | union(deb_packages_workstation) }}"
+  when: host_type == 'workstation'
+

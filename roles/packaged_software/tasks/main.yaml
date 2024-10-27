@@ -1,15 +1,15 @@
 ---
 
-- name: Build list of all packages
-  set_fact:
-    all_packages: "{{ all_packages | default([]) | union(item.pkgs) }}"
-  with_items: "{{ apt_packages }}"
+#- name: Build list of all packages
+#  set_fact:
+#    all_packages: "{{ all_packages | default([]) | union(item.pkgs) }}"
+#  with_items: "{{ apt_packages }}"
 
 - name: Print out list of apt packages
   debug:
-    msg: "{{ all_packages }}"
+    msg: "{{ deb_packages }}"
 
 - name: Install software using apt
   when: ansible_os_family == 'Debian'
   apt:
-    pkg: "{{ all_packages }}"
+    pkg: "{{ deb_packages }}"
