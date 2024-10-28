@@ -31,3 +31,11 @@
     mode: '0644'
   when: 
     - install_dir.stat.exists == false
+
+- name: Create start scripts in /usr/local/bin
+  ansible.builtin.file:
+    src: "/opt/portfolio/PortfolioPerformance"
+    dest: "/usr/local/bin/portfolio"
+    owner: root
+    group: root
+    state: link
