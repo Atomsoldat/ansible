@@ -6,4 +6,15 @@
 
 - name: Install flatpack packages
   community.general.flatpak:
-    name: "{{ flatpaks }}"
+    name: "{{ item.identifier }}"
+  with_items: "{{ flatpaks }}"
+
+- name: Create start scripts in /usr/local/bin for flatpaks
+  ansible.builtin.template:
+    src: startscript.j2
+    dest: "/usr/local/bin/{{ item.alias }}"
+    owner: root
+    group: root
+    mode: '0755'
+  with_items: "{{ flatpaks }}"
+

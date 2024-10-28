@@ -65,6 +65,13 @@ deb_packages_workstation:
   - network-manager
 
 flatpaks:
-  - dev.zed.Zed
-  - com.github.qarmin.czkawka
-  - com.vscodium.codium
+  - identifier: dev.zed.Zed
+    alias: zed
+    command: "flatpak run dev.zed.Zed $@"
+  - identifier: com.github.qarmin.czkawka
+    alias: czkawka
+    command: "flatpak run com.github.qarmin.czkawka $@"
+  - identifier: com.vscodium.codium
+    alias: codium
+    command: "flatpak run com.vscodium.codium $@"
+
