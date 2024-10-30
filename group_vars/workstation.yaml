@@ -10,6 +10,7 @@ deb_packages_workstation:
   - gimp
   - f3d
   - openscad
+  # development
   - python3-pip
   - pipx
   - maven
@@ -38,6 +39,7 @@ deb_packages_workstation:
   # entertainment
   - cheese
   - oneko
+  - qbrew
   # finances
   - gnucash
   # files
@@ -63,6 +65,7 @@ deb_packages_workstation:
   - xfce4-goodies
   # networkstuff
   - network-manager
+  - openconnect
 
 flatpaks:
   - identifier: dev.zed.Zed

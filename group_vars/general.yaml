@@ -23,6 +23,7 @@ deb_packages:
   - vault
   - ansible
   - terraform
+  - tofu
   - netcat-openbsd
   # media
   # storage
