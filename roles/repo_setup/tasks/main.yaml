@@ -6,4 +6,5 @@
 - include_tasks: temurin-jdk.yaml
 - include_tasks: hashicorp.yaml
 - include_tasks: docker.yaml
+- include_tasks: opentofu.yaml
 # END THIRD  PARTY REPO SETUP

@@ -10,5 +10,5 @@
 - name: hashicorp repo | add apt config file
   ansible.builtin.apt_repository:
     repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/hashicorp.asc] https://apt.releases.hashicorp.com  bookworm main"
-    filename: hashicorp.list
+    filename: hashicorp
     state: present

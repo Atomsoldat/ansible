@@ -1,0 +1,20 @@
+---
+- name: get opentofu module signing key
+  ansible.builtin.get_url:
+    url: https://get.opentofu.org/opentofu.gpg
+    dest: /etc/apt/keyrings/opentofu.gpg
+    checksum: sha256:55fcff8ee506ffc46a37a70af5b76b4181f2f5e24b18387013a8629144c02fdf
+
+- name: get opentofu repo key
+  ansible.builtin.get_url:
+    url: https://packages.opentofu.org/opentofu/tofu/gpgkey
+    dest: /etc/apt/keyrings/opentofu-repo.asc
+    checksum: sha256:b918b1cf7302a9088568140505c0b4f1a2d534df650b4c5ef3ad6a9984ec710a
+
+- name: Template /etc/apt/sources.list.d/opentofu.list
+  ansible.builtin.template:
+    src: opentofu.list.j2
+    dest: /etc/apt/sources.list.d/opentofu.list
+    owner: root
+    group: root
+    mode: '0644'

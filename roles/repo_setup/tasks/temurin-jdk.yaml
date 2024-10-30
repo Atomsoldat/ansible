@@ -27,6 +27,6 @@
 - name: adoptium-temurin-openjdk repo | add apt config file
   ansible.builtin.apt_repository:
     repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/adoptium.asc] https://packages.adoptium.net/artifactory/deb bookworm main"
-    filename: adoptium.list
+    filename: adoptium
     state: present
   when: 
