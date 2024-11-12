@@ -80,4 +80,7 @@ flatpaks:
   - identifier: org.gnome.Evince
     alias: evince
     command: "flatpak run org.gnome.Evince $@"
+  - identifier: org.telegram.desktop
+    alias: telegram
+    command: "flatpak run org.telegram.desktop $@"
 
