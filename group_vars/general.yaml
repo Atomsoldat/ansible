@@ -19,6 +19,7 @@ deb_packages:
   - snapd
   - htop
   - powertop
+  - lshw
   - oathtool
   - vault
   - ansible

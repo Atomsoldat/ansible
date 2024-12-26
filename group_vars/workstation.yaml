@@ -25,7 +25,11 @@ deb_packages_workstation:
   - docker-buildx-plugin
   - docker-compose-plugin
   # END docker stuff
-  - temurin-21-jdk
+  # java stuff
+  - java-common
+  - temurin-23-jdk
+  - openjdk-17-jdk
+  - maven
   # admin
   - keepassxc
   # media
@@ -83,4 +87,9 @@ flatpaks:
   - identifier: org.telegram.desktop
     alias: telegram
     command: "flatpak run org.telegram.desktop $@"
-
+  - identifier: com.discordapp.Discord
+    alias: discord
+    command: "flatpak run com.discordapp.Discord $@"
+  - identifier: info.portfolio_performance.PortfolioPerformance
+    alias: portfolio
+    command: "flatpak run info.portfolio_performance.PortfolioPerformance $@"
