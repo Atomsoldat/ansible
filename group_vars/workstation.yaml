@@ -47,6 +47,9 @@ deb_packages_workstation:
   # finances
   - gnucash
   # files
+  - rsync
+  - s3cmd
+  - s4cmd
   - deluge
   - thunar
   - owncloud-client
