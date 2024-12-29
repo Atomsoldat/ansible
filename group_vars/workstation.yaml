@@ -17,6 +17,8 @@ deb_packages_workstation:
   - hugo
   - yamllint
   - vagrant
+  # cloud provider-stuff
+  - google-cloud-cli
   # BEGIN docker stuff
   - docker.io
   - docker-ce
