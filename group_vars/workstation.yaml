@@ -17,6 +17,10 @@ deb_packages_workstation:
   - hugo
   - yamllint
   - vagrant
+  # package management
+  - alien
+  - aptitude
+  - wajig
   # cloud provider-stuff
   - google-cloud-cli
   # BEGIN docker stuff
@@ -98,3 +102,6 @@ flatpaks:
   - identifier: info.portfolio_performance.PortfolioPerformance
     alias: portfolio
     command: "flatpak run info.portfolio_performance.PortfolioPerformance $@"
+  - identifier: com.github.Matoking.protontricks
+    alias: protontricks
+    command: flatpak run com.github.Matoking.protontricks
