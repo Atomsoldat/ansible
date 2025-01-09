@@ -18,6 +18,8 @@ deb_packages_workstation:
   - yamllint
   - vagrant
   # package management
+  - apt-file
+  - apt-listchanges
   - alien
   - aptitude
   - wajig
