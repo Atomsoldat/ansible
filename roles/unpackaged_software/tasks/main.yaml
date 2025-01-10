@@ -17,6 +17,7 @@
 # - include_tasks: vscodium.yaml
 - include_tasks: kubectl.yaml
 - include_tasks: helm.yaml
+- include_tasks: dive.yaml
 - include_tasks: neovim.yaml
 - include_tasks: spacevim.yaml
 - include_tasks: sops.yaml

@@ -1,0 +1,19 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/bin/dive
+  register: installed_binary
+
+- name: Download archive with check (sha256)
+  ansible.builtin.get_url:
+    url: https://github.com/wagoodman/dive/releases/download/v0.12.0/dive_0.12.0_linux_amd64.deb
+    dest: /var/ansible-cache/dive_linux_amd64.deb
+    checksum: sha256:fd8a6d87223f9f3ba10507c7f8b3dc9af7efb5560d429595a4cf88b213915371
+  when:
+    - installed_binary.stat.exists == false
+
+- name: Install dive .deb package
+  ansible.builtin.apt:
+    deb: /var/ansible-cache/dive_linux_amd64.deb
+  when:
+    - installed_binary.stat.exists == false
