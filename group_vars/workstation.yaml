@@ -66,6 +66,7 @@ deb_packages_workstation:
   - telegram-desktop
   # system
   # desktop stuff
+  - alacritty
   # BEGIN awesome stuff
   - lightdm
   - awesome
@@ -81,6 +82,8 @@ deb_packages_workstation:
   # networkstuff
   - network-manager
   - openconnect
+  # peripherals
+  - solaar
 
 flatpaks:
   - identifier: dev.zed.Zed
