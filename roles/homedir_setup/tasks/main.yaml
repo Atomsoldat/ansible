@@ -1,0 +1,36 @@
+# INFO: Note, that the homedir_setup role needs a valid SSH key in the ssh-agent
+- name: Perform bare checkout of cfg-files git repo
+  ansible.builtin.git:
+    repo: "git@github.com:Atomsoldat/cfg-files.git"
+    accept_newhostkey: true
+    bare: true
+    recursive: true
+    update: true
+    dest: "{{ user_home_dir }}/.cfg.git"
+  become_user: "{{ user_name }}"
+
+# at least the submodule related commands need to be executed within the homedir, so we just execute all the stuff in there
+- name: Restore files in homedir with state from the repo index
+  ansible.builtin.command:
+    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} restore --staged {{ user_home_dir }}"
+    chdir: "{{ user_home_dir }}"
+  become_user: "{{ user_name }}"
+
+- name: Checkout working tree
+  ansible.builtin.command:
+    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} checkout {{ user_home_dir }}"
+    chdir: "{{ user_home_dir }}"
+  become_user: "{{ user_name }}"
+
+
+- name: Initialise submodules
+  ansible.builtin.command:
+    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule init"
+    chdir: "{{ user_home_dir }}"
+  become_user: "{{ user_name }}"
+
+- name: Update submodules
+  ansible.builtin.command:
+    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule update"
+    chdir: "{{ user_home_dir }}"
+  become_user: "{{ user_name }}"

@@ -15,5 +15,9 @@ case $arg in
 	fonts)
 		ansible-playbook  playbook_fonts.yaml --ask-become-pass -e 'host_type=workstation'
 	;;
+	home)
+		echo "INFO: Note, that the homedir_setup role needs a valid SSH key in the ssh-agent"
+		ansible-playbook  playbook_homedir_setup.yaml --ask-become-pass -e 'host_type=workstation'
+	;;
 esac
 

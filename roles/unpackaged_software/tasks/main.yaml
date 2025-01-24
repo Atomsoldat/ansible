@@ -19,7 +19,6 @@
 - include_tasks: helm.yaml
 - include_tasks: dive.yaml
 - include_tasks: neovim.yaml
-- include_tasks: spacevim.yaml
 - include_tasks: sops.yaml
 - include_tasks: kustomize.yaml
 - include_tasks: kubeconform.yaml
@@ -28,6 +27,8 @@
 - include_tasks: clusterctl.yaml
 - include_tasks: istioctl.yaml
 - include_tasks: yq_mf.yaml
+# spacevim was not really what we want
+#- include_tasks: spacevim.yaml
 # we try to let our IDE manage this for now 20240820
 #- include_tasks: jdtls.yaml
 #
