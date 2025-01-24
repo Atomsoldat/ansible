@@ -2,16 +2,12 @@ deb_packages:
   # text
   - jq
   - yq
-  - wcalc
   # development
   - git
   - zsh
   - ripgrep
   - shellcheck
   - python-is-python3
-  # BEGIN temurin repo
-  # END temurin repo
-  - telnet
   # admin
   - ansible
   - rsync
@@ -25,7 +21,6 @@ deb_packages:
   - ansible
   - terraform
   - tofu
-  - netcat-openbsd
   # media
   # storage
   - nfs-common
