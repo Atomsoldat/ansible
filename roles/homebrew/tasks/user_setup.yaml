@@ -1,0 +1,24 @@
+
+- name: Create a system group 'linuxbrew'
+  ansible.builtin.group:
+    name: "{{ linuxbrew_group }}"
+    system: true
+  become: true
+
+- name: Create the directory /home/linuxbrew and grant permissions to linuxbrew group
+  ansible.builtin.file:
+    path: /home/linuxbrew
+    state: directory
+    owner: root
+    group: "{{ linuxbrew_group }}"
+    # TODO: evaluate whether this works as we want it to
+    # we use the sgid bit with the intention of granting these permissions on all contained files
+    mode: '2775'
+  become: true
+
+- name: "Add {{ linuxbrew_user }} to linuxbrew group"
+  ansible.builtin.user:
+    name: "{{ linuxbrew_user }}"
+    append: true
+    groups: linuxbrew
+  become: true

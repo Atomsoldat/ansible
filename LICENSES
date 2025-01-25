@@ -7,8 +7,9 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 The above license applies to the content of this repository unless indicated otherwise by the presenece of a different license in any subdirectory.
-In particular (but not necessarily exhaustively), I do not own the copyright to the following softwares and they are licensed under their own licenses contained in their subdirectories:
+In particular (but not necessarily exhaustively), I do not own the copyright to the following softwares and they are licensed under their own licenses contained in their subdirectories or files:
 - EB Garamond by Hans Georg Duffner contained in roles/fonts/files/eb-garamond/ is licensed under the OFL
 - Unifraktur Maguntia by J. "Mach" Wust contained in roles/fonts/files/unifraktur-maguntia/ is licensed under the OFL
 - Unifraktur Cook by J. "Mach" Wust contained in roles/fonts/files/unifraktur-maguntia/ is licensed under the OFL
 - Refraktury by "csyde" contained in roles/fonts/files/refraktury is licensed under the CC BY-SA 3.0 license
+- The homebrew installation role by Jeff Geerling (with minor changes by me) is licensed under the MIT license
