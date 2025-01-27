@@ -7,13 +7,8 @@
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ---
 
-
-
-
-
 # keep this separate until we are sure how exactly we want to do this
 - include_tasks: user_setup.yaml
-
 
 - name: Determine Homebrew ownership variables
   set_fact:
@@ -29,19 +24,14 @@
   become: true
   when: ansible_machine == 'arm64'
 
-- name: Ensure Homebrew parent directory has correct permissions (Intel).
-  # TODO:  if statement probably leftover from Macintosh setup
-  when: ansible_machine == 'x86_64'
-  block:
-    - name: Ensure Homebrew parent directory has correct permissions (MacOS < 10.13).
-      file:
-        path: "{{ homebrew_prefix }}"
-        owner: root
-        group: 
-        state: directory
-        mode: "2775"
-      become: true
-      when: "ansible_distribution_version is version('10.13', '<')"
+- name: Ensure Homebrew parent directory has correct permissions.
+  file:
+    path: "{{ homebrew_prefix }}"
+    owner: root
+    group: 
+    state: directory
+    mode: "2775"
+  become: true
 
 - name: Check if homebrew already exists.
   stat:
