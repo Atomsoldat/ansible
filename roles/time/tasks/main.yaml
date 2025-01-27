@@ -3,9 +3,11 @@
   community.general.timezone:
     name: Europe/Berlin
   register: timezone
+  become: true
 
 - name: Restart cron service when the time was changed
   ansible.builtin.service:
     name: cron
     state: restarted
   when: timezone.changed
+  become: true
