@@ -33,6 +33,7 @@
 - include_tasks: clusterctl.yaml
 - include_tasks: istioctl.yaml
 - include_tasks: yq_mf.yaml
+- include_tasks: graalvm.yaml
 # spacevim was not really what we want
 #- include_tasks: spacevim.yaml
 # we try to let our IDE manage this for now 20240820

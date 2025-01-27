@@ -1,0 +1,24 @@
+---
+- name: Check for existance of binary
+  stat:
+    # note that this path will change in future releases
+    path: /opt/graalvm-jdk-23.0.2+7.1
+  register: installed_binary
+
+- name: Download archive for graalvm
+  ansible.builtin.get_url:
+    url: https://download.oracle.com/graalvm/23/latest/graalvm-jdk-23_linux-x64_bin.tar.gz
+    dest: /var/ansible-cache/graalvm.tar.gz
+    checksum: sha256:db09b1fe18b83f338af9b3291443774b3170d9eba17538ce2ee39c5e6d601dfc
+  when:
+    - installed_binary.stat.exists == false
+  become: true
+
+- name: Unarchive file on the remote machine
+  ansible.builtin.unarchive:
+    src: /var/ansible-cache/graalvm.tar.gz
+    dest: /opt/
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
+  become: true
