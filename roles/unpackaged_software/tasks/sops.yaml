@@ -11,6 +11,7 @@
     checksum: sha256:0d65660fbe785647ff4f1764d7f69edf598f79d6d79ebbef4a501909b6ff6b82
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 
 - name: Create .desktop shortcut
@@ -22,3 +23,4 @@
     mode: '0755'
   when: 
     - installed_binary.stat.exists == false
+  become: true

@@ -11,6 +11,7 @@
     checksum: sha256:a7f40cde4e4a4f7119a52713386238ebcfa8691e7683b5afb823439ea81a8729
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Copy file on the remote machine
   ansible.builtin.copy:
@@ -19,6 +20,7 @@
     remote_src: yes
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Set up permissions for clusterctl binary
   ansible.builtin.file:
@@ -28,3 +30,4 @@
     mode: '0755' 
   when:
     - installed_binary.stat.exists == false
+  become: true

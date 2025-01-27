@@ -7,6 +7,12 @@
     owner: root
     group: root
     mode: 0755
+  become: true
+
+
+# install homebrew using adapted role
+- include_role:
+    name: homebrew
 
 - include_tasks: sweet_home_3d.yaml
 # 20241227 for now, we use the flatpak because we like switching java versions
@@ -33,6 +39,7 @@
 #- include_tasks: jdtls.yaml
 #
 - include_tasks: flatpaks.yaml
+- include_tasks: homebrew.yaml
 # needs more work
 #- include_tasks: snaps.yaml
 

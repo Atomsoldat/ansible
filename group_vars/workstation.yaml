@@ -113,3 +113,7 @@ flatpaks:
   - identifier: com.github.Matoking.protontricks
     alias: protontricks
     command: flatpak run com.github.Matoking.protontricks
+
+homebrew_packages:
+  - zig
+  - rustup

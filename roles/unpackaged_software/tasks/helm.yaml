@@ -11,6 +11,7 @@
   failed_when: false
   changed_when: false
   register: helm_existing_version
+  become: true
 
 - name: Download helm.
   unarchive:
@@ -22,6 +23,7 @@
   when: >
     not helm_check.stat.exists
     or helm_version not in helm_existing_version.stdout
+  become: true
 
 - name: Copy helm binary into place.
   copy:

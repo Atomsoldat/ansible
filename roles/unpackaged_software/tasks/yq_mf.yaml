@@ -11,6 +11,7 @@
     checksum: sha256:a347ccde5e32c607670e15526e295c58a555a68cbb36d15cf18d24fd7af0e2fd
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Create ansible-scratch-dir
   ansible.builtin.file:
@@ -21,6 +22,7 @@
     mode: '0755'
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Unarchive file on the remote machine
   ansible.builtin.unarchive:
@@ -29,6 +31,7 @@
     remote_src: yes
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Copy binary to destination
   ansible.builtin.copy:
@@ -40,6 +43,7 @@
     remote_src: yes
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Copy manpage to destination
   ansible.builtin.copy:
@@ -51,3 +55,4 @@
     remote_src: yes
   when:
     - installed_binary.stat.exists == false
+  become: true

@@ -11,6 +11,7 @@
     checksum: md5:dc94019d6624a61542792a124d2d2484
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Set up permissions for neovim appimage
   ansible.builtin.file:
@@ -20,11 +21,13 @@
     mode: '0755' 
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Make sure vim package is not installed
   ansible.builtin.apt:
     package: vim
     state: absent
+  become: true
 
 - name: Create vim -> nvim symlink
   ansible.builtin.file:
@@ -33,4 +36,5 @@
     owner: root
     group: root
     state: link
+  become: true
 

@@ -11,6 +11,7 @@
     checksum: md5:432dfd359bb57e86d6d4583d037af0ed
   when:
     - install_dir.stat.exists == false
+  become: true
 
 
 - name: Unarchive file on the remote machine
@@ -21,6 +22,7 @@
     remote_src: yes
   when:
     - install_dir.stat.exists == false
+  become: true
 
 - name: Create .desktop shortcut
   ansible.builtin.copy:
@@ -31,3 +33,4 @@
     mode: '0644'
   when: 
     - install_dir.stat.exists == false
+  become: true

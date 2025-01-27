@@ -13,3 +13,4 @@
   when: ansible_os_family == 'Debian'
   apt:
     pkg: "{{ deb_packages }}"
+  become: true

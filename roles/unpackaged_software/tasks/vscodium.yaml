@@ -11,10 +11,12 @@
     checksum: md5:0e6c441921c4cec84a70c4fb2bac9806
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Install vscodium .deb package
   ansible.builtin.apt:
     deb: /var/ansible-cache/codium_1.88.1.24104_amd64.deb
   when:
     - installed_binary.stat.exists == false
+  become: true
 

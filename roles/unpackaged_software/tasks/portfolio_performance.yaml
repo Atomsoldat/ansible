@@ -11,6 +11,7 @@
     checksum: md5:f5939b2299db8c0bd0d402c116dccc7f
   when:
     - install_dir.stat.exists == false
+  become: true
 
 
 - name: Unarchive file on the remote machine
@@ -21,6 +22,7 @@
     remote_src: yes
   when:
     - install_dir.stat.exists == false
+  become: true
 
 - name: Create .desktop shortcut
   ansible.builtin.copy:
@@ -31,6 +33,7 @@
     mode: '0644'
   when: 
     - install_dir.stat.exists == false
+  become: true
 
 - name: Create start scripts in /usr/local/bin
   ansible.builtin.file:
@@ -39,3 +42,4 @@
     owner: root
     group: root
     state: link
+  become: true

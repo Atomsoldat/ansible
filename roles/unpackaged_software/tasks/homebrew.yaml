@@ -1,0 +1,6 @@
+- name: Install homebrew packages
+  community.general.homebrew:
+    name: "{{ item }}"
+  with_items: "{{ homebrew_packages }}"
+
+

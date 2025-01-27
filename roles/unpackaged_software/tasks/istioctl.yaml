@@ -11,6 +11,7 @@
     checksum: sha256:be229aeb998ecb9f891e6ec88021f52511644af1ad9326196559856afb599d33
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Unarchive file on the remote machine
   ansible.builtin.unarchive:
@@ -19,6 +20,7 @@
     remote_src: yes
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Set up permissions for istioctl binary
   ansible.builtin.file:
@@ -28,3 +30,4 @@
     mode: '0755' 
   when:
     - installed_binary.stat.exists == false
+  become: true

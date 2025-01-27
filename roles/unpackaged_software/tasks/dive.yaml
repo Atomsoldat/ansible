@@ -11,9 +11,11 @@
     checksum: sha256:fd8a6d87223f9f3ba10507c7f8b3dc9af7efb5560d429595a4cf88b213915371
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Install dive .deb package
   ansible.builtin.apt:
     deb: /var/ansible-cache/dive_linux_amd64.deb
   when:
     - installed_binary.stat.exists == false
+  become: true

@@ -11,6 +11,7 @@
     checksum: sha256:6df25a7ea49d4ba4b4a192100b7cf648a89c6c99e02a440f6938f78fb89cad8d
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Unarchive file on the remote machine
   ansible.builtin.unarchive:
@@ -19,6 +20,7 @@
     remote_src: yes
   when:
     - installed_binary.stat.exists == false
+  become: true
 
 - name: Set up permissions for binary
   ansible.builtin.file:
@@ -28,3 +30,4 @@
     mode: '0755' 
   when:
     - installed_binary.stat.exists == false
+  become: true

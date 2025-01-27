@@ -3,11 +3,13 @@
     name: flathub
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  become: true
 
 - name: Install flatpack packages
   community.general.flatpak:
     name: "{{ item.identifier }}"
   with_items: "{{ flatpaks }}"
+  become: true
 
 - name: Create start scripts in /usr/local/bin for flatpaks
   ansible.builtin.template:
@@ -17,4 +19,5 @@
     group: root
     mode: '0755'
   with_items: "{{ flatpaks }}"
+  become: true
 
