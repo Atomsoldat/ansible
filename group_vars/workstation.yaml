@@ -7,6 +7,9 @@ deb_packages_workstation:
   - texstudio
   - pandoc
   - wcalc
+  # pictures
+  - cheese
+  - flameshot
     # design:
   - gimp
   - f3d
@@ -51,7 +54,6 @@ deb_packages_workstation:
   - feh
   - firefox-esr
   # entertainment
-  - cheese
   - oneko
   - qbrew
   # finances
