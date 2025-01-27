@@ -3,7 +3,6 @@
 - name: Desktop PC setup playbook
   hosts: localhost
   remote_user: leon
-  become: true
   gather_facts: true
 
   roles:
