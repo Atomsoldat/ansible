@@ -13,3 +13,4 @@
     - ../roles/unpackaged_software
     - ../roles/scripts
     - ../roles/time
+    - ../roles/cleanup

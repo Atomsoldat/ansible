@@ -71,17 +71,19 @@ deb_packages_workstation:
   # desktop stuff
   - alacritty
   # BEGIN awesome stuff
-  - lightdm
+  - gdm3
   - awesome
   # outputs battery charge
   - acpi
   # screen brightness
   - brightnessctl
   # END awesome stuff
+  - cinnamon
+  # currently not using xfce
   # xfce4 stuff
-  - xfce4-terminal
-  - xfce4
-  - xfce4-goodies
+  #- xfce4-terminal
+  #- xfce4
+  #- xfce4-goodies
   # networkstuff
   - netcat-openbsd
   - telnet

@@ -1,7 +1,7 @@
-These roles and playbooks are  currently written for a fresh `debian 12` installation with `XFCE4`.
+These ansible roles are used to install necessary software and perform configuration on a fresh `debian 12` installation.
+The goal is to make reinstalling my Operating System less annoying.
 
-The ansible version in Debian is ancient, use the ubuntu repo instead.
-
+The ansible version in Debian is ancient, so we use the ubuntu packages for the initial installation, until we are on testing.
 
 ```
 UBUNTU_CODENAME=jammy
