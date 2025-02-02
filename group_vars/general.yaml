@@ -35,6 +35,10 @@ deb_packages:
   - ntp
   - dex
 
+deb_blacklist:
+  # multilanguage input tool and environment
+  - uim
+
 
 nas:
   wunderhort:
