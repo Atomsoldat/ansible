@@ -50,6 +50,7 @@ deb_packages_workstation:
   # media
   - okular
   - vlc
+  - caffeine
   - yt-dlp
   - ffmpeg
   - genisoimage
