@@ -6,17 +6,31 @@
 
 - name: Download archive with check (md5)
   ansible.builtin.get_url:
-    url: https://github.com/VSCodium/vscodium/releases/download/1.88.1.24104/codium_1.88.1.24104_amd64.deb
-    dest: /var/ansible-cache/codium_1.88.1.24104_amd64.deb
-    checksum: md5:0e6c441921c4cec84a70c4fb2bac9806
+    url: https://github.com/VSCodium/vscodium/releases/download/1.96.4.25026/codium_1.96.4.25026_amd64.deb
+    dest: /var/ansible-cache/codium.deb
+    checksum: sha256:e22fd8f4462330f0b093dae518eaa1bd37aa76ed5df8145f3c4977011b39fd88
   when:
     - installed_binary.stat.exists == false
   become: true
 
+
+# debian testing is currently migrating to 64bit time
+# the package expects libglib2.0-0, we have libglib2.0-0t64
+# for some reason only ansible seems to have issues installing the package
+# works regardless, so until the migration is done
+# we go with this installation method - 20250202
+
 - name: Install vscodium .deb package
-  ansible.builtin.apt:
-    deb: /var/ansible-cache/codium_1.88.1.24104_amd64.deb
+  ansible.builtin.command:
+    cmd: dpkg -i /var/ansible-cache/codium.deb
   when:
     - installed_binary.stat.exists == false
   become: true
+
+#- name: Install vscodium .deb package
+#  ansible.builtin.apt:
+#    deb: /var/ansible-cache/codium.deb
+#  when:
+#    - installed_binary.stat.exists == false
+#  become: true
 

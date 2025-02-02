@@ -102,9 +102,9 @@ flatpaks:
   - identifier: com.github.qarmin.czkawka
     alias: czkawka
     command: "flatpak run com.github.qarmin.czkawka $@"
-  - identifier: com.vscodium.codium
-    alias: codium
-    command: "flatpak run com.vscodium.codium $@"
+  #- identifier: com.vscodium.codium
+  #  alias: codium
+  #  command: "flatpak run com.vscodium.codium $@"
   - identifier: org.gnome.Evince
     alias: evince
     command: "flatpak run org.gnome.Evince $@"
