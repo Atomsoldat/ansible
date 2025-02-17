@@ -94,6 +94,9 @@ deb_packages_workstation:
   - openconnect
   # peripherals
   - solaar
+  # dependencies for appimages
+  - libfuse2
+  - fuse
 
 flatpaks:
   - identifier: dev.zed.Zed
