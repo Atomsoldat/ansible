@@ -28,7 +28,7 @@
   file:
     path: "{{ homebrew_prefix }}"
     owner: root
-    group: 
+    group:
     state: directory
     mode: "2775"
   become: true
