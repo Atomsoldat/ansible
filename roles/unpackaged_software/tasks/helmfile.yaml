@@ -4,7 +4,7 @@
     path: /usr/local/bin/helmfile
   register: installed_binary
 
-- name: Download archive with check (md5)
+- name: Download archive with check
   ansible.builtin.get_url:
     url: https://github.com/helmfile/helmfile/releases/download/v0.168.0/helmfile_0.168.0_linux_amd64.tar.gz
     dest: /var/ansible-cache/helmfile.tar.gz

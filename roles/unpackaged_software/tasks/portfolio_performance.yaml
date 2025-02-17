@@ -4,11 +4,11 @@
     path: /opt/portfolio
   register: install_dir
 
-- name: Download archive with check (md5)
+- name: Download archive
   ansible.builtin.get_url:
     url: https://github.com/buchen/portfolio/releases/download/0.70.4/PortfolioPerformance-0.70.4-linux.gtk.x86_64.tar.gz
     dest: /var/ansible-cache/PortfolioPerformance.tar.gz
-    checksum: md5:f5939b2299db8c0bd0d402c116dccc7f
+    checksum: sha256:e0bda1a16505026c725026d0156a084252216ddca770dd1f18599a84f324d055
   when:
     - install_dir.stat.exists == false
   become: true
@@ -16,7 +16,6 @@
 
 - name: Unarchive file on the remote machine
   ansible.builtin.unarchive:
-    # md5sum matches either way
     src: /var/ansible-cache/PortfolioPerformance.tar.gz
     dest: /opt
     remote_src: yes

@@ -15,18 +15,17 @@
     - install_dir.stat.exists == false
   become: true
 
-- name: Download archive with check (md5)
+- name: Download archive
   ansible.builtin.get_url:
     url: https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.38.0/jdt-language-server-1.38.0-202408011337.tar.gz
     dest: /var/ansible-cache/jdt-language-server-1.38.0-202408011337.tar.gz
-    checksum: md5:a4a5739cad5c9720e8e4d8c885238bfd
+    checksum: sha256:ba697788a19f2ba57b16302aba6b343c649928c95f76b0d170494ac12d17ac78
   when:
     - install_dir.stat.exists == false
   become: true
 
 - name: Unarchive file on the remote machine
   ansible.builtin.unarchive:
-    # md5sum matches either way
     src: /var/ansible-cache/jdt-language-server-1.38.0-202408011337.tar.gz
     dest: /opt/jdtls
     remote_src: yes

@@ -4,7 +4,7 @@
     path: /usr/local/bin/kustomize
   register: installed_binary
 
-- name: Download archive with check (md5)
+- name: Download archive
   ansible.builtin.get_url:
     url: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.3/kustomize_v5.4.3_linux_amd64.tar.gz
     dest: /var/ansible-cache/kustomize.tar.gz
