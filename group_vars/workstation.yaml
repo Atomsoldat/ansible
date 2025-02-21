@@ -128,3 +128,4 @@ homebrew_packages:
   - zig
   - rustup
   - oras
+  - yj
