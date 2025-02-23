@@ -7,17 +7,14 @@ deb_packages_workstation:
   - texstudio
   - pandoc
   - wcalc
-  # pictures
-  - cheese
-  - flameshot
-    # design:
-  - gimp
+  # design:
   - f3d
   - openscad
   # development
   - python3-pip
   - pipx
   - maven
+  - graphviz
   - astyle
   - hugo
   - yamllint
@@ -56,6 +53,11 @@ deb_packages_workstation:
   - genisoimage
   - feh
   - firefox-esr
+  - ncmpcpp
+  - mpd
+  - cheese
+  - flameshot
+  - gimp
   # entertainment
   - oneko
   - qbrew
@@ -73,20 +75,23 @@ deb_packages_workstation:
   # system
   # desktop stuff
   - alacritty
-  # BEGIN awesome stuff
+  # BEGIN DE stuff
   - gdm3
+  # BEGIN awesome stuff
   - awesome
   # outputs battery charge
   - acpi
   # screen brightness
   - brightnessctl
+  # manage screen layouts
+  - arandr
   # END awesome stuff
-  - cinnamon
-  # currently not using xfce
+  #- cinnamon
   # xfce4 stuff
   #- xfce4-terminal
   #- xfce4
   #- xfce4-goodies
+  # END DE stuff
   # networkstuff
   - netcat-openbsd
   - telnet
@@ -127,5 +132,6 @@ flatpaks:
 homebrew_packages:
   - zig
   - rustup
+  - quarkusio/tap/quarkus
   - oras
   - yj
