@@ -1,12 +1,12 @@
 deb_packages_workstation:
   # text
   - libreoffice
-  - vim
   - meld
   - texlive-full
   - texstudio
   - pandoc
   - wcalc
+  - xsel
   # design:
   - f3d
   - openscad
@@ -19,6 +19,7 @@ deb_packages_workstation:
   - hugo
   - yamllint
   - vagrant
+  - plantuml
   # package management
   - apt-file
   - apt-listchanges
