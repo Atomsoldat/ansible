@@ -38,6 +38,8 @@ deb_packages:
 deb_blacklist:
   # multilanguage input tool and environment
   - uim
+  # another multilanguage tool
+  - ibus
 
 
 nas:

@@ -1,7 +1,7 @@
 These ansible roles are used to install necessary software and perform configuration on a fresh `debian 12` installation.
 The goal is to make reinstalling my Operating System less annoying.
 
-The ansible version in Debian is ancient, so we use the ubuntu packages for the initial installation, until we are on testing.
+The ansible version in Debian is ancient, so we use the ubuntu packages for the initial installation, until we are on testing. The ubuntu repo gets cleaned up after that.
 
 ```
 UBUNTU_CODENAME=jammy
