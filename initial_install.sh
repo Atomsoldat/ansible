@@ -19,6 +19,8 @@ sudo apt-get autoremove
 # install all desired software
 ./wrapper.sh software
 
+./wrapper.sh config
+
 ./wrapper.sh fonts
 ./wrapper.sh shares
 ./wrapper.sh home

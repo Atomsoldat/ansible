@@ -9,8 +9,5 @@
     ## BEGIN ALWAYS REQUIRED ##
     - ../roles/variable_definitions
     ## END ALWAYS REQUIRED ##
-    - ../roles/packaged_software
-    - ../roles/unpackaged_software
-    - ../roles/scripts
     - ../roles/time
     - ../roles/cleanup

@@ -7,7 +7,10 @@ case $arg in
 		ansible-playbook  playbook_repo_setup.yaml --ask-become-pass -e 'host_type=workstation'
 	;;
 	software)
-		ansible-playbook  playbook_computer_setup.yaml --ask-become-pass -e 'host_type=workstation'
+		ansible-playbook  playbook_software_installation.yaml --ask-become-pass -e 'host_type=workstation'
+	;;
+	config)
+		ansible-playbook  playbook_config.yaml --ask-become-pass -e 'host_type=workstation'
 	;;
 	shares)
 		ansible-playbook  playbook_nas_client.yaml --ask-become-pass -e 'host_type=workstation'
