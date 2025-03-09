@@ -49,6 +49,8 @@ deb_packages_workstation:
   - genisoimage
   - feh
   - firefox-esr
+  - mullvad-browser
+  - chromium
   - ncmpcpp
   - mpd
   - cheese

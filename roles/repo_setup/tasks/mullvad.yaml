@@ -1,0 +1,14 @@
+---
+- name: get mullavd signing key
+  ansible.builtin.get_url:
+    url: https://repository.mullvad.net/deb/mullvad-keyring.asc
+    dest: /etc/apt/keyrings/mullvad-keyring.asc
+    checksum: sha256:67cee5d3e6d566c121c2c812d594ba673aaf73e6a679ab6d254f03e8210c49d1
+
+- name: Template /etc/apt/sources.list.d/opentofu.list
+  ansible.builtin.template:
+    src: mullvad.list.j2
+    dest: /etc/apt/sources.list.d/mullvad.list
+    owner: root
+    group: root
+    mode: '0644'

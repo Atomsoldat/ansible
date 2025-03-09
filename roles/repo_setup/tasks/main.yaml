@@ -8,4 +8,10 @@
 - include_tasks: docker.yaml
 - include_tasks: google-cloud-sdk.yaml
 - include_tasks: opentofu.yaml
+- include_tasks: mullvad.yaml
 # END THIRD  PARTY REPO SETUP
+
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
