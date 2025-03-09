@@ -7,8 +7,10 @@
 
 - name: Install flatpack packages
   community.general.flatpak:
-    name: "{{ item.identifier }}"
-  with_items: "{{ flatpaks }}"
+    #name: "{{ item.identifier }}"
+    # extract package names from dictionary list items
+    name: "{{ flatpaks | map(attribute='identifier') | list }}"
+    state: latest
   become: true
 
 - name: Create start scripts in /usr/local/bin for flatpaks

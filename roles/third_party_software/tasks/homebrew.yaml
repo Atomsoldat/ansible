@@ -1,6 +1,11 @@
 - name: Install homebrew packages
   community.general.homebrew:
-    name: "{{ item }}"
-  with_items: "{{ homebrew_packages }}"
+    name: "{{ homebrew_packages }}"
+    update_homebrew: true
+    upgrade_all: true
+  # PATH does not contain the homebrew bin dir at this point yet, that comes from the user's config
+  environment:
+    PATH: /home/linuxbrew/bin:{{ ansible_env.PATH }}
+
 
 
