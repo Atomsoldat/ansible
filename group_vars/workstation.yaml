@@ -7,7 +7,11 @@ deb_packages_workstation:
   - pandoc
   - wcalc
   - xsel
+  # pictures
+  - cheese
+  - flameshot
   # design:
+  - gimp
   - f3d
   - openscad
   # development
@@ -20,6 +24,8 @@ deb_packages_workstation:
   - yamllint
   - vagrant
   - plantuml
+  # databases
+  - mariadb-client
   # package management
   - apt-file
   - apt-listchanges
