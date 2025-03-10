@@ -4,6 +4,7 @@ deb_packages_workstation:
   - meld
   - texlive-full
   - texstudio
+  - libimage-exiftool-perl
   - pandoc
   - wcalc
   - xsel
@@ -92,9 +93,8 @@ deb_packages_workstation:
   # END awesome stuff
   #- cinnamon
   # xfce4 stuff
-  #- xfce4-terminal
-  #- xfce4
-  #- xfce4-goodies
+  - xfce4
+  - xfce4-goodies
   # END DE stuff
   # networkstuff
   - netcat-openbsd
