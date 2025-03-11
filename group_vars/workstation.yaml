@@ -11,6 +11,7 @@ deb_packages_workstation:
   # pictures
   - cheese
   - flameshot
+  - simple-scan
   # design:
   - gimp
   - f3d
