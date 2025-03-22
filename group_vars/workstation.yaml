@@ -26,6 +26,7 @@ deb_packages_workstation:
   - yamllint
   - vagrant
   - plantuml
+  - packer
   # databases
   - mariadb-client
   # package management
@@ -48,6 +49,8 @@ deb_packages_workstation:
   - maven
   # admin
   - keepassxc
+  - ipmitool
+  - freeipmi
   # media
   - okular
   - vlc
@@ -107,6 +110,10 @@ deb_packages_workstation:
   # dependencies for appimages
   - libfuse2
   - fuse
+  # nvidia
+  - nvidia-driver-full
+  - firmware-misc-nonfree
+  - linux-headers-amd64
 
 flatpaks:
   - identifier: dev.zed.Zed
