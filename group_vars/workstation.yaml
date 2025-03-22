@@ -99,6 +99,9 @@ deb_packages_workstation:
   # xfce4 stuff
   - xfce4
   - xfce4-goodies
+  # shell stuff
+  - zsh
+  - tmux
   # END DE stuff
   # networkstuff
   - netcat-openbsd
