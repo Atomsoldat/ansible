@@ -154,3 +154,4 @@ homebrew_packages:
   - stern
   # https://grafana.com/docs/mimir/latest/manage/tools/mimirtool/
   - mimirtool
+  - kind
