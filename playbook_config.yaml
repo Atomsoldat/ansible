@@ -9,5 +9,6 @@
     ## BEGIN ALWAYS REQUIRED ##
     - ../roles/variable_definitions
     ## END ALWAYS REQUIRED ##
+    - ../roles/config
     - ../roles/time
     - ../roles/cleanup
