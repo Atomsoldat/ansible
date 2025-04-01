@@ -151,3 +151,4 @@ homebrew_packages:
   - oras
   - yj
   - k9s
+  - stern
