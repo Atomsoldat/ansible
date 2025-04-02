@@ -1,23 +1,24 @@
 ---
 - name: Check for existance of binary
   stat:
-    path: /usr/local/bin/popeye
+    path: /usr/local/bin/kube-capacity
   register: installed_binary
 
+# https://github.com/robscott/kube-capacity
 - name: Download archive with check (sha256)
   ansible.builtin.get_url:
-    url: https://github.com/derailed/popeye/releases/download/v0.22.1/popeye_linux_amd64.tar.gz
-    dest: /var/ansible-cache/popeye.tar.gz
-    checksum: sha256:d58a3c0ba45805d452c32628320eecdcb5172fd5f42c82e12aeecc7a17eb930b
+    url: https://github.com/robscott/kube-capacity/releases/download/v0.8.0/kube-capacity_v0.8.0_linux_x86_64.tar.gz
+    dest: /var/ansible-cache/kube-capacity.tar.gz
+    checksum: sha256:610ce6e5d7f528df1c60d3b5e277d00ac43cdfd9ce4d36f0b3132bb68fc12cf3
   when:
     - installed_binary.stat.exists == false
   become: true
 
 - name: Unarchive file on the remote machine
   ansible.builtin.unarchive:
-    src: /var/ansible-cache/popeye.tar.gz
+    src: /var/ansible-cache/kube-capacity.tar.gz
     # we only want the binary inside the archive
-    include: popeye
+    include: kube-capacity
     dest: /usr/local/bin
     remote_src: yes
   when:
@@ -26,7 +27,7 @@
 
 - name: Set up permissions for binary
   ansible.builtin.file:
-    dest: /usr/local/bin/popeye
+    dest: /usr/local/bin/kube-capacity
     owner: root
     group: root
     mode: '0755' 
