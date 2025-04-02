@@ -152,3 +152,5 @@ homebrew_packages:
   - yj
   - k9s
   - stern
+  # https://grafana.com/docs/mimir/latest/manage/tools/mimirtool/
+  - mimirtool
