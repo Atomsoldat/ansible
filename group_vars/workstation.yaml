@@ -106,6 +106,7 @@ deb_packages_workstation:
   # networkstuff
   - netcat-openbsd
   - telnet
+  - whois
   - network-manager
   - openconnect
   # peripherals
