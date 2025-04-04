@@ -14,7 +14,7 @@
   become: true
 
 
-- name: Create .desktop shortcut
+- name: Install sops binary
   ansible.builtin.copy:
     src: /var/ansible-cache/sops
     dest: /usr/local/bin/sops
