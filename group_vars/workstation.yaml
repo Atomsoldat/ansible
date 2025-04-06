@@ -156,3 +156,4 @@ homebrew_packages:
   # https://grafana.com/docs/mimir/latest/manage/tools/mimirtool/
   - mimirtool
   - kind
+  - cilium-cli
