@@ -1,1 +1,2 @@
 - ansible.builtin.include_tasks: xfce4.yaml
+- ansible.builtin.include_tasks: networking.yaml
