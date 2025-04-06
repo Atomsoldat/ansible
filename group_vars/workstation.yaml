@@ -157,3 +157,5 @@ homebrew_packages:
   - mimirtool
   - kind
   - cilium-cli
+  # https://github.com/ollama/ollama/blob/main/docs/linux.md
+  - ollama
