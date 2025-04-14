@@ -47,6 +47,8 @@ deb_packages_workstation:
   - temurin-23-jdk
   - openjdk-17-jdk
   - maven
+  # go stuff
+  - golang-1.24
   # admin
   - keepassxc
   - ipmitool
@@ -159,3 +161,4 @@ homebrew_packages:
   - cilium-cli
   # https://github.com/ollama/ollama/blob/main/docs/linux.md
   - ollama
+  - micromamba
