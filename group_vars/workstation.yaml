@@ -27,6 +27,7 @@ deb_packages_workstation:
   - vagrant
   - plantuml
   - packer
+  - git-crypt
   # databases
   - mariadb-client
   # package management
