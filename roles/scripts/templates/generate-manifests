@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# This script will take a pile of Kubernetes resources and sort them into rough categories for more 
+# pleasant reading
+
+set -euxo pipefail
+
+builddir=$(mktemp -d)
+output_filepath=${builddir}/output.yaml
+
+# end result looks like this, for example
+#yq -y 'select(.kind as $k | ["CustomResourceDefinition"] | index($k))' FILE
+startfilter='select(.kind as $k | ['
+endfilter_regular='] | index($k))'
+endfilter_inverse='] | index($k) | not)'
+
+crds_filter='"CustomResourceDefinition"'
+data_filter='"Secret", "ConfigMap", "Certificate"'
+workload_filter='"Deployment", "DaemonSet", "StatefulSet", "CronJob", "Job", "Pod"'
+rbac_filter='"ClusterRole", "Role", "ClusterRoleBinding", "RoleBinding", "ServiceAccount"'
+all_filters="${crds_filter}, ${data_filter}, ${workload_filter}, ${rbac_filter}"
+
+function cleanup(){
+	rm -rf ${builddir}
+}
+
+# run cleanup function no matter what
+trap cleanup EXIT
+
+kustomize build --enable-helm > ${output_filepath}
+
+# output templated resources to separate files based on type to make for nicer reading
+yq -y "${startfilter}${crds_filter}${endfilter_regular}" \
+	$output_filepath > ./manifests/crds.yaml
+yq -y "${startfilter}${data_filter}${endfilter_regular}" \
+	$output_filepath > ./manifests/data.yaml
+yq -y "${startfilter}${workload_filter}${endfilter_regular}" \
+	$output_filepath > ./manifests/workloads.yaml
+yq -y "${startfilter}${rbac_filter}${endfilter_regular}" \
+	$output_filepath > ./manifests/rbac.yaml
+yq -y "${startfilter}${all_filters}${endfilter_inverse}" \
+	$output_filepath > ./manifests/rest.yaml
+
