@@ -163,3 +163,5 @@ homebrew_packages:
   # https://github.com/ollama/ollama/blob/main/docs/linux.md
   - ollama
   - micromamba
+  - argocd
+  - helm
