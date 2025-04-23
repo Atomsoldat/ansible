@@ -8,6 +8,7 @@ deb_packages_workstation:
   - pandoc
   - wcalc
   - xsel
+  - neovim
   # pictures
   - cheese
   - flameshot

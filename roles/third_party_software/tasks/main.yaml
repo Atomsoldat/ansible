@@ -22,7 +22,8 @@
 # we use homebrew 20250418
 #- include_tasks: helm.yaml
 - include_tasks: dive.yaml
-- include_tasks: neovim.yaml
+# migrated to apt
+#- include_tasks: neovim.yaml
 - include_tasks: sops.yaml
 - include_tasks: kustomize.yaml
 - include_tasks: kubeconform.yaml
