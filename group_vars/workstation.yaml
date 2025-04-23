@@ -87,8 +87,6 @@ deb_packages_workstation:
   # system
   # desktop stuff
   - alacritty
-  # BEGIN DE stuff
-  - gdm3
   # BEGIN awesome stuff
   - awesome
   # outputs battery charge
