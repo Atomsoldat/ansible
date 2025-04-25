@@ -28,6 +28,7 @@ deb_packages_workstation:
   - vagrant
   - plantuml
   - packer
+  - qemu-utils
   - git-crypt
   # databases
   - mariadb-client
