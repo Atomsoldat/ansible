@@ -75,6 +75,8 @@ deb_packages_workstation:
   # entertainment
   - oneko
   - qbrew
+  - wine
+  - winetricks
   # finances
   - gnucash
   # files
