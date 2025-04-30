@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -euo pipefail
+
+echo "Do you want to destroy all resources existing on the cluster as defined in ./manifests/ ? Yy/[Nn]"
+
+read answer
+
+case answer in
+  Y|y)
+    k delete -f <(cat manifests/*)
+    ;;
+  N|n)
+    echo "Maybe later then"
+  *)
+    echo "Expected either Yy/Nn, defaulting to N"
+esac
+

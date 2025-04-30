@@ -15,3 +15,12 @@
     group: root
     mode: '0755'
   become: true
+
+- name: Template kustomize resource removal script
+  ansible.builtin.template:
+    src: nuke-manifests
+    dest: /usr/local/bin/powerword-kill
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
