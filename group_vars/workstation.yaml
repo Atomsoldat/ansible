@@ -167,3 +167,4 @@ homebrew_packages:
   - micromamba
   - argocd
   - helm
+  - hadolint
