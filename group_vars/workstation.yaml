@@ -150,6 +150,9 @@ flatpaks:
     alias: protontricks
     command: flatpak run com.github.Matoking.protontricks
 
+homebrew_taps:
+  - quarkusio/tap
+
 homebrew_packages:
   - zig
   - rustup
