@@ -152,6 +152,7 @@ flatpaks:
 
 homebrew_taps:
   - quarkusio/tap
+  - minio/stable
 
 homebrew_packages:
   - zig
@@ -171,3 +172,4 @@ homebrew_packages:
   - argocd
   - helm
   - hadolint
+  - minio/stable/mc
