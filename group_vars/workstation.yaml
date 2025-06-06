@@ -30,6 +30,7 @@ deb_packages_workstation:
   - packer
   - qemu-utils
   - git-crypt
+  - age
   # databases
   - mariadb-client
   # package management
