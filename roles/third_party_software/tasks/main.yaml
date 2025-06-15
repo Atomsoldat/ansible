@@ -17,7 +17,6 @@
 # 20241227 for now, we use the flatpak because we like switching java versions
 #- include_tasks: portfolio_performance.yaml
 - include_tasks: vscodium.yaml
-- include_tasks: kubectl.yaml
 # this inhaled RC releases, so until we resolve that, 
 # we use homebrew 20250418
 #- include_tasks: helm.yaml

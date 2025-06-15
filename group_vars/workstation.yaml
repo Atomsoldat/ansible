@@ -172,6 +172,7 @@ homebrew_packages:
   - micromamba
   - pixi
   - argocd
+  - kubectl
   - helm
   - hadolint
   - minio/stable/mc
