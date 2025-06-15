@@ -14,6 +14,10 @@ linuxbrew_group: "{{ homebrew_group | default('linuxbrew') }}"
 
 homebrew_repo: https://github.com/Homebrew/brew
 
+# TODO: think about whether this is the best directory
+# this seems to be what homebrew wants, because this allows bottles to be installed without having to recompile them
+homebrew_directory: /home/linuxbrew/.linuxbrew
+
 homebrew_prefix: "{{ homebrew_directory | default('/home/linuxbrew') }}"
 homebrew_install_path: "{{ homebrew_prefix }}"
 # TODO: this looks like a leftover from the Macintosh setup
