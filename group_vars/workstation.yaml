@@ -159,20 +159,28 @@ homebrew_packages:
   - zig
   - rustup
   - quarkusio/tap/quarkus
-  - oras
   - yj
-  - k9s
-  - stern
   # https://grafana.com/docs/mimir/latest/manage/tools/mimirtool/
   - mimirtool
-  - kind
-  - cilium-cli
   # https://github.com/ollama/ollama/blob/main/docs/linux.md
   - ollama
   - micromamba
   - pixi
-  - argocd
-  - kubectl
-  - helm
   - hadolint
+  - oras
   - minio/stable/mc
+  # kubernetes related
+  - argocd
+  - cilium-cli
+  - clusterctl
+  - istioctl
+  - k9s
+  - kubeconform
+  - kubectl
+  - kubent
+  - kustomize
+  - kind
+  - helm
+  - helmfile
+  - minikube
+  - stern
