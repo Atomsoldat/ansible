@@ -24,14 +24,8 @@
 # migrated to apt
 #- include_tasks: neovim.yaml
 - include_tasks: sops.yaml
-- include_tasks: kustomize.yaml
-- include_tasks: kubeconform.yaml
-- include_tasks: kubent.yaml
 - include_tasks: popeye.yaml
 - include_tasks: kube-capacity.yaml
-- include_tasks: helmfile.yaml
-- include_tasks: clusterctl.yaml
-- include_tasks: istioctl.yaml
 - include_tasks: yq_mf.yaml
 - include_tasks: graalvm.yaml
 - include_tasks: minikube.yaml
