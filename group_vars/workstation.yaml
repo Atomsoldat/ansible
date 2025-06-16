@@ -40,6 +40,8 @@ deb_packages_workstation:
   - aptitude
   - flatpak
   - wajig
+  - nix-setup-systemd
+  - nix-bin
   # cloud provider-stuff
   - google-cloud-cli
   - google-cloud-sdk-gke-gcloud-auth-plugin
