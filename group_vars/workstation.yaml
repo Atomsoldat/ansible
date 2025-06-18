@@ -117,6 +117,7 @@ deb_packages_workstation:
   - whois
   - network-manager
   - openconnect
+  - wireguard
   # peripherals
   - solaar
   # dependencies for appimages
