@@ -59,6 +59,7 @@ deb_packages_workstation:
   - keepassxc
   - ipmitool
   - freeipmi
+  - pwgen
   # media
   - okular
   - vlc
