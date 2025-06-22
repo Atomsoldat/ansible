@@ -28,7 +28,6 @@
 - include_tasks: kube-capacity.yaml
 - include_tasks: yq_mf.yaml
 - include_tasks: graalvm.yaml
-- include_tasks: minikube.yaml
 # spacevim was not really what we want
 #- include_tasks: spacevim.yaml
 # we try to let our IDE manage this for now 20240820
