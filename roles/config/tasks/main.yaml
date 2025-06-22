@@ -1,2 +1,3 @@
 - ansible.builtin.include_tasks: xfce4.yaml
 - ansible.builtin.include_tasks: networking.yaml
+- ansible.builtin.include_tasks: custom_desktop_shortcut_override.yaml

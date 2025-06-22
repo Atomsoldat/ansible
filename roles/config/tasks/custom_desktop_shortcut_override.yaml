@@ -1,0 +1,9 @@
+
+- name: Create X11 configuration file that will add our custom desktop shortcut dir to XDG_DATA_DIR
+  ansible.builtin.copy:
+    src: 99_custom_desktop_shortcuts
+    dest: /etc/X11/Xsession.d/99_custom_desktop_shortcuts
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
