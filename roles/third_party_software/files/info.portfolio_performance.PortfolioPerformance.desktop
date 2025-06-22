@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Portfolio Performance
+Comment=Calculate the overall performance of an investment portfolio
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=PortfolioPerformance --filesystem=/wunderhort/dokumente/finanzen/portfolio --file-forwarding info.portfolio_performance.PortfolioPerformance @@ %f @@
+Icon=info.portfolio_performance.PortfolioPerformance
+Terminal=false
+Categories=Office;Finance;Java;
+SingleMainWindow=true
+X-Flatpak=info.portfolio_performance.PortfolioPerformance

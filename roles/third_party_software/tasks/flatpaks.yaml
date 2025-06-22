@@ -23,3 +23,21 @@
   with_items: "{{ flatpaks }}"
   become: true
 
+- name: Create /usr/local/custom/applications directory if it does not exist
+  ansible.builtin.file:
+    path: /usr/local/custom/applications
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
+
+# we just used the one in /var/lib/flatpak/exports/share/applications as a template
+- name: Create .desktop shortcut for PortfolioPerformance
+  ansible.builtin.copy:
+    src: info.portfolio_performance.PortfolioPerformance.desktop
+    dest: /usr/local/custom/applications/
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
