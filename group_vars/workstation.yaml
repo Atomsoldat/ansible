@@ -81,8 +81,10 @@ deb_packages_workstation:
   - qbrew
   - wine
   - winetricks
-  # finances
+  # organisation
   - gnucash
+  - taskwarrior
+  - timewarrior
   # files
   - rsync
   - s3cmd
