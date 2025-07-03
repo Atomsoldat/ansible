@@ -9,6 +9,7 @@ deb_packages:
   - shellcheck
   - python-is-python3
   # admin
+  - gpg
   - ansible
   - rsync
   - nmap
@@ -27,6 +28,7 @@ deb_packages:
   - cachefilesd
   # files
   - wget
+  - curl
   - ncdu
   - 7zip
   - pax
