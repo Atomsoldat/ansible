@@ -13,7 +13,7 @@ set -euo pipefail
 # as well as all other repos we need
 ./wrapper.sh repos
 
-sudo apt-get update && apt-get dist-upgrade
+sudo apt-get update && sudo apt-get dist-upgrade
 sudo apt-get autoremove
 
 # install all desired software
