@@ -51,7 +51,7 @@ deb_packages_workstation:
   # java stuff
   - java-common
   - temurin-23-jdk
-  - openjdk-17-jdk
+  #- openjdk-17-jdk
   - maven
   # go stuff
   - golang-1.24

@@ -34,7 +34,7 @@ deb_packages:
   - pax
   # communication
   # system
-  - ntp
+  - ntpsec
   - dex
 
 deb_blacklist:
