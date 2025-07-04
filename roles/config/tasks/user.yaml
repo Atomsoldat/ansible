@@ -1,7 +1,8 @@
 ---
-- name: Add the user 'leon' with a zsh shell, appending the group 'admins' and 'developers' to the user's groups
+- name: Add the user 'leon' with a zsh shell, appending groups needed for our config
   ansible.builtin.user:
     name: leon
     shell: /bin/zsh
     groups: sudo,docker,linuxbrew,nix-users
     append: true
+  become: true
