@@ -9,6 +9,9 @@ case $arg in
 	software)
 		ansible-playbook  playbooks/playbook_software_installation.yaml --ask-become-pass -e 'host_type=workstation'
 	;;
+	scripts)
+		ansible-playbook  ./playbooks/playbook_script_installation.yaml --ask-become-pass -e 'host_type=workstation'
+	;;
 	config)
 		ansible-playbook  playbooks/playbook_config.yaml --ask-become-pass -e 'host_type=workstation'
 	;;
