@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# This script will take a pile of Kubernetes resources and sort them into rough categories for more 
+# pleasant reading
+
+set -euxo pipefail
+
+category=$1
+component=$2
+
+resource_filepath=./manifests/${component}/resources.yaml
+
+# end result looks like this, for example
+#yq -y 'select(.kind as $k | ["CustomResourceDefinition"] | index($k))' FILE
+startfilter='select(.kind as $k | ['
+endfilter_regular='] | index($k))'
+endfilter_inverse='] | index($k) | not)'
+
+crds_filter='"CustomResourceDefinition"'
+data_filter='"Secret", "ConfigMap", "Certificate"'
+workload_filter='"Deployment", "DaemonSet", "StatefulSet", "CronJob", "Job", "Pod"'
+rbac_filter='"ClusterRole", "Role", "ClusterRoleBinding", "RoleBinding", "ServiceAccount"'
+all_filters="${crds_filter}, ${data_filter}, ${workload_filter}, ${rbac_filter}"
+
+
+case $category in
+	crds)
+		yq -y "${startfilter}${crds_filter}${endfilter_regular}" \
+		$resource_filepath
+	;;
+	data)
+		yq -y "${startfilter}${data_filter}${endfilter_regular}" \
+		$resource_filepath
+	;;
+	workload)
+		yq -y "${startfilter}${workload_filter}${endfilter_regular}" \
+		$resource_filepath
+	;;
+	rbac)
+		yq -y "${startfilter}${rbac_filter}${endfilter_regular}" \
+		$resource_filepath
+	;;
+	rest)
+		yq -y "${startfilter}${all_filters}${endfilter_inverse}" \
+		$resource_filepath
+	;;
+	*)
+		echo "Error, category $category is not defined"
+		exit 1
+	;;
+esac
+
+

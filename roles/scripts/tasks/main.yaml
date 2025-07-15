@@ -9,6 +9,15 @@
 
 - name: Template kustomize resource sorting script
   ansible.builtin.template:
+    src: filter-manifests
+    dest: /usr/local/bin/detect-undead
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
+
+- name: Template kustomize resource generation script
+  ansible.builtin.template:
     src: generate-manifests
     dest: /usr/local/bin/animate-dead
     owner: root
