@@ -44,6 +44,10 @@ case $category in
 		yq -y "${startfilter}${all_filters}${endfilter_inverse}" \
 		$resource_filepath
 	;;
+	non-crd)
+		yq -y "${startfilter}${crds_filter}${endfilter_inverse}" \
+		$resource_filepath
+	;;
 	*)
 		echo "Error, category $category is not defined"
 		exit 1
