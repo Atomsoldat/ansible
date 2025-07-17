@@ -13,12 +13,12 @@ function cleanup(){
 # run cleanup function no matter what
 trap cleanup EXIT
 
-for subdir in $(ls ./templates); do
+for subdir in $(ls ./components); do
 
 	output_path="./manifests/${subdir}"
 	mkdir -p ${output_path}
 
-	kustomize build templates/${subdir} --enable-helm > ${output_path}/resources.yaml
+	kustomize build components/${subdir} --enable-helm > ${output_path}/resources.yaml
 
 done
 
