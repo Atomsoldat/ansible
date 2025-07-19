@@ -8,7 +8,7 @@ read answer
 
 case answer in
   Y|y)
-    k delete -f <(cat manifests/*)
+    k delete -f <(cat manifests/**/*)
     ;;
   N|n)
     echo "Maybe later then"
