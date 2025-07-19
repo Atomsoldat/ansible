@@ -25,6 +25,15 @@
     mode: '0755'
   become: true
 
+- name: Template manifest application script
+  ansible.builtin.template:
+    src: apply-manifests
+    dest: /usr/local/bin/command-undead
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
+
 - name: Template kustomize resource removal script
   ansible.builtin.template:
     src: nuke-manifests
