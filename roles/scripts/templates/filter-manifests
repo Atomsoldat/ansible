@@ -17,7 +17,9 @@ endfilter_regular='] | index($k))'
 endfilter_inverse='] | index($k) | not)'
 
 crds_filter='"CustomResourceDefinition"'
-data_filter='"Secret", "ConfigMap", "Certificate"'
+secrets_filter='"Secret"'
+config_filter='"ConfigMap"'
+data_filter='${secrets_filter}, ${config_filter}, "Certificate"'
 workload_filter='"Deployment", "DaemonSet", "StatefulSet", "CronJob", "Job", "Pod"'
 rbac_filter='"ClusterRole", "Role", "ClusterRoleBinding", "RoleBinding", "ServiceAccount"'
 all_filters="${crds_filter}, ${data_filter}, ${workload_filter}, ${rbac_filter}"
@@ -26,6 +28,14 @@ all_filters="${crds_filter}, ${data_filter}, ${workload_filter}, ${rbac_filter}"
 case $category in
 	crds)
 		yq -y "${startfilter}${crds_filter}${endfilter_regular}" \
+		$resource_filepath
+	;;
+	secrets)
+		yq -y "${startfilter}${secrets_filter}${endfilter_regular}" \
+		$resource_filepath
+	;;
+	config)
+		yq -y "${startfilter}${config_filter}${endfilter_regular}" \
 		$resource_filepath
 	;;
 	data)
