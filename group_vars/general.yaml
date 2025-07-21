@@ -1,7 +1,6 @@
 deb_packages:
   # text
   - jq
-  - yq
   # development
   - git
   - zsh

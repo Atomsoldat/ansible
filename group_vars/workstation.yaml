@@ -166,6 +166,10 @@ homebrew_packages:
   - rustup
   - quarkusio/tap/quarkus
   - yj
+  # this is the (nicer) mike farah version
+  # https://github.com/mikefarah/yq
+  # the one in the package sources is the slightly less nice variant
+  - yq
   # https://grafana.com/docs/mimir/latest/manage/tools/mimirtool/
   - mimirtool
   # https://github.com/ollama/ollama/blob/main/docs/linux.md
