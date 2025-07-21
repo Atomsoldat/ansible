@@ -2,17 +2,24 @@
 
 set -euo pipefail
 
-echo "Do you want to destroy all resources existing on the cluster as defined in ./manifests/ ? Yy/[Nn]"
+echo "Do you want to destroy all resources as defined in ./manifests/ on the cluster $(kubectl config current-context)?"
+echo "You are currently in $(pwd) and this would affect the following components:"
+echo "$(ls ./components)"
+echo "Do you want to do that? Yy/[Nn]"
 
 read answer
 
-case answer in
+case $answer in
   Y|y)
+    echo "Immer vernichtet, wer ein Schöpfer sein muss. — Friedrich Nietzsche"
+    sleep 0.5
     k delete -f <(cat manifests/**/*)
-    ;;
+  ;;
   N|n)
     echo "Maybe later then"
+  ;;
   *)
     echo "Expected either Yy/Nn, defaulting to N"
+  ;;
 esac
 
