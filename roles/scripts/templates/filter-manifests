@@ -10,52 +10,53 @@ component=$2
 
 resource_filepath=./manifests/${component}/resources.yaml
 
-# end result looks like this, for example
-#yq -y 'select(.kind as $k | ["CustomResourceDefinition"] | index($k))' FILE
-startfilter='select(.kind as $k | ['
-endfilter_regular='] | index($k))'
-endfilter_inverse='] | index($k) | not)'
+# https://mikefarah.gitbook.io/yq/operators/string-operators#test-regex
+startfilter='select(.kind | test("'
+endfilter='"))'
+endfilter_inverse='") | not )'
 
-crds_filter='"CustomResourceDefinition"'
-secrets_filter='"Secret"'
-config_filter='"ConfigMap"'
-data_filter='${secrets_filter}, ${config_filter}, "Certificate"'
-workload_filter='"Deployment", "DaemonSet", "StatefulSet", "CronJob", "Job", "Pod"'
-rbac_filter='"ClusterRole", "Role", "ClusterRoleBinding", "RoleBinding", "ServiceAccount"'
-all_filters="${crds_filter}, ${data_filter}, ${workload_filter}, ${rbac_filter}"
+crds_filter="CustomResourceDefinition"
+secrets_filter="Secret"
+config_filter="ConfigMap"
+
+data_filter="${secrets_filter}|${config_filter}|Certificate"
+workload_filter="Deployment|DaemonSet|StatefulSet|CronJob|Job|Pod"
+rbac_filter="ClusterRole|Role|ClusterRoleBinding|RoleBinding|ServiceAccount"
+all_filters="${crds_filter}|${data_filter}|${workload_filter}|${rbac_filter}"
 
 
 case $category in
 	crds)
-		yq -y "${startfilter}${crds_filter}${endfilter_regular}" \
+		yq "${startfilter}${crds_filter}${endfilter}" \
 		$resource_filepath
 	;;
 	secrets)
-		yq -y "${startfilter}${secrets_filter}${endfilter_regular}" \
+		yq "${startfilter}${secrets_filter}${endfilter}" \
 		$resource_filepath
 	;;
 	config)
-		yq -y "${startfilter}${config_filter}${endfilter_regular}" \
+		yq "${startfilter}${config_filter}${endfilter}" \
 		$resource_filepath
 	;;
 	data)
-		yq -y "${startfilter}${data_filter}${endfilter_regular}" \
+		yq "${startfilter}${data_filter}${endfilter}" \
 		$resource_filepath
 	;;
 	workload)
-		yq -y "${startfilter}${workload_filter}${endfilter_regular}" \
+		yq "${startfilter}${workload_filter}${endfilter}" \
 		$resource_filepath
 	;;
 	rbac)
-		yq -y "${startfilter}${rbac_filter}${endfilter_regular}" \
+		yq "${startfilter}${rbac_filter}${endfilter}" \
+		$resource_filepath
+	;;
+	# inverted selections
+	non-crd)
+		yq "${startfilter}${crds_filter}${endfilter_inverse}" \
 		$resource_filepath
 	;;
 	rest)
-		yq -y "${startfilter}${all_filters}${endfilter_inverse}" \
-		$resource_filepath
-	;;
-	non-crd)
-		yq -y "${startfilter}${crds_filter}${endfilter_inverse}" \
+		yq "${startfilter}${all_filters}${endfilter_inverse}" \
 		$resource_filepath
 	;;
 	*)
@@ -63,5 +64,3 @@ case $category in
 		exit 1
 	;;
 esac
-
-
