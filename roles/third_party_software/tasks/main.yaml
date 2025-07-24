@@ -1,40 +1,24 @@
 ---
 - name: Ensure /var/ansible-cache exists
-  file:
+  ansible.builtin.file:
     path: /var/ansible-cache
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: "0755"
   become: true
 
-
 # install homebrew using adapted role
-- include_role:
+- ansible.builtin.include_role:
     name: homebrew
 
-- include_tasks: sweet_home_3d.yaml
-# 20241227 for now, we use the flatpak because we like switching java versions
-#- include_tasks: portfolio_performance.yaml
-- include_tasks: vscodium.yaml
-# this inhaled RC releases, so until we resolve that, 
-# we use homebrew 20250418
-#- include_tasks: helm.yaml
-- include_tasks: dive.yaml
-# migrated to apt
-#- include_tasks: neovim.yaml
-- include_tasks: sops.yaml
-- include_tasks: popeye.yaml
-- include_tasks: kube-capacity.yaml
-- include_tasks: yq_mf.yaml
-- include_tasks: graalvm.yaml
-# spacevim was not really what we want
-#- include_tasks: spacevim.yaml
-# we try to let our IDE manage this for now 20240820
-#- include_tasks: jdtls.yaml
-#
-- include_tasks: flatpaks.yaml
-- include_tasks: homebrew.yaml
-# needs more work
-#- include_tasks: snaps.yaml
-
+- ansible.builtin.include_tasks: sweet_home_3d.yaml
+- ansible.builtin.include_tasks: vscodium.yaml
+- ansible.builtin.include_tasks: dive.yaml
+- ansible.builtin.include_tasks: sops.yaml
+- ansible.builtin.include_tasks: popeye.yaml
+- ansible.builtin.include_tasks: kube-capacity.yaml
+- ansible.builtin.include_tasks: yq_mf.yaml
+- ansible.builtin.include_tasks: graalvm.yaml
+- ansible.builtin.include_tasks: flatpaks.yaml
+- ansible.builtin.include_tasks: homebrew.yaml

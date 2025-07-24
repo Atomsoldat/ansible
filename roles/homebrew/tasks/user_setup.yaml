@@ -1,4 +1,4 @@
-
+---
 - name: Create a system group 'linuxbrew'
   ansible.builtin.group:
     name: "{{ linuxbrew_group }}"
@@ -13,7 +13,7 @@
     group: "{{ linuxbrew_group }}"
     # TODO: evaluate whether this works as we want it to
     # we use the sgid bit with the intention of granting these permissions on all contained files
-    mode: '2775'
+    mode: "2775"
   become: true
 
 - name: "Add {{ linuxbrew_user }} to linuxbrew group"

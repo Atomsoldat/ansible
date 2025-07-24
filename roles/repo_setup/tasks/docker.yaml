@@ -1,5 +1,4 @@
 ---
-
 - name: Import docker gpg key for apt
   block:
     - name: docker repo | get apt key

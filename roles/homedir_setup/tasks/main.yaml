@@ -1,3 +1,4 @@
+---
 # INFO: Note, that the homedir_setup role needs a valid SSH key in the ssh-agent
 - name: Perform bare checkout of cfg-files git repo
   ansible.builtin.git:
@@ -21,7 +22,6 @@
     cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} checkout {{ user_home_dir }}"
     chdir: "{{ user_home_dir }}"
   become_user: "{{ user_name }}"
-
 
 - name: Initialise submodules
   ansible.builtin.command:

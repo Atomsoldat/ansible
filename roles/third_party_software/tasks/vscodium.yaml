@@ -1,6 +1,6 @@
 ---
 - name: Check for existance of binary
-  stat:
+  ansible.builtin.stat:
     path: /usr/bin/codium
   register: installed_binary
 
@@ -12,7 +12,6 @@
   when:
     - installed_binary.stat.exists == false
   become: true
-
 
 # debian testing is currently migrating to 64bit time
 # the package expects libglib2.0-0, we have libglib2.0-0t64
@@ -33,4 +32,3 @@
 #  when:
 #    - installed_binary.stat.exists == false
 #  become: true
-

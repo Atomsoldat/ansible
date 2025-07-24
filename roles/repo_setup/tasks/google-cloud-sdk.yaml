@@ -1,5 +1,4 @@
 ---
-
 - name: google-cloud-sdk repo | get apt key
   ansible.builtin.get_url:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg

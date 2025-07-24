@@ -1,3 +1,4 @@
+---
 - name: Add the flathub flatpak repository remote to the system installation
   community.general.flatpak_remote:
     name: flathub
@@ -19,7 +20,7 @@
     dest: "/usr/local/bin/{{ item.alias }}"
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   with_items: "{{ flatpaks }}"
   become: true
 
@@ -29,7 +30,7 @@
     state: directory
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   become: true
 
 # we just used the one in /var/lib/flatpak/exports/share/applications as a template
@@ -39,5 +40,5 @@
     dest: /usr/local/custom/applications/
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   become: true

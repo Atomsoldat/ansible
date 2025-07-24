@@ -1,11 +1,11 @@
 ---
 - name: Check for existance of installation dir
-  stat:
+  ansible.builtin.stat:
     path: /home/leon/.SpaceVim
   register: install_dir
 
 - name: Check for existance of init.toml
-  stat:
+  ansible.builtin.stat:
     path: /home/leon/.SpaceVim.d/init.toml
   register: init_toml
 
@@ -38,15 +38,14 @@
     state: directory
     owner: leon
     group: leon
-    mode: '0755'
-    
-  
+    mode: "0755"
+
 - name: Copy spacevim init.toml to configure spacevim
   ansible.builtin.copy:
     src: init.toml
     dest: /home/leon/.SpaceVim.d/init.toml
     owner: leon
     group: leon
-    mode: '0644'
+    mode: "0644"
   when:
     - init_toml.stat.exists == false

@@ -1,3 +1,4 @@
+---
 - name: Tap required Homebrew repositories
   community.general.homebrew_tap:
     name: "{{ item }}"
@@ -11,10 +12,3 @@
   # PATH does not contain the homebrew bin dir at this point yet, that comes from the user's config
   environment:
     PATH: /home/linuxbrew/bin:{{ ansible_env.PATH }}
-    
-    
-    
-    
-    
-    
-    

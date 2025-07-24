@@ -17,4 +17,4 @@
     dest: /etc/apt/sources.list.d/opentofu.list
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"

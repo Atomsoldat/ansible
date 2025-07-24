@@ -1,6 +1,6 @@
 ---
 - name: Check for existance of binary
-  stat:
+  ansible.builtin.stat:
     path: /usr/local/bin/nvim
   register: installed_binary
 
@@ -19,8 +19,8 @@
     dest: /usr/local/bin/nvim
     owner: root
     group: root
-    mode: '0755'
-    remote_src: yes
+    mode: "0755"
+    remote_src: true
   when:
     - installed_binary.stat.exists == false
   become: true
@@ -30,7 +30,7 @@
     dest: /usr/local/bin/nvim
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   when:
     - installed_binary.stat.exists == false
   become: true
@@ -49,4 +49,3 @@
     group: root
     state: link
   become: true
-

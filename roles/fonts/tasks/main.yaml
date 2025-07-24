@@ -10,9 +10,9 @@
     - refraktury
 
 - name: Recursively set permissions on /usr/local/share/fonts
-  ansible.builtin.file: 
+  ansible.builtin.file:
     dest: /usr/local/share/fonts
     owner: root
     group: staff
     mode: "u=rwX,g=rwX,o=rX"
-    recurse: yes
+    recurse: true

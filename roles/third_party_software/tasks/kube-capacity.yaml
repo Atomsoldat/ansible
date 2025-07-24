@@ -1,6 +1,6 @@
 ---
 - name: Check for existance of binary
-  stat:
+  ansible.builtin.stat:
     path: /usr/local/bin/kube-capacity
   register: installed_binary
 
@@ -20,7 +20,7 @@
     # we only want the binary inside the archive
     include: kube-capacity
     dest: /usr/local/bin
-    remote_src: yes
+    remote_src: true
   when:
     - installed_binary.stat.exists == false
   become: true
@@ -30,7 +30,7 @@
     dest: /usr/local/bin/kube-capacity
     owner: root
     group: root
-    mode: '0755' 
+    mode: "0755"
   when:
     - installed_binary.stat.exists == false
   become: true

@@ -1,6 +1,6 @@
 ---
 - name: Check for existance of binary
-  stat:
+  ansible.builtin.stat:
     path: /usr/bin/dive
   register: installed_binary
 

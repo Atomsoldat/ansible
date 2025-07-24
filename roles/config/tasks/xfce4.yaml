@@ -1,8 +1,9 @@
+---
 - name: Add Gruvbox theme for xfce4-terminal
   ansible.builtin.template:
     src: gruvbox-dark.theme.j2
     dest: /usr/share/xfce4/terminal/colorschemes/gruvbox-dark.theme
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
   become: true

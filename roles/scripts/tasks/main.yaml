@@ -1,10 +1,11 @@
+---
 - name: Template yt-dlp-archive-script
   ansible.builtin.template:
     src: yt-dlp-archive
     dest: /usr/local/bin/yt-dlp-archive
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   become: true
 
 - name: Template kustomize resource sorting script
@@ -13,7 +14,7 @@
     dest: /usr/local/bin/detect-undead
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   become: true
 
 - name: Template kustomize resource generation script
@@ -22,7 +23,7 @@
     dest: /usr/local/bin/animate-dead
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   become: true
 
 - name: Template manifest application script
@@ -31,7 +32,7 @@
     dest: /usr/local/bin/command-undead
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   become: true
 
 - name: Template kustomize resource removal script
@@ -40,5 +41,5 @@
     dest: /usr/local/bin/powerword-kill
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   become: true

@@ -1,6 +1,6 @@
 ---
 - name: Check for existance of binary
-  stat:
+  ansible.builtin.stat:
     # note that this path will change in future releases
     path: /opt/graalvm-jdk-23.0.2+7.1
   register: installed_binary
@@ -18,7 +18,7 @@
   ansible.builtin.unarchive:
     src: /var/ansible-cache/graalvm.tar.gz
     dest: /opt/
-    remote_src: yes
+    remote_src: true
   when:
     - installed_binary.stat.exists == false
   become: true

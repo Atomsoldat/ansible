@@ -1,14 +1,14 @@
 ---
 - name: Build list of all packages
-  set_fact:
+  ansible.builtin.set_fact:
     apt_packages: "{{ deb_packages_general + deb_packages_specific }}"
 
 - name: Print out list of apt packages
-  debug:
+  ansible.builtin.debug:
     msg: "{{ apt_packages }}"
 
 - name: Install software using apt
   when: ansible_os_family == 'Debian'
-  apt:
+  ansible.builtin.apt:
     pkg: "{{ apt_packages }}"
   become: true

@@ -1,16 +1,16 @@
 ---
 - name: Check for existence of installation dir
-  stat:
+  ansible.builtin.stat:
     path: /opt/jdtls
   register: install_dir
 
-- name: Create /opt/jdtls 
+- name: Create /opt/jdtls
   ansible.builtin.file:
     path: /opt/jdtls
     state: directory
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   when:
     - install_dir.stat.exists == false
   become: true
@@ -28,11 +28,10 @@
   ansible.builtin.unarchive:
     src: /var/ansible-cache/jdt-language-server-1.38.0-202408011337.tar.gz
     dest: /opt/jdtls
-    remote_src: yes
+    remote_src: true
   when:
     - install_dir.stat.exists == false
   become: true
-
 
 - name: Create symmlink under /usr/local/bin/jdtls
   ansible.builtin.file:

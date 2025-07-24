@@ -1,6 +1,6 @@
 ---
 - name: Check for existance of binary
-  stat:
+  ansible.builtin.stat:
     path: /usr/local/bin/minikube
   register: installed_binary
 
@@ -13,14 +13,13 @@
     - installed_binary.stat.exists == false
   become: true
 
-
 - name: Install sops binary
   ansible.builtin.copy:
     src: /var/ansible-cache/minikube
     dest: /usr/local/bin/minikube
     owner: root
     group: root
-    mode: '0755'
-  when: 
+    mode: "0755"
+  when:
     - installed_binary.stat.exists == false
   become: true

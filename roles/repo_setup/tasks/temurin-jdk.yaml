@@ -1,5 +1,4 @@
 ---
-
 #- name: Check for existence of installation dir
 #  stat:
 #    path: /opt/jdtls
@@ -14,8 +13,6 @@
 #    mode: '0755'
 #  when:
 #    - install_dir.stat.exists == false
-
-
 - name: Configure adoptium repository for temurin openjdk and download  apt key
   block:
     - name: adoptium-temurin-openjdk repo | get apt key
@@ -29,4 +26,4 @@
     repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/adoptium.asc] https://packages.adoptium.net/artifactory/deb bookworm main"
     filename: adoptium
     state: present
-  when: 
+  when:

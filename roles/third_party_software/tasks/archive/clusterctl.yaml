@@ -1,10 +1,10 @@
 ---
 - name: Check for existance of binary
-  stat:
+  ansible.builtin.stat:
     path: /usr/local/bin/clusterctl
   register: installed_binary
 
-- name: Download binary with sha256 check 
+- name: Download binary with sha256 check
   ansible.builtin.get_url:
     url: https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.9.4/clusterctl-linux-amd64
     dest: /var/ansible-cache/clusterctl
@@ -17,7 +17,7 @@
   ansible.builtin.copy:
     src: /var/ansible-cache/clusterctl
     dest: /usr/local/bin
-    remote_src: yes
+    remote_src: true
   when:
     - installed_binary.stat.exists == false
   become: true
@@ -27,7 +27,7 @@
     dest: /usr/local/bin/clusterctl
     owner: root
     group: root
-    mode: '0755' 
+    mode: "0755"
   when:
     - installed_binary.stat.exists == false
   become: true

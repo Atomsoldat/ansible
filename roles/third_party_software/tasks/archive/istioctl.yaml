@@ -1,6 +1,6 @@
 ---
 - name: Check for existance of binary
-  stat:
+  ansible.builtin.stat:
     path: /usr/local/bin/istioctl
   register: installed_binary
 
@@ -17,7 +17,7 @@
   ansible.builtin.unarchive:
     src: /var/ansible-cache/istioctl.tar.gz
     dest: /usr/local/bin
-    remote_src: yes
+    remote_src: true
   when:
     - installed_binary.stat.exists == false
   become: true
@@ -27,7 +27,7 @@
     dest: /usr/local/bin/istioctl
     owner: root
     group: root
-    mode: '0755' 
+    mode: "0755"
   when:
     - installed_binary.stat.exists == false
   become: true

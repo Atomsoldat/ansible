@@ -1,3 +1,4 @@
+---
 deb_packages_general:
   # text
   - jq
@@ -41,7 +42,6 @@ deb_blacklist:
   - uim
   # another multilanguage tool
   - ibus
-
 
 nas:
   wunderhort:

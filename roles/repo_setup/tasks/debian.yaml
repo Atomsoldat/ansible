@@ -1,12 +1,11 @@
 ---
-
 - name: Template /etc/apt/preferences.d/99_stable_fallback.pref
   ansible.builtin.template:
     src: 99_stable_fallback.pref.j2
     dest: /etc/apt/preferences.d/99_stable_fallback.pref
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
 
 - name: Template /etc/apt/sources.list
   ansible.builtin.template:
@@ -14,4 +13,4 @@
     dest: /etc/apt/sources.list
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"

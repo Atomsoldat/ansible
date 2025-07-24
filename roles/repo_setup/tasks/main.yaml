@@ -1,17 +1,11 @@
 ---
-
-- include_tasks: debian.yaml
-
-# BEGIN THIRD  PARTY REPO SETUP
-- include_tasks: temurin-jdk.yaml
-- include_tasks: hashicorp.yaml
-- include_tasks: docker.yaml
-- include_tasks: google-cloud-sdk.yaml
-- include_tasks: opentofu.yaml
-- include_tasks: mullvad.yaml
-# END THIRD  PARTY REPO SETUP
-
-
+- ansible.builtin.include_tasks: debian.yaml
+- ansible.builtin.include_tasks: temurin-jdk.yaml
+- ansible.builtin.include_tasks: hashicorp.yaml
+- ansible.builtin.include_tasks: docker.yaml
+- ansible.builtin.include_tasks: google-cloud-sdk.yaml
+- ansible.builtin.include_tasks: opentofu.yaml
+- ansible.builtin.include_tasks: mullvad.yaml
 - name: Update apt cache
   ansible.builtin.apt:
-    update_cache: yes
+    update_cache: true

@@ -1,6 +1,6 @@
 ---
 - name: Check for existance of installation dir
-  stat:
+  ansible.builtin.stat:
     path: /opt/portfolio
   register: install_dir
 
@@ -13,12 +13,11 @@
     - install_dir.stat.exists == false
   become: true
 
-
 - name: Unarchive file on the remote machine
   ansible.builtin.unarchive:
     src: /var/ansible-cache/PortfolioPerformance.tar.gz
     dest: /opt
-    remote_src: yes
+    remote_src: true
   when:
     - install_dir.stat.exists == false
   become: true
@@ -29,8 +28,8 @@
     dest: /usr/share/applications/portfolio.desktop
     owner: root
     group: root
-    mode: '0644'
-  when: 
+    mode: "0644"
+  when:
     - install_dir.stat.exists == false
   become: true
 
