@@ -1,11 +1,11 @@
 ---
-- name: get opentofu module signing key
+- name: Get opentofu module signing key
   ansible.builtin.get_url:
     url: https://get.opentofu.org/opentofu.gpg
     dest: /etc/apt/keyrings/opentofu.gpg
     checksum: sha256:55fcff8ee506ffc46a37a70af5b76b4181f2f5e24b18387013a8629144c02fdf
 
-- name: get opentofu repo key
+- name: Get opentofu repo key
   ansible.builtin.get_url:
     url: https://packages.opentofu.org/opentofu/tofu/gpgkey
     dest: /etc/apt/keyrings/opentofu-repo.asc

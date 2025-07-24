@@ -1,5 +1,5 @@
 ---
-- name: get mullavd signing key
+- name: Get mullavd signing key
   ansible.builtin.get_url:
     url: https://repository.mullvad.net/deb/mullvad-keyring.asc
     dest: /etc/apt/keyrings/mullvad-keyring.asc

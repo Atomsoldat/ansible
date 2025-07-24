@@ -1,11 +1,11 @@
 ---
-- name: google-cloud-sdk repo | get apt key
+- name: google-cloud-sdk repo | Get apt key
   ansible.builtin.get_url:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     dest: /etc/apt/trusted.gpg.d/google.asc
     checksum: sha256:3ecc63922b7795eb23fdc449ff9396f9114cb3cf186d6f5b53ad4cc3ebfbb11f
 
-- name: google-cloud-sdk repo | add apt config file
+- name: google-cloud-sdk repo | Add apt config file
   ansible.builtin.apt_repository:
     repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/google.asc] https://packages.cloud.google.com/apt cloud-sdk main"
     filename: /etc/apt/sources.list.d/google-cloud-sdk.list
