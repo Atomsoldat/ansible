@@ -1,4 +1,4 @@
-deb_packages:
+deb_packages_general:
   # text
   - jq
   # development

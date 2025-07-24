@@ -7,7 +7,4 @@
   gather_facts: true
 
   roles:
-    ## BEGIN ALWAYS REQUIRED ##
-    - ../roles/variable_definitions
-    ## END ALWAYS REQUIRED ##
     - ../roles/repo_setup

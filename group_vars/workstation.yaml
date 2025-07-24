@@ -1,4 +1,4 @@
-deb_packages_workstation:
+deb_packages_specific:
   # text
   - libreoffice
   - meld
