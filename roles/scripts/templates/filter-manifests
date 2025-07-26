@@ -26,15 +26,15 @@ all_filters="${crds_filter}|${data_filter}|${workload_filter}|${rbac_filter}"
 
 
 case $category in
-	crds)
+	crd|crds)
 		yq "${startfilter}${crds_filter}${endfilter}" \
 		$resource_filepath
 	;;
-	secrets)
+	secret|secrets)
 		yq "${startfilter}${secrets_filter}${endfilter}" \
 		$resource_filepath
 	;;
-	config)
+	config|configs)
 		yq "${startfilter}${config_filter}${endfilter}" \
 		$resource_filepath
 	;;
@@ -42,7 +42,7 @@ case $category in
 		yq "${startfilter}${data_filter}${endfilter}" \
 		$resource_filepath
 	;;
-	workload)
+	workload|workloads)
 		yq "${startfilter}${workload_filter}${endfilter}" \
 		$resource_filepath
 	;;
