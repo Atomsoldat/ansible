@@ -63,6 +63,7 @@ deb_packages_specific:
   - ipmitool
   - freeipmi
   - pwgen
+  - remmina
   # media
   - okular
   - vlc
