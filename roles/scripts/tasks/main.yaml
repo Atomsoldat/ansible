@@ -43,3 +43,12 @@
     group: root
     mode: "0755"
   become: true
+
+- name: Template cluster-api restart script
+  ansible.builtin.template:
+    src: cluster-api-wrangler
+    dest: /usr/local/bin/imperious-glare
+    owner: root
+    group: root
+    mode: "0755"
+  become: true

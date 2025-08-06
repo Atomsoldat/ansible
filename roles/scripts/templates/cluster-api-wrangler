@@ -1,0 +1,7 @@
+#!/bin/bash
+
+kubectl -n capi-system rollout restart deployment capi-controller-manager
+kubectl -n capmox-system rollout restart deployment capmox-controller-manager
+kubectl -n capi-kubeadm-bootstrap-system rollout restart deployment capi-kubeadm-bootstrap-controller-manager
+kubectl -n capi-kubeadm-control-plane-system rollout restart deployment capi-kubeadm-control-plane-controller-manager
+kubectl -n capi-ipam-in-cluster-system rollout restart deployment capi-ipam-in-cluster-controller-manager
