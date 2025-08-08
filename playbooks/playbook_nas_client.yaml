@@ -1,6 +1,6 @@
 
 ---
-- name: Desktop PC setup playbook
+- name: Desktop PC nfs-mount setup
   hosts: localhost
   remote_user: leon
   become: true

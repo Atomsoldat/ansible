@@ -1,19 +1,19 @@
-# NFS shares auf truenas
-pve001.irminsul:/wunderhort/backup /wunderhort/backup nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/dokumente /wunderhort/dokumente nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/programming /wunderhort/programming nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/passwoerter /wunderhort/passwoerter nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/medien /wunderhort/medien nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/projekte /wunderhort/projekte nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/research /wunderhort/research nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/k8s-nfs-storage-hdd /wunderhort/k8s-nfs-storage-hdd nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/scratch /wunderhort/scratch nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/home /wunderhort/home nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+# NFS shares
+pve022.irminsul:/wunderhort/backup /wunderhort/backup nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/dokumente /wunderhort/dokumente nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/passwoerter /wunderhort/passwoerter nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/medien /wunderhort/medien nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/projekte /wunderhort/projekte nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/research /wunderhort/research nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/k8s-nfs-storage-hdd /wunderhort/k8s-nfs-storage-hdd nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/scratch /wunderhort/scratch nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/home /wunderhort/home nfs noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
 # note the bind option
 /wunderhort/home/Downloads /home/leon/Downloads none bind,noauto,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
 
 
 # enable fsc option for local caching
-pve001.irminsul:/wunderhort/tabletop /wunderhort/tabletop nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/stl /wunderhort/stl nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve001.irminsul:/wunderhort/steam /wunderhort/steam nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/tabletop /wunderhort/tabletop nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/stl /wunderhort/stl nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/steam /wunderhort/steam nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
+pve022.irminsul:/wunderhort/programming /wunderhort/programming nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
