@@ -1,13 +1,14 @@
 ---
 - name: Import docker gpg key for apt
   block:
-    - name: docker repo | Get apt key
+    - name: Docker repo | Get apt key
       ansible.builtin.get_url:
         url: https://download.docker.com/linux/debian/gpg
         dest: /etc/apt/trusted.gpg.d/docker.asc
         checksum: sha256:1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570
+        mode: '0644'
 
-- name: docker repo | Add apt config file
+- name: Docker repo | Add apt config file
   ansible.builtin.apt_repository:
     repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.asc] https://download.docker.com/linux/debian bookworm stable"
     filename: docker

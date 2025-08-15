@@ -5,7 +5,6 @@
 - ansible.builtin.include_tasks: docker.yaml
 - ansible.builtin.include_tasks: google-cloud-sdk.yaml
 - ansible.builtin.include_tasks: opentofu.yaml
-- ansible.builtin.include_tasks: mullvad.yaml
 - name: Update apt cache
   ansible.builtin.apt:
     update_cache: true

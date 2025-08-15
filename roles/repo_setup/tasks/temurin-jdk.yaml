@@ -6,8 +6,9 @@
         url: https://packages.adoptium.net/artifactory/api/gpg/key/public
         dest: /etc/apt/trusted.gpg.d/adoptium.asc
         checksum: sha256:a46d5d3ab75c3c86dddf1bfd2957a067a24b1c6b2d2ed2bc69294bf970c5160b
+        mode: '0644'
 
-- name: adoptium-temurin-openjdk repo | Add apt config file
+- name: Adoptium-temurin-openjdk repo | Add apt config file
   ansible.builtin.apt_repository:
     repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/adoptium.asc] https://packages.adoptium.net/artifactory/deb bookworm main"
     filename: adoptium
