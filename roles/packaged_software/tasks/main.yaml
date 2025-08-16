@@ -1,14 +1,21 @@
 ---
-- name: Build list of all packages
+- name: Build list of all desired packages
   ansible.builtin.set_fact:
-    apt_packages: "{{ deb_packages_general + deb_packages_specific }}"
+    __packaged_software_apt_packages: "{{ apt_packages_general + apt_packages_specific }}"
 
-- name: Print out list of apt packages
-  ansible.builtin.debug:
-    msg: "{{ apt_packages }}"
+- name: Build blacklist of all unwanted packages
+  ansible.builtin.set_fact:
+    __packaged_software_apt_blacklist: "{{ apt_blacklist_general + apt_blacklist_specific }}"
 
 - name: Install software using apt
   when: ansible_os_family == 'Debian'
   ansible.builtin.apt:
-    pkg: "{{ apt_packages }}"
+    pkg: "{{ __packaged_software_apt_packages }}"
+  become: true
+
+- name: Uinstall unwanted software using apt
+  when: ansible_os_family == 'Debian'
+  ansible.builtin.apt:
+    pkg: "{{ __packaged_software_apt_blacklist }}"
+    state: absent
   become: true

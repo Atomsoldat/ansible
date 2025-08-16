@@ -1,5 +1,8 @@
 ---
-deb_packages_specific:
+apt_blacklist_specific:
+  - firefox-esr
+
+apt_packages_specific:
   # text
   - libreoffice
   - meld
@@ -72,7 +75,6 @@ deb_packages_specific:
   - ffmpeg
   - genisoimage
   - feh
-  - firefox-esr
   - mullvad-browser
   - chromium
   - ncmpcpp

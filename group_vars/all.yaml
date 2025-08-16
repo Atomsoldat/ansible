@@ -1,5 +1,7 @@
 ---
-deb_packages_general:
+apt_blacklist_general: []
+
+apt_packages_general:
   # text
   - jq
   # development
