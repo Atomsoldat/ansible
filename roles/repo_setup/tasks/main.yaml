@@ -1,6 +1,6 @@
 ---
 - ansible.builtin.include_tasks: debian.yaml
-- ansible.builtin.include_tasks: temurin-jdk.yaml
+- ansible.builtin.include_tasks: adoptium.yaml
 - ansible.builtin.include_tasks: hashicorp.yaml
 - ansible.builtin.include_tasks: docker.yaml
 - ansible.builtin.include_tasks: google-cloud-sdk.yaml

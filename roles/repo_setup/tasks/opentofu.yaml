@@ -15,8 +15,8 @@
 
 - name: Template /etc/apt/sources.list.d/opentofu.list
   ansible.builtin.template:
-    src: opentofu.list.j2
-    dest: /etc/apt/sources.list.d/opentofu.list
+    src: opentofu.sources.j2
+    dest: /etc/apt/sources.list.d/opentofu.sources
     owner: root
     group: root
     mode: "0644"

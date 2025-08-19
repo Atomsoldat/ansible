@@ -9,8 +9,8 @@
 
 - name: Template /etc/apt/sources.list
   ansible.builtin.template:
-    src: sources.list.j2
-    dest: /etc/apt/sources.list
+    src: debian.sources.j2
+    dest: /etc/apt/sources.list.d/debian.sources
     owner: root
     group: root
     mode: "0644"
