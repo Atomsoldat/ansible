@@ -1,0 +1,8 @@
+
+---
+- name: Nvidia Package installation
+  hosts: localhost
+  remote_user: leon
+
+  roles:
+    - ../roles/nvidia

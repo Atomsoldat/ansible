@@ -132,8 +132,7 @@ apt_packages_specific:
   # dependencies for appimages
   - libfuse2
   - fuse
-  # nvidia
-  - nvidia-driver-full
+  # kernel stuff
   - firmware-misc-nonfree
   - linux-headers-amd64
 

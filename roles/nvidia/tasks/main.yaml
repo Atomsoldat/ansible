@@ -1,0 +1,10 @@
+---
+- name: Install nvidia related packages using apt
+  when: ansible_os_family == 'Debian'
+  ansible.builtin.apt:
+    pkg:
+      - nvidia-container-toolkit
+      - nvidia-driver-full
+      - firmware-misc-nonfree
+      - linux-headers-amd64
+  become: true
