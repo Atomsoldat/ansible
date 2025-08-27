@@ -5,6 +5,7 @@
     dest: /etc/apt/trusted.gpg.d/adoptium.asc
     checksum: sha256:a46d5d3ab75c3c86dddf1bfd2957a067a24b1c6b2d2ed2bc69294bf970c5160b
     mode: '0644'
+  become: true
 
 - name: Adoptium repo | Add apt config file
   ansible.builtin.template:
@@ -13,4 +14,5 @@
     owner: root
     group: root
     mode: "0644"
+  become: true
 

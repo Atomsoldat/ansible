@@ -8,6 +8,7 @@
     - unifraktur-maguntia
     - unifraktur-cook
     - refraktury
+  become: true
 
 - name: Recursively set permissions on /usr/local/share/fonts
   ansible.builtin.file:
@@ -16,3 +17,4 @@
     group: staff
     mode: "u=rwX,g=rwX,o=rX"
     recurse: true
+  become: true

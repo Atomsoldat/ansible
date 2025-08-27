@@ -9,6 +9,7 @@
     update: true
     dest: "{{ user_home_dir }}/.cfg.git"
   become_user: "{{ user_name }}"
+  become: true
 
 # at least the submodule related commands need to be executed within the homedir, so we just execute all the stuff in there
 - name: Restore files in homedir with state from the repo index
@@ -16,21 +17,25 @@
     cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} restore --staged {{ user_home_dir }}"
     chdir: "{{ user_home_dir }}"
   become_user: "{{ user_name }}"
+  become: true
 
 - name: Checkout working tree
   ansible.builtin.command:
     cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} checkout {{ user_home_dir }}"
     chdir: "{{ user_home_dir }}"
   become_user: "{{ user_name }}"
+  become: true
 
 - name: Initialise submodules
   ansible.builtin.command:
     cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule init"
     chdir: "{{ user_home_dir }}"
   become_user: "{{ user_name }}"
+  become: true
 
 - name: Update submodules
   ansible.builtin.command:
     cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule update"
     chdir: "{{ user_home_dir }}"
   become_user: "{{ user_name }}"
+  become: true

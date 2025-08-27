@@ -5,6 +5,7 @@
     dest: /etc/apt/trusted.gpg.d/google.asc
     checksum: sha256:3ecc63922b7795eb23fdc449ff9396f9114cb3cf186d6f5b53ad4cc3ebfbb11f
     mode: '0644'
+  become: true
 
 - name: Template /etc/apt/sources.list.d/google-cloud-sdk.list
   ansible.builtin.template:
@@ -13,3 +14,4 @@
     owner: root
     group: root
     mode: "0644"
+  become: true

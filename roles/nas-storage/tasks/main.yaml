@@ -6,6 +6,7 @@
     owner: leon
     group: leon
     mode: "0755"
+  become: true
 
 # our nfs shares squash the root user to "nobody" on the remote server
 # operations must use a user with permissions, i.e. leon
@@ -17,6 +18,7 @@
     group: leon
     mode: "0755"
   with_items: "{{ nas.wunderhort }}"
+  become: true
 
 - name: Insert/Update NFS mount configuration into fstab and validate it
   ansible.builtin.blockinfile:
@@ -26,3 +28,4 @@
     validate: /usr/bin/findmnt -F %s
     append_newline: true
     prepend_newline: true
+  become: true
