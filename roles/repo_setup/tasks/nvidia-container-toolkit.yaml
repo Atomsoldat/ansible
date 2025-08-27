@@ -1,0 +1,26 @@
+---
+- name: Nvidia Container Toolkit repo | Get apt key
+  ansible.builtin.get_url:
+    url: https://nvidia.github.io/libnvidia-container/gpgkey
+    dest: /usr/share/keyrings/nvidia-container-toolkit.asc
+    checksum: sha256:c880576d6cf75a48e5027a871bac70fd0421ab07d2b55f30877b21f1c87959c9
+    mode: '0644'
+  become: true
+
+- name: Nvidia Container Toolkit repo | Dearmor the downloaded signing key
+  ansible.builtin.command:
+    cmd: gpg --batch --dearmor -o /usr/share/keyrings/nvidia-container-toolkit.gpg /usr/share/keyrings/nvidia-container-toolkit.asc
+    creates: /usr/share/keyrings/nvidia-container-toolkit.gpg
+  become: true
+
+- name: Nvidia Container Toolkit repo | Add apt config file
+  ansible.builtin.template:
+    src: "nvidia-container-toolkit_{{ item }}.sources.j2"
+    dest: "/etc/apt/sources.list.d/nvidia-container-toolkit_{{ item }}.sources"
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
+  loop:
+    - stable
+    #- experimental
