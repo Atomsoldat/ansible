@@ -97,7 +97,8 @@ apt_packages_specific:
   - s4cmd
   - deluge
   - thunar
-  - owncloud-client
+  - nextcloud-desktop
+  - nextcloud-desktop-cmd
   # communication
   - thunderbird
   # system
