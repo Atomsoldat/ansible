@@ -26,6 +26,7 @@ apt_packages_specific:
   - hugo
   - yamllint
   - vagrant
+  - distrobox
   - plantuml
   - packer
   - qemu-utils
