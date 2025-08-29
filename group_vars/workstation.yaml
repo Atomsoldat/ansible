@@ -13,10 +13,6 @@ apt_packages_specific:
   - wcalc
   - xsel
   - neovim
-  # pictures
-  - cheese
-  - flameshot
-  - simple-scan
   # design:
   - gimp
   - f3d
@@ -68,6 +64,7 @@ apt_packages_specific:
   - pwgen
   - remmina
   # media
+  - simple-scan
   - okular
   - vlc
   - caffeine
@@ -75,7 +72,6 @@ apt_packages_specific:
   - ffmpeg
   - genisoimage
   - feh
-  - mullvad-browser
   - chromium
   - ncmpcpp
   - mpd
