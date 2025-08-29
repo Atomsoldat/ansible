@@ -179,7 +179,6 @@ homebrew_packages:
   # https://grafana.com/docs/mimir/latest/manage/tools/mimirtool/
   - mimirtool
   # https://github.com/ollama/ollama/blob/main/docs/linux.md
-  - ollama
   - micromamba
   - pixi
   - npm
@@ -187,6 +186,8 @@ homebrew_packages:
   - hadolint
   - oras
   - minio/stable/mc
+  - sops
+  - dive
   # kubernetes related
   - argocd
   - cilium-cli
@@ -198,6 +199,8 @@ homebrew_packages:
   - kubent
   - kustomize
   - kind
+  - kubescape
+  - popeye
   - helm
   - helmfile
   - minikube

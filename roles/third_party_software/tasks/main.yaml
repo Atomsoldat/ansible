@@ -14,11 +14,7 @@
 
 - ansible.builtin.include_tasks: sweet_home_3d.yaml
 - ansible.builtin.include_tasks: vscodium.yaml
-- ansible.builtin.include_tasks: dive.yaml
-- ansible.builtin.include_tasks: sops.yaml
-- ansible.builtin.include_tasks: popeye.yaml
 - ansible.builtin.include_tasks: kube-capacity.yaml
-- ansible.builtin.include_tasks: yq_mf.yaml
 - ansible.builtin.include_tasks: graalvm.yaml
 - ansible.builtin.include_tasks: flatpaks.yaml
 - ansible.builtin.include_tasks: homebrew.yaml
