@@ -156,6 +156,9 @@ flatpaks:
   - identifier: info.portfolio_performance.PortfolioPerformance
     alias: portfolio
     command: "flatpak run info.portfolio_performance.PortfolioPerformance $@"
+  - identifier: com.github.tchx84.Flatseal
+    alias: flatseal
+    command: "flatpak run com.github.tchx84.Flatseal $@"
   - identifier: com.github.Matoking.protontricks
     alias: protontricks
     command: flatpak run com.github.Matoking.protontricks
