@@ -3,5 +3,5 @@
 set -euo pipefail
 
 for i in $(ls ./manifests/**/*.yaml); do 
-  kubectl apply -f $i
+  kubectl apply --server-side=true -f $i $@
 done
