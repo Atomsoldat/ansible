@@ -96,6 +96,7 @@ apt_packages_specific:
   - thunar
   - nextcloud-desktop
   - nextcloud-desktop-cmd
+  - syncthing
   # communication
   - thunderbird
   # system
