@@ -6,6 +6,8 @@
 - ansible.builtin.include_tasks: google-cloud-sdk.yaml
 - ansible.builtin.include_tasks: opentofu.yaml
 - ansible.builtin.include_tasks: nvidia-container-toolkit.yaml
+- ansible.builtin.include_tasks: syncthing.yaml
 - name: Update apt cache
   ansible.builtin.apt:
     update_cache: true
+  become: true

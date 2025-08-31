@@ -1,0 +1,27 @@
+---
+- name: Syncthing repo | Get apt key
+  ansible.builtin.get_url:
+    url: "https://syncthing.net/release-key.gpg"
+    dest: /etc/apt/trusted.gpg.d/syncthing.gpg
+    checksum: sha256:c38853d2ccb890ae428e1fbf05d8c8fe0ba6f560bd050e161fb4e5324cdb4a9b
+    mode: '0644'
+  become: true
+
+- name: Syncthing repo | Add apt config file
+  ansible.builtin.template:
+    src: syncthing.sources.j2
+    dest: /etc/apt/sources.list.d/syncthing.sources
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
+
+
+- name: Template /etc/apt/preferences.d/20_syncthing.pref
+  ansible.builtin.template:
+    src: 20_syncthing.pref.j2
+    dest: /etc/apt/preferences.d/20_syncthing.pref
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
