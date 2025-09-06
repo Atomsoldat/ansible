@@ -16,4 +16,3 @@ pve022.irminsul:/wunderhort/home /wunderhort/home nfs noauto,noatime,x-systemd.a
 pve022.irminsul:/wunderhort/tabletop /wunderhort/tabletop nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
 pve022.irminsul:/wunderhort/stl /wunderhort/stl nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
 pve022.irminsul:/wunderhort/steam /wunderhort/steam nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0
-pve022.irminsul:/wunderhort/programming /wunderhort/programming nfs noauto,fsc,noatime,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,_netdev 0 0

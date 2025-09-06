@@ -49,7 +49,6 @@ nas:
   wunderhort:
     - backup
     - dokumente
-    - programming
     - home
     - stl
     - tabletop
@@ -62,3 +61,6 @@ nas:
     - scratch
   homedirs:
     - Downloads
+
+datengruft:
+  - programming

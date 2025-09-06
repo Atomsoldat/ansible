@@ -1,7 +1,3 @@
-
-- debug:
-    var: ansible_facts.user_id
-
 - name: "Ensure /home/{{ ansible_user_id | default(ansible_facts.user_id, true) }}/.local/share/systemd/user/ directory exists"
   ansible.builtin.file:
     path: "/home/{{ ansible_user_id | default(ansible_facts.user_id) }}/.config/systemd/user"
@@ -28,3 +24,11 @@
     enabled: true
     daemon_reload: true
 
+- name: Create symbolic links in /wunderhort for syncthing managed directories in /datengruft
+  ansible.builtin.file:
+    src: "/datengruft/{{ item }}"
+    dest: "/wunderhort/{{ item }}"
+    owner: "{{ ansible_user_uid | default(ansible_facts.user_uid, true) }}"
+    group: "{{ ansible_user_gid | default(ansible_facts.user_gid, true) }}"
+    state: link
+  loop: "{{ datengruft }}"
