@@ -137,9 +137,9 @@ apt_packages_specific:
   - linux-headers-amd64
 
 flatpaks:
-  - identifier: dev.zed.Zed
-    alias: zed
-    command: "flatpak run dev.zed.Zed $@"
+#  - identifier: dev.zed.Zed
+#    alias: zed
+#    command: "flatpak run dev.zed.Zed $@"
   - identifier: com.github.qarmin.czkawka
     alias: czkawka
     command: "flatpak run com.github.qarmin.czkawka $@"
