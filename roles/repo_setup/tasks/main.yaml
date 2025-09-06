@@ -1,19 +1,19 @@
 ---
-- name: Configrue Debian Repo
+- name: Configure Debian Repo
   ansible.builtin.include_tasks: debian.yaml
-- name: Configrue Adoptiumn Repo
+- name: Configure Adoptiumn Repo
   ansible.builtin.include_tasks: adoptium.yaml
-- name: Configrue Hashicorp Repo
+- name: Configure Hashicorp Repo
   ansible.builtin.include_tasks: hashicorp.yaml
-- name: Configrue Docker Repo
+- name: Configure Docker Repo
   ansible.builtin.include_tasks: docker.yaml
-- name: Configrue Google Cloud Repo
+- name: Configure Google Cloud Repo
   ansible.builtin.include_tasks: google-cloud-sdk.yaml
-- name: Configrue Opentofu Repo
+- name: Configure Opentofu Repo
   ansible.builtin.include_tasks: opentofu.yaml
-- name: Configrue Nvidia Container Toolkit Repo
+- name: Configure Nvidia Container Toolkit Repo
   ansible.builtin.include_tasks: nvidia-container-toolkit.yaml
-- name: Configrue Syncthing Repo
+- name: Configure Syncthing Repo
   ansible.builtin.include_tasks: syncthing.yaml
 - name: Update apt cache
   ansible.builtin.apt:
