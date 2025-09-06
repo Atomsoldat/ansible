@@ -22,6 +22,7 @@ apt_packages_specific:
   - pipx
   - maven
   - cmake
+  - codium
   - graphviz
   - astyle
   - hugo
