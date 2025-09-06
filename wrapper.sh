@@ -15,8 +15,8 @@ case $arg in
 	config)
 		ansible-playbook  playbooks/config.yaml --ask-become-pass -i inventory.yaml
 	;;
-	shares)
-		ansible-playbook  playbooks/nas_client.yaml --ask-become-pass -i inventory.yaml
+	storage)
+		ansible-playbook  playbooks/storage.yaml --ask-become-pass -i inventory.yaml
 	;;
 	fonts)
 		ansible-playbook  playbooks/fonts.yaml --ask-become-pass -i inventory.yaml

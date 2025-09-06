@@ -24,6 +24,6 @@ sudo apt-get autoremove
 ./wrapper.sh config
 
 ./wrapper.sh fonts
-./wrapper.sh shares
+./wrapper.sh storage
 ./wrapper.sh home
 

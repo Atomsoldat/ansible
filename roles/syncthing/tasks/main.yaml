@@ -1,0 +1,30 @@
+
+- debug:
+    var: ansible_facts.user_id
+
+- name: "Ensure /home/{{ ansible_user_id | default(ansible_facts.user_id, true) }}/.local/share/systemd/user/ directory exists"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id | default(ansible_facts.user_id) }}/.config/systemd/user"
+    state: directory
+    owner: "{{ ansible_user_uid | default(ansible_facts.user_uid, true) }}"
+    group: "{{ ansible_user_gid | default(ansible_facts.user_gid, true) }}"
+    mode: '0750'
+    recurse: true
+
+- name: "Copy systemd service file provided by syncthing package to /home/{{ ansible_user | default(ansible_facts.user_id, true) }}/.local/share/systemd/user/syncthing.service"
+  ansible.builtin.copy:
+    src: /usr/lib/systemd/user/syncthing.service
+    dest: "/home/{{ ansible_user_id | default(ansible_facts.user_id) }}/.config/systemd/user"
+    remote_src: yes
+    owner: "{{ ansible_user_uid | default(ansible_facts.user_uid, true) }}"
+    group: "{{ ansible_user_gid | default(ansible_facts.user_gid, true) }}"
+    mode: '0640'
+
+- name: Make sure the syncthing user service unit is running
+  ansible.builtin.systemd_service:
+    scope: user
+    name: syncthing
+    state: started
+    enabled: true
+    daemon_reload: true
+

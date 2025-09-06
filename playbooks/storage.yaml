@@ -1,9 +1,10 @@
 
 ---
-- name: Desktop PC nfs-mount setup
+- name: Desktop PC storage setup
   hosts: localhost
   remote_user: leon
   gather_facts: true
 
   roles:
     - ../roles/nas-storage
+    - ../roles/syncthing
