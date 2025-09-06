@@ -21,6 +21,7 @@ apt_packages_specific:
   - python3-pip
   - pipx
   - maven
+  - cmake
   - graphviz
   - astyle
   - hugo
