@@ -15,6 +15,8 @@
   ansible.builtin.include_tasks: nvidia-container-toolkit.yaml
 - name: Configure Syncthing Repo
   ansible.builtin.include_tasks: syncthing.yaml
+- name: Configure VSCodium Repo
+  ansible.builtin.include_tasks: vscodium.yaml
 - name: Update apt cache
   ansible.builtin.apt:
     update_cache: true
