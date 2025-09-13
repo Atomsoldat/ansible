@@ -17,6 +17,7 @@ apt_packages_general:
   - nmap
   - snapd
   - htop
+  - btop
   - powertop
   - lshw
   - oathtool
