@@ -60,7 +60,13 @@ case $category in
 		$resource_filepath
 	;;
 	*)
-		echo "Error, category $category is not defined"
-		exit 1
+		echo "INFO: Category $category is not defined, assuming API resource"
+		# https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+		# https://www.gnu.org/software/bash/manual/html_node/Pattern-Matching.html
+		# The caret operator will convert a variable to uppercase based on a provided pattern
+		# In this case, since the pattern is omitted, it is treated like a ‘?’, which matches any single character.
+		# i.e. the  first character of the variable
+		yq "${startfilter}${category^}${endfilter}" \
+		$resource_filepath
 	;;
 esac
