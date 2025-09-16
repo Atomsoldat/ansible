@@ -33,6 +33,31 @@
     - installed_binary.stat.exists == false
   become: true
 
+- name: Set execute permissions on nw executable
+  ansible.builtin.file:
+    dest: "/opt/tiddlydesktop/TiddlyDesktop-linux64-v0.0.20/nw"
+    state: file
+    owner: root
+    group: root
+    # only set execute on directories and files that are executable by the owner
+    mode: 'u=rwx,g=rx,o=rx'
+  when:
+    - installed_binary.stat.exists == false
+  become: true
+
+- name: Set recursive permissions on /opt/tiddlydesktop directory
+  ansible.builtin.file:
+    dest: /opt/tiddlydesktop
+    state: directory
+    owner: root
+    group: root
+    # only set execute on directories and files that are executable by the owner
+    mode: 'u=rwX,g=rX,o=rX'
+    recurse: true
+  when:
+    - installed_binary.stat.exists == false
+  become: true
+
 
 - name: Create start script in /usr/local/bin
   ansible.builtin.file:
@@ -41,4 +66,6 @@
     owner: root
     group: root
     state: link
+  when:
+    - installed_binary.stat.exists == false
   become: true
