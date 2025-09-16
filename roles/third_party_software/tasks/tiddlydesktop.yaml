@@ -1,0 +1,44 @@
+---
+- name: Check for existance of binary
+  stat:
+    path: /usr/local/bin/tiddlydesktop
+  register: installed_binary
+
+- name: Download archive
+  ansible.builtin.get_url:
+    url: https://github.com/TiddlyWiki/TiddlyDesktop/releases/download/v0.0.20/tiddlydesktop-linux64-v0.0.20.zip
+    dest: /var/ansible-cache/tiddlydesktop.zip
+    checksum: sha256:3ffc6c90588b81222fabae7af825615652b472ec53ce58d3fb5b8ed21afcff55
+  when:
+    - installed_binary.stat.exists == false
+  become: true
+
+- name: Create /opt/tiddlydesktop directory
+  ansible.builtin.file:
+    dest: /opt/tiddlydesktop
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  when:
+    - installed_binary.stat.exists == false
+  become: true
+
+- name: Unarchive file on the remote machine
+  ansible.builtin.unarchive:
+    src: /var/ansible-cache/tiddlydesktop.zip
+    dest: /opt/tiddlydesktop
+    remote_src: yes
+  when:
+    - installed_binary.stat.exists == false
+  become: true
+
+
+- name: Create start script in /usr/local/bin
+  ansible.builtin.file:
+    src: "/opt/tiddlydesktop/TiddlyDesktop-linux64-v0.0.20/nw"
+    dest: "/usr/local/bin/tiddlydesktop"
+    owner: root
+    group: root
+    state: link
+  become: true
