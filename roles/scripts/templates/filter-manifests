@@ -6,7 +6,19 @@
 set -euxo pipefail
 
 category=$1
-component=$2
+
+if [[ "$#" == 1 ]]; then
+  echo "INFO: No component explicitly specified, processing all manifests"
+  component='*'
+elif [[ "$#" == 2 ]]; then
+  component=$2
+else
+  echo "ERROR: Expected invocation: ${0} category [component]"
+  exit 1
+fi
+
+
+
 
 resource_filepath=./manifests/${component}/resources.yaml
 
@@ -28,36 +40,36 @@ all_filters="${crds_filter}|${data_filter}|${workload_filter}|${rbac_filter}"
 case $category in
 	crd|crds)
 		yq "${startfilter}${crds_filter}${endfilter}" \
-		$resource_filepath
+		"$resource_filepath"
 	;;
 	secret|secrets)
 		yq "${startfilter}${secrets_filter}${endfilter}" \
-		$resource_filepath
+		"$resource_filepath"
 	;;
 	config|configs)
 		yq "${startfilter}${config_filter}${endfilter}" \
-		$resource_filepath
+		"$resource_filepath"
 	;;
 	data)
 		yq "${startfilter}${data_filter}${endfilter}" \
-		$resource_filepath
+		"$resource_filepath"
 	;;
 	workload|workloads)
 		yq "${startfilter}${workload_filter}${endfilter}" \
-		$resource_filepath
+		"$resource_filepath"
 	;;
 	rbac)
 		yq "${startfilter}${rbac_filter}${endfilter}" \
-		$resource_filepath
+		"$resource_filepath"
 	;;
 	# inverted selections
 	non-crd)
 		yq "${startfilter}${crds_filter}${endfilter_inverse}" \
-		$resource_filepath
+		"$resource_filepath"
 	;;
 	rest)
 		yq "${startfilter}${all_filters}${endfilter_inverse}" \
-		$resource_filepath
+		"$resource_filepath"
 	;;
 	*)
 		echo "INFO: Category $category is not defined, assuming API resource"
@@ -67,6 +79,6 @@ case $category in
 		# In this case, since the pattern is omitted, it is treated like a ‘?’, which matches any single character.
 		# i.e. the  first character of the variable
 		yq "${startfilter}${category^}${endfilter}" \
-		$resource_filepath
+		"$resource_filepath"
 	;;
 esac
