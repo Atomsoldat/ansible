@@ -1,6 +1,0 @@
----
-- name: Delete Ubuntu Repo config for Ansible used for bootstrapping
-  ansible.builtin.file:
-    path: /etc/apt/sources.list.d/ansible.list
-    state: absent
-  become: true
