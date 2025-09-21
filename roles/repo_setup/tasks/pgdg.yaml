@@ -1,0 +1,17 @@
+---
+- name: PGDG repo | Get apt key
+  ansible.builtin.get_url:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    dest: /etc/apt/trusted.gpg.d/pgdg.asc
+    checksum: sha256:0144068502a1eddd2a0280ede10ef607d1ec592ce819940991203941564e8e76
+    mode: '0644'
+  become: true
+
+- name: PGDG repo | Add apt config file
+  ansible.builtin.template:
+    src: pgdg.sources.j2
+    dest: /etc/apt/sources.list.d/pgdg.sources
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
