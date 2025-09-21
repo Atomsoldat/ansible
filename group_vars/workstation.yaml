@@ -36,6 +36,7 @@ apt_packages_specific:
   - age
   # databases
   - mariadb-client
+  - postgresql-client-17
   # package management
   - apt-file
   - apt-listchanges
