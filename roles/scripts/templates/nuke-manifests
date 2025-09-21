@@ -13,7 +13,7 @@ case $answer in
   Y|y)
     echo "Immer vernichtet, wer ein Schöpfer sein muss. — Friedrich Nietzsche"
     sleep 0.5
-    k delete -f <(cat manifests/**/*)
+    kubectl delete -f <(cat manifests/**/*)
   ;;
   N|n)
     echo "Maybe later then"
