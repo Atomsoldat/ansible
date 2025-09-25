@@ -26,16 +26,17 @@
   become_user: "{{ user_name }}"
   become: true
 
-- name: Initialise submodules
-  ansible.builtin.command:
-    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule init"
-    chdir: "{{ user_home_dir }}"
-  become_user: "{{ user_name }}"
-  become: true
+# Not necessary i think
+#- name: Initialise submodules
+#  ansible.builtin.command:
+#    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule init"
+#    chdir: "{{ user_home_dir }}"
+#  become_user: "{{ user_name }}"
+#  become: true
 
 - name: Update submodules
   ansible.builtin.command:
-    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule update"
+    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule update --init --recursive"
     chdir: "{{ user_home_dir }}"
   become_user: "{{ user_name }}"
   become: true
