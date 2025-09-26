@@ -67,6 +67,8 @@ apt_packages_specific:
   - freeipmi
   - pwgen
   - remmina
+  - wireguard
+  - wireguard-tools
   # media
   - simple-scan
   - okular
