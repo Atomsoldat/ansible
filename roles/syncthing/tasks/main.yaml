@@ -16,12 +16,13 @@
     group: "{{ ansible_user_gid | default(ansible_facts.user_gid, true) }}"
     mode: '0640'
 
+# the watches consume RAM for each inode being watched, keep that in mind
 # https://docs.syncthing.net/users/faq.html#inotify-limits
 - name: Raise maximum number of inotify watches
   ansible.builtin.lineinfile:
     path: /etc/sysctl.d/10-syncthing.conf
     regexp: '^fs.inotify.max_user_watches='
-    line: fs.inotify.max_user_watches=204800
+    line: fs.inotify.max_user_watches=600000
     create: true
     owner: root
     group: root
