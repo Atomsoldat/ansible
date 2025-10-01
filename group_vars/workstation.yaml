@@ -190,6 +190,7 @@ homebrew_packages:
   - npm
   - nvm
   - hadolint
+  - liquibase
   - oras
   - minio/stable/mc
   - sops
