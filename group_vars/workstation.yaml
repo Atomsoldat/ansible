@@ -187,6 +187,7 @@ homebrew_packages:
   # https://github.com/ollama/ollama/blob/main/docs/linux.md
   - micromamba
   - pixi
+  - ruff
   - npm
   - nvm
   - hadolint
