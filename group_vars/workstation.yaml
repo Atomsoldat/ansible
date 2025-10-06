@@ -7,6 +7,10 @@ apt_packages_specific:
   - libreoffice
   - meld
   - texlive-full
+  - fonts-ebgaramond
+  - fonts-ebgaramond-extra
+  - fonts-ebgaramond-initials
+  - fonts-ebgaramond-initials-extra
   - texstudio
   - libimage-exiftool-perl
   - pandoc
