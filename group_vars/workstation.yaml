@@ -199,6 +199,7 @@ homebrew_packages:
   - minio/stable/mc
   - sops
   - dive
+  - grpcurl
   # kubernetes related
   - argocd
   - cilium-cli
