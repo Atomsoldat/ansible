@@ -52,3 +52,12 @@
     group: root
     mode: "0755"
   become: true
+
+- name: Template renovate branch fetch script
+  ansible.builtin.template:
+    src: renovate-fetch
+    dest: /usr/local/bin/beckon-undead
+    owner: root
+    group: root
+    mode: "0755"
+  become: true

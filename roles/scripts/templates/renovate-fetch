@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# select-renovate-branch.sh
+
+set -euo pipefail
+
+echo "Fetching remote branches..."
+git fetch origin -q
+
+# Find Renovate branches
+BRANCHES=$(git branch -r | grep -E 'origin/(.*renovate|renovate)/' | sed 's|^\s*origin/||' | sort)
+
+if [ -z "$BRANCHES" ]; then
+  echo "No Renovate branches found."
+  exit 0
+fi
+
+# Count branches
+COUNT=$(echo "$BRANCHES" | wc -l)
+
+if [ "$COUNT" -eq 1 ]; then
+  BRANCH=$(echo "$BRANCHES" | head -1)
+  echo "Found one Renovate branch: $BRANCH"
+  read -p "Check it out? (y/n) " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    git checkout "$BRANCH"
+  fi
+else
+  echo "Found $COUNT Renovate branches:"
+  echo "$BRANCHES" | nl
+  echo
+  read -p "Enter number to checkout (or 0 to skip): " NUM
+  if [ "$NUM" -gt 0 ] 2>/dev/null && [ "$NUM" -le "$COUNT" ]; then
+    BRANCH=$(echo "$BRANCHES" | sed -n "${NUM}p")
+    git checkout "$BRANCH"
+  fi
+fi
+
