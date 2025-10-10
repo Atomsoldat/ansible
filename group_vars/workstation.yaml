@@ -151,6 +151,9 @@ flatpaks:
   - identifier: com.github.qarmin.czkawka
     alias: czkawka
     command: "flatpak run com.github.qarmin.czkawka $@"
+  - identifier: io.dbeaver.DBeaverCommunity
+    alias: dbeaver
+    command: "flatpak run io.dbeaver.DBeaverCommunity $@"
   #- identifier: com.vscodium.codium
   #  alias: codium
   #  command: "flatpak run com.vscodium.codium $@"
