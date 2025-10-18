@@ -215,6 +215,7 @@ homebrew_packages:
   - kustomize
   - kind
   - kubescape
+  - openbao
   - popeye
   - helm
   - helmfile
