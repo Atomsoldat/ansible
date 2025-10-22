@@ -199,6 +199,7 @@ homebrew_packages:
   - hadolint
   - liquibase
   - oras
+  - mongosh
   - minio/stable/mc
   - sops
   - dive
