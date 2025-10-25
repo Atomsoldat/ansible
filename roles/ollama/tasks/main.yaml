@@ -4,6 +4,9 @@
   ansible.builtin.get_url:
     url: https://ollama.com/download/ollama-linux-amd64.tgz
     dest: /var/ansible-cache/ollama.tar.gz
+    owner: root
+    group: root
+    mode: "0644"
   become: true
 
 - name: Recursively delete /usr/lib/ollama directory
@@ -24,7 +27,7 @@
     name: "ollama"
     system: true
   become: true
-  
+
 - name: Create the system user ollama
   ansible.builtin.user:
     name: ollama
@@ -34,12 +37,12 @@
   become: true
 
 
-#- name: "Add ollama to linuxbrew group"
-#  ansible.builtin.user:
-#    name: "{{ linuxbrew_user }}"
-#    append: true
-#    groups: linuxbrew
-#  become: true
+# - name: "Add ollama to linuxbrew group"
+#   ansible.builtin.user:
+#     name: "{{ linuxbrew_user }}"
+#     append: true
+#     groups: linuxbrew
+#   become: true
 
 - name: Template /etc/systemd/system/ollama.service
   ansible.builtin.template:
@@ -49,7 +52,7 @@
     group: root
     mode: "0644"
   become: true
-  
+
 - name: Enable ollama service
   ansible.builtin.service:
     name: ollama.service
