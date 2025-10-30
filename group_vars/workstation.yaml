@@ -99,6 +99,7 @@ apt_packages_specific:
   - timewarrior
   # files
   - rsync
+  - rclone
   - s3cmd
   - s4cmd
   - deluge
