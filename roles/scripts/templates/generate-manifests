@@ -1,24 +1,22 @@
 #!/bin/bash
 
 # This script will hydrate the kustomisation of in each components subdirectory
+# or a specified subdirectory in components
 
-set -euxo pipefail
+set -exo pipefail
 
-builddir=$(mktemp -d)
+if [[ ! -z "$1" ]]; then
+	components=("$1")
+else
+	components=("$(ls ./components)")
+fi
 
-function cleanup(){
-	rm -rf ${builddir}
-}
-
-# run cleanup function no matter what
-trap cleanup EXIT
-
-for subdir in $(ls ./components); do
+set -u
+for subdir in "${components[@]}"; do
 
 	output_path="./manifests/${subdir}"
-	mkdir -p ${output_path}
+	mkdir -p "${output_path}"
 
-	kustomize build components/${subdir} --enable-helm > ${output_path}/resources.yaml
+	kustomize build components/"${subdir}" --enable-helm > "${output_path}"/resources.yaml
 
 done
-
