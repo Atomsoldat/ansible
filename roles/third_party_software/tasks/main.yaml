@@ -14,7 +14,6 @@
 - ansible.builtin.include_role:
     name: homebrew
 
-- ansible.builtin.include_tasks: sweet_home_3d.yaml
 - ansible.builtin.include_tasks: vscodium.yaml
 - ansible.builtin.include_tasks: kube-capacity.yaml
 - ansible.builtin.include_tasks: graalvm.yaml
