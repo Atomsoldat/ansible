@@ -15,7 +15,8 @@
 ###
 special_package_blacklist:
   Debian: {}
-  Archlinux: {}
+  Archlinux:
+    docker:
 generic_package_blacklist:
   firefox-esr:
   # multilanguage input tool and environment
@@ -23,7 +24,41 @@ generic_package_blacklist:
   # another multilanguage tool
   ibus:
 special_package_names:
-  Debian: {}
+  Debian:
+    python-is-python3:
+    cachefilesd:
+    ntpsec:
+    fonts-ebgaramond:
+    fonts-ebgaramond-extra:
+    fonts-ebgaramond-initials:
+    fonts-ebgaramond-initials-extra:
+    wcalc:
+    temurin-23-jdk:
+    vagrant:
+    apt-file:
+    apt-listchanges:
+    alien:
+    aptitude:
+    wajig:
+    nix-setup-systemd:
+    google-cloud-cli:
+    google-cloud-sdk-gke-gcloud-auth-plugin:
+    genisoimage:
+    oneko:
+    qbrew:
+    s4cmd:
+    nextcloud-desktop-cmd:
+    telnet:
+    network-manager:
+    wireguard:
+    # dependencies for appimages
+    libfuse2:
+    fuse:
+    # xfce4 stuff
+    xfce4:
+    xfce4-goodies:
+    # kernel stuff
+    firmware-misc-nonfree:
   Archlinux: {}
 generic_package_names:
   # development
@@ -32,82 +67,76 @@ generic_package_names:
   tmux:
   ripgrep:
   shellcheck:
-  python-is-python3:
   # admin
   gpg:
+    Archlinux: gnupg
   nmap:
-  snapd:
   htop:
   btop:
   powertop:
   lshw:
   oathtool:
+    Archlinux: oath-toolkit
   vault:
   ansible:
   ansible-lint:
   terraform:
   tofu:
+    Archlinux: opentofu
   # media
   # storage
   nfs-common:
-  cachefilesd:
+    Archlinux: nfs-utils
   # communication
   # system
-  ntpsec:
   dex:
   # text
   jq:
   libreoffice:
   meld:
   texlive-full:
-  fonts-ebgaramond:
-  fonts-ebgaramond-extra:
-  fonts-ebgaramond-initials:
-  fonts-ebgaramond-initials-extra:
+    Archlinux: texlive-meta
   texstudio:
   libimage-exiftool-perl:
+    Archlinux: perl-image-exiftool
   pandoc:
-  wcalc:
   xsel:
   neovim:
   # development
-  python3-pip:
   pipx:
+    Archlinux: python-pipx
   maven:
   java-common:
-  temurin-23-jdk:
-  #- openjdk-17-jdk
+    Archlinux: jdk-openjdk
   golang-1.24:
+    Archlinux: go
   cmake:
   codium:
+    Archlinux: code
   graphviz:
   astyle:
   hugo:
   yamllint:
-  vagrant:
   distrobox:
   plantuml:
   packer:
   qemu-utils:
+    Debian: qemu-utils
+    Archlinux: qemu-tools
   git-crypt:
   age:
   # databases
   mariadb-client:
+    Archlinux: mariadb-clients
   postgresql-client-17:
+    Archlinux: postgresql-libs
   # package management
-  apt-file:
-  apt-listchanges:
-  alien:
-  aptitude:
   flatpak:
-  wajig:
-  nix-setup-systemd:
   nix-bin:
-  # cloud provider-stuff
-  google-cloud-cli:
-  google-cloud-sdk-gke-gcloud-auth-plugin:
+    Archlinux: nix
   # BEGIN docker stuff
   docker.io:
+    Archlinux: podman-docker
   # END docker stuff
   # admin
   keepassxc:
@@ -119,10 +148,8 @@ generic_package_names:
   simple-scan:
   okular:
   vlc:
-  caffeine:
   yt-dlp:
   ffmpeg:
-  genisoimage:
   feh:
   chromium:
   ncmpcpp:
@@ -133,14 +160,14 @@ generic_package_names:
   f3d:
   openscad:
   # entertainment
-  oneko:
-  qbrew:
   wine:
   winetricks:
   # organisation
   gnucash:
   taskwarrior:
+    Archlinux: taskwarrior-tui
   timewarrior:
+    Archlinux: timew
   # files
   wget:
   curl:
@@ -150,11 +177,10 @@ generic_package_names:
   rsync:
   rclone:
   s3cmd:
-  s4cmd:
   deluge:
   thunar:
   nextcloud-desktop:
-  nextcloud-desktop-cmd:
+    Archlinux: nextcloud-client
   syncthing:
   # communication
   thunderbird:
@@ -171,26 +197,17 @@ generic_package_names:
   arandr:
   # END awesome stuff
   #- cinnamon
-  # xfce4 stuff
-  xfce4:
-  xfce4-goodies:
   # END DE stuff
   # networkstuff
   netcat-openbsd:
-  telnet:
+    Archlinux: openbsd-netcat
   whois:
-  network-manager:
   openconnect:
-  wireguard:
   wireguard-tools:
   # peripherals
   solaar:
-  # dependencies for appimages
-  libfuse2:
-  fuse:
-  # kernel stuff
-  firmware-misc-nonfree:
   linux-headers-amd64:
+    Archlinux: linux-headers
 
 flatpaks:
 #  - identifier: dev.zed.Zed
