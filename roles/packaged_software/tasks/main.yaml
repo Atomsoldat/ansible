@@ -1,21 +1,38 @@
 ---
+
 - name: Build list of all desired packages
   ansible.builtin.set_fact:
-    __packaged_software_apt_packages: "{{ apt_packages_general + apt_packages_specific }}"
+    # use custom filter for finding package names based on ansible_os_family
+    # because that reduces the amount of duplication
+    __packaged_software_pkgs_to_install: "{{ (special_package_names[ansible_os_family] | dict2items | map(attribute='key') | list) + (generic_package_names | select_package_names(ansible_os_family)) }}"
 
 - name: Build blacklist of all unwanted packages
   ansible.builtin.set_fact:
-    __packaged_software_apt_blacklist: "{{ apt_blacklist_general + apt_blacklist_specific }}"
+    __packaged_software_pkgs_to_remove: "{{ (special_package_blacklist[ansible_os_family] | dict2items | map(attribute='key') | list) + (generic_package_blacklist | select_package_names(ansible_os_family)) }}"
 
 - name: Install software using apt
   when: ansible_os_family == 'Debian'
   ansible.builtin.apt:
-    pkg: "{{ __packaged_software_apt_packages }}"
+    pkg: "{{ __packaged_software_pkgs_to_install }}"
   become: true
 
-- name: Uinstall unwanted software using apt
+- name: Uninstall unwanted software using apt
   when: ansible_os_family == 'Debian'
   ansible.builtin.apt:
-    pkg: "{{ __packaged_software_apt_blacklist }}"
+    pkg: "{{ __packaged_software_pkgs_to_remove }}"
+    state: absent
+  become: true
+
+- name: Install software using pacman
+  when: ansible_os_family == 'Archlinux'
+  community.general.pacman:
+    name: "{{ __packaged_software_pkgs_to_install }}"
+    state: present
+  become: true
+
+- name: Uninstall unwanted software using pacman
+  when: ansible_os_family == 'Archlinux'
+  community.general.pacman:
+    name: "{{ __packaged_software_pkgs_to_remove }}"
     state: absent
   become: true

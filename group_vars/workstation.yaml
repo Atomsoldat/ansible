@@ -1,149 +1,196 @@
 ---
-apt_blacklist_specific:
-  - firefox-esr
-
-apt_packages_specific:
-  # text
-  - libreoffice
-  - meld
-  - texlive-full
-  - fonts-ebgaramond
-  - fonts-ebgaramond-extra
-  - fonts-ebgaramond-initials
-  - fonts-ebgaramond-initials-extra
-  - texstudio
-  - libimage-exiftool-perl
-  - pandoc
-  - wcalc
-  - xsel
-  - neovim
-  # design:
-  - gimp
-  - f3d
-  - openscad
+### Reminder how we want to structure this
+#generic_package_names:
+#  xyz:
+#    Archlinux: xyz-arch
+#  neovim:
+#  abc:
+#    Debian: abc-debian
+#    Archlinux: abc-arch
+#special_package_names:
+#  Debian:
+#    unique-apt:
+#  Archlinux:
+#    unique-arch:
+###
+special_package_blacklist:
+  Debian: {}
+  Archlinux: {}
+generic_package_blacklist:
+  firefox-esr:
+  # multilanguage input tool and environment
+  uim:
+  # another multilanguage tool
+  ibus:
+special_package_names:
+  Debian: {}
+  Archlinux: {}
+generic_package_names:
   # development
-  - python3-pip
-  - pipx
-  - maven
-  - cmake
-  - codium
-  - graphviz
-  - astyle
-  - hugo
-  - yamllint
-  - vagrant
-  - distrobox
-  - plantuml
-  - packer
-  - qemu-utils
-  - git-crypt
-  - age
-  # databases
-  - mariadb-client
-  - postgresql-client-17
-  # package management
-  - apt-file
-  - apt-listchanges
-  - alien
-  - aptitude
-  - flatpak
-  - wajig
-  - nix-setup-systemd
-  - nix-bin
-  # cloud provider-stuff
-  - google-cloud-cli
-  - google-cloud-sdk-gke-gcloud-auth-plugin
-  # BEGIN docker stuff
-  - docker.io
-  # END docker stuff
-  # java stuff
-  - java-common
-  - temurin-23-jdk
-  #- openjdk-17-jdk
-  - maven
-  # go stuff
-  - golang-1.24
+  git:
+  zsh:
+  tmux:
+  ripgrep:
+  shellcheck:
+  python-is-python3:
   # admin
-  - ansible
-  - ansible-lint
-  - keepassxc
-  - ipmitool
-  - freeipmi
-  - pwgen
-  - remmina
-  - wireguard
-  - wireguard-tools
+  gpg:
+  nmap:
+  snapd:
+  htop:
+  btop:
+  powertop:
+  lshw:
+  oathtool:
+  vault:
+  ansible:
+  ansible-lint:
+  terraform:
+  tofu:
   # media
-  - simple-scan
-  - okular
-  - vlc
-  - caffeine
-  - yt-dlp
-  - ffmpeg
-  - genisoimage
-  - feh
-  - chromium
-  - ncmpcpp
-  - mpd
-  - cheese
-  - flameshot
-  - gimp
-  # entertainment
-  - oneko
-  - qbrew
-  - wine
-  - winetricks
-  # organisation
-  - gnucash
-  - taskwarrior
-  - timewarrior
-  # files
-  - rsync
-  - rclone
-  - s3cmd
-  - s4cmd
-  - deluge
-  - thunar
-  - nextcloud-desktop
-  - nextcloud-desktop-cmd
-  - syncthing
+  # storage
+  nfs-common:
+  cachefilesd:
   # communication
-  - thunderbird
+  # system
+  ntpsec:
+  dex:
+  # text
+  jq:
+  libreoffice:
+  meld:
+  texlive-full:
+  fonts-ebgaramond:
+  fonts-ebgaramond-extra:
+  fonts-ebgaramond-initials:
+  fonts-ebgaramond-initials-extra:
+  texstudio:
+  libimage-exiftool-perl:
+  pandoc:
+  wcalc:
+  xsel:
+  neovim:
+  # development
+  python3-pip:
+  pipx:
+  maven:
+  java-common:
+  temurin-23-jdk:
+  #- openjdk-17-jdk
+  golang-1.24:
+  cmake:
+  codium:
+  graphviz:
+  astyle:
+  hugo:
+  yamllint:
+  vagrant:
+  distrobox:
+  plantuml:
+  packer:
+  qemu-utils:
+  git-crypt:
+  age:
+  # databases
+  mariadb-client:
+  postgresql-client-17:
+  # package management
+  apt-file:
+  apt-listchanges:
+  alien:
+  aptitude:
+  flatpak:
+  wajig:
+  nix-setup-systemd:
+  nix-bin:
+  # cloud provider-stuff
+  google-cloud-cli:
+  google-cloud-sdk-gke-gcloud-auth-plugin:
+  # BEGIN docker stuff
+  docker.io:
+  # END docker stuff
+  # admin
+  keepassxc:
+  ipmitool:
+  freeipmi:
+  pwgen:
+  remmina:
+  # media
+  simple-scan:
+  okular:
+  vlc:
+  caffeine:
+  yt-dlp:
+  ffmpeg:
+  genisoimage:
+  feh:
+  chromium:
+  ncmpcpp:
+  mpd:
+  cheese:
+  flameshot:
+  gimp:
+  f3d:
+  openscad:
+  # entertainment
+  oneko:
+  qbrew:
+  wine:
+  winetricks:
+  # organisation
+  gnucash:
+  taskwarrior:
+  timewarrior:
+  # files
+  wget:
+  curl:
+  ncdu:
+  7zip:
+  pax:
+  rsync:
+  rclone:
+  s3cmd:
+  s4cmd:
+  deluge:
+  thunar:
+  nextcloud-desktop:
+  nextcloud-desktop-cmd:
+  syncthing:
+  # communication
+  thunderbird:
   # system
   # desktop stuff
-  - alacritty
+  alacritty:
   # BEGIN awesome stuff
-  - awesome
+  awesome:
   # outputs battery charge
-  - acpi
+  acpi:
   # screen brightness
-  - brightnessctl
+  brightnessctl:
   # manage screen layouts
-  - arandr
+  arandr:
   # END awesome stuff
   #- cinnamon
   # xfce4 stuff
-  - xfce4
-  - xfce4-goodies
-  # shell stuff
-  - zsh
-  - tmux
+  xfce4:
+  xfce4-goodies:
   # END DE stuff
   # networkstuff
-  - netcat-openbsd
-  - telnet
-  - whois
-  - network-manager
-  - openconnect
-  - wireguard
+  netcat-openbsd:
+  telnet:
+  whois:
+  network-manager:
+  openconnect:
+  wireguard:
+  wireguard-tools:
   # peripherals
-  - solaar
+  solaar:
   # dependencies for appimages
-  - libfuse2
-  - fuse
+  libfuse2:
+  fuse:
   # kernel stuff
-  - firmware-misc-nonfree
-  - linux-headers-amd64
+  firmware-misc-nonfree:
+  linux-headers-amd64:
 
 flatpaks:
 #  - identifier: dev.zed.Zed
