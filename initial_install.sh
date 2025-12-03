@@ -34,18 +34,23 @@ ssh-add
 # as well as all other repos we need
 ansible-playbook  playbooks/repo_setup.yaml --become-password-file ${ansible_password_file}  -i inventory.yaml
 
-sudo apt-get update && sudo apt-get dist-upgrade
-sudo apt-get autoremove
+source /etc/os-release
+
+if [[ "$PRETTY_NAME" == "Debian" ]]; then
+  sudo apt-get update && sudo apt-get dist-upgrade
+  sudo apt-get autoremove
+  ansible-playbook  playbooks/config.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
+fi
 
 # install all desired software
 ansible-playbook  playbooks/software_installation.yaml --become-password-file ${ansible_password_file}  -i inventory.yaml
 
 ansible-playbook  playbooks/script_installation.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
 
-ansible-playbook  playbooks/config.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
 
 ansible-playbook  playbooks/fonts.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
 ansible-playbook  playbooks/storage.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
 
 echo "INFO: Note, that the homedir_setup role needs a valid SSH key in the ssh-agent"
 ansible-playbook  playbooks/homedir_setup.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
+
