@@ -242,6 +242,7 @@ flatpaks:
 homebrew_taps:
   - quarkusio/tap
   - minio/stable
+  - bufbuild/buf
 
 homebrew_packages:
   - zig
