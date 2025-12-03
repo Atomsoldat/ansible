@@ -1,25 +1,36 @@
 ---
 - name: Configure Debian Repo
   ansible.builtin.include_tasks: debian.yaml
-- name: Configure Adoptiumn Repo
+  when: ansible_facts['os_family'] == 'Debian'
+- name: Configure Adoptium Repo
   ansible.builtin.include_tasks: adoptium.yaml
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure Hashicorp Repo
   ansible.builtin.include_tasks: hashicorp.yaml
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure Docker Repo
   ansible.builtin.include_tasks: docker.yaml
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure Google Cloud Repo
   ansible.builtin.include_tasks: google-cloud-sdk.yaml
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure Opentofu Repo
   ansible.builtin.include_tasks: opentofu.yaml
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure Nvidia Container Toolkit Repo
   ansible.builtin.include_tasks: nvidia-container-toolkit.yaml
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure Syncthing Repo
   ansible.builtin.include_tasks: syncthing.yaml
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure VSCodium Repo
   ansible.builtin.include_tasks: vscodium.yaml
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure PGDG Repo
   ansible.builtin.include_tasks: pgdg.yaml
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Update apt cache
   ansible.builtin.apt:
     update_cache: true
   become: true
+  when: ansible_facts['os_family'] == 'Debian'
