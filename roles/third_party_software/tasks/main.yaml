@@ -8,14 +8,25 @@
     mode: "0755"
   become: true
 
-- include_tasks: tiddlydesktop.yaml
 
-# install homebrew using adapted role
-- ansible.builtin.include_role:
+
+- name: Set up homebrew using adapted role
+  ansible.builtin.include_role:
     name: homebrew
 
-- ansible.builtin.include_tasks: vscodium.yaml
-- ansible.builtin.include_tasks: kube-capacity.yaml
-- ansible.builtin.include_tasks: graalvm.yaml
-- ansible.builtin.include_tasks: flatpaks.yaml
-- ansible.builtin.include_tasks: homebrew.yaml
+# we install the 'code' package on arch
+- name: Install deb package for vscodium
+  ansible.builtin.include_tasks: vscodium_deb.yaml
+  when:
+    - ansible_facts['os_family'] == 'Debian'
+
+- name: Install tiddlydesktop
+  ansible.builtin.include_tasks: tiddlydesktop.yaml
+- name: Install kube-capacity
+  ansible.builtin.include_tasks: kube-capacity.yaml
+- name: Install GraalVM
+  ansible.builtin.include_tasks: graalvm.yaml
+- name: Install desired Flatpaks
+  ansible.builtin.include_tasks: flatpaks.yaml
+- name: Install desired homebrew packages
+  ansible.builtin.include_tasks: homebrew.yaml

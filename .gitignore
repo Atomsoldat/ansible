@@ -1,4 +1,5 @@
 .vscode
+.ansible
 TODO.md
 snippets/
 roles/homebrew/README_original.md
