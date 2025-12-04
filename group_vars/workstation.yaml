@@ -250,6 +250,7 @@ homebrew_packages:
   - golang
   - delve
   - quarkusio/tap/quarkus
+  - tilt
   - yj
   # this is the (nicer) mike farah version
   # https://github.com/mikefarah/yq
