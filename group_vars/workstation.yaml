@@ -83,6 +83,10 @@ generic_package_names:
   terraform:
   tofu:
     Archlinux: opentofu
+  nodejs:
+  nodejs-corepack:
+    Archlinux: corepack
+    Debian: node-corepack
   # media
   # storage
   nfs-common:
