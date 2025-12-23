@@ -262,7 +262,6 @@ homebrew_packages:
   - pixi
   - ruff
   - npm
-  - yarn
   - nvm
   - hadolint
   - liquibase
