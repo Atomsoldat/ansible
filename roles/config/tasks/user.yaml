@@ -3,6 +3,16 @@
   ansible.builtin.user:
     name: leon
     shell: /bin/zsh
-    groups: sudo,docker,linuxbrew,nix-users
+    groups: sudo,docker,linuxbrew
     append: true
   become: true
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Add the user 'leon' with a zsh shell, appending groups needed for our config
+  ansible.builtin.user:
+    name: leon
+    shell: /bin/zsh
+    groups: wheel,docker,linuxbrew
+    append: true
+  become: true
+  when: ansible_facts['os_family'] == 'Archlinux'
