@@ -39,13 +39,14 @@ source /etc/os-release
 if [[ "$PRETTY_NAME" == "Debian" ]]; then
   sudo apt-get update && sudo apt-get dist-upgrade
   sudo apt-get autoremove
-  ansible-playbook  playbooks/config.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
 fi
+
 
 # install all desired software
 ansible-playbook  playbooks/software_installation.yaml --become-password-file ${ansible_password_file}  -i inventory.yaml
 
 ansible-playbook  playbooks/script_installation.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
+ansible-playbook  playbooks/config.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
 
 
 ansible-playbook  playbooks/fonts.yaml --become-password-file ${ansible_password_file} -i inventory.yaml
