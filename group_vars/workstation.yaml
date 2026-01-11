@@ -16,7 +16,7 @@
 special_package_blacklist:
   Debian: {}
   Archlinux:
-    docker:
+    podman-docker:
 generic_package_blacklist:
   firefox-esr:
   # multilanguage input tool and environment
@@ -28,6 +28,7 @@ special_package_names:
     python-is-python3:
     cachefilesd:
     ntpsec:
+    cheese:
     fonts-ebgaramond:
     fonts-ebgaramond-extra:
     fonts-ebgaramond-initials:
@@ -104,6 +105,7 @@ generic_package_names:
   libimage-exiftool-perl:
     Archlinux: perl-image-exiftool
   pandoc:
+  podman:
   xsel:
   neovim:
   # development
@@ -138,7 +140,7 @@ generic_package_names:
     Archlinux: nix
   # BEGIN docker stuff
   docker.io:
-    Archlinux: podman-docker
+    Archlinux: docker
   # END docker stuff
   # admin
   keepassxc:
@@ -156,7 +158,6 @@ generic_package_names:
   chromium:
   ncmpcpp:
   mpd:
-  cheese:
   flameshot:
   gimp:
   f3d:
