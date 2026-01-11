@@ -14,7 +14,7 @@
   ansible.builtin.file:
     dest: /usr/local/share/fonts
     owner: root
-    group: staff
+    group: root
     mode: "u=rwX,g=rwX,o=rX"
     recurse: true
   become: true
