@@ -3,3 +3,4 @@
 - ansible.builtin.include_tasks: networking.yaml
 - ansible.builtin.include_tasks: custom_desktop_shortcut_override.yaml
 - ansible.builtin.include_tasks: user.yaml
+- ansible.builtin.include_tasks: disable_internal_speaker.yaml

@@ -1,0 +1,12 @@
+---
+# https://wiki.archlinux.org/title/PC_speaker
+# Normally, the speaker will issue "informative feedback"
+# when trying to e.g. delete characters from an empty text field
+- name: Disable internal speaker (prevents annoying beeps)
+  ansible.builtin.copy:
+    src: nobeep.conf
+    dest: /etc/modprobe.d/nobeep.conf
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
