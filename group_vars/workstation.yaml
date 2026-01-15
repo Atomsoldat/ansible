@@ -141,6 +141,7 @@ generic_package_names:
   # BEGIN docker stuff
   docker.io:
     Archlinux: docker
+  docker-compose:
   # END docker stuff
   # admin
   keepassxc:
