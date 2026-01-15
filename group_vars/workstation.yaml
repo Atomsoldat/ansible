@@ -48,7 +48,7 @@ special_package_names:
     oneko:
     qbrew:
     s4cmd:
-    nextcloud-desktop-cmd:
+    #nextcloud-desktop-cmd:
     telnet:
     network-manager:
     wireguard:
@@ -183,8 +183,8 @@ generic_package_names:
   s3cmd:
   deluge:
   thunar:
-  nextcloud-desktop:
-    Archlinux: nextcloud-client
+  #nextcloud-desktop:
+  #  Archlinux: nextcloud-client
   syncthing:
   # communication
   thunderbird:
