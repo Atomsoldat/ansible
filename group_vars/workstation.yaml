@@ -62,6 +62,7 @@ special_package_names:
     firmware-misc-nonfree:
   Archlinux: {}
 generic_package_names:
+  openresolv:
   # development
   git:
   zsh:
