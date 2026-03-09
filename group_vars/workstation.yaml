@@ -218,6 +218,9 @@ flatpaks:
 #  - identifier: dev.zed.Zed
 #    alias: zed
 #    command: "flatpak run dev.zed.Zed $@"
+  - identifier: de.bund.ausweisapp.ausweisapp2
+    alias: ausweisapp
+    command: "flatpak run de.bund.ausweisapp.ausweisapp2 $@"
   - identifier: com.github.qarmin.czkawka
     alias: czkawka
     command: "flatpak run com.github.qarmin.czkawka $@"
