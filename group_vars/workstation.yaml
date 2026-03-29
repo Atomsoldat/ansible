@@ -283,6 +283,7 @@ homebrew_packages:
   - dive
   - grpcurl
   - bufbuild/buf/buf
+  - lima
   # kubernetes related
   - argocd
   - cilium-cli
