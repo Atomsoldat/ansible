@@ -266,6 +266,7 @@ homebrew_packages:
   - cocogitto
   - tilt
   - yj
+  - lima
   # this is the (nicer) mike farah version
   # https://github.com/mikefarah/yq
   # the one in the package sources is the slightly less nice variant
