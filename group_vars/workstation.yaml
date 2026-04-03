@@ -215,6 +215,9 @@ generic_package_names:
     Archlinux: linux-headers
 
 flatpaks:
+  - identifier: org.prismlauncher.PrismLauncher
+    alias: prismlauncher
+    command: "flatpak run org.prismlauncher.PrismLauncher $@"
 #  - identifier: dev.zed.Zed
 #    alias: zed
 #    command: "flatpak run dev.zed.Zed $@"
