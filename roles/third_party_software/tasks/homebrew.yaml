@@ -11,4 +11,4 @@
     upgrade_all: true
   # PATH does not contain the homebrew bin dir at this point yet, that comes from the user's config
   environment:
-    PATH: /home/linuxbrew/bin:{{ ansible_env.PATH }}
+    PATH: /home/linuxbrew/bin:{{ ansible_facts['env']['PATH'] }}

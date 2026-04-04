@@ -9,7 +9,7 @@
 
 # TODO: Rethink naming, it's a bit silly to call the variables two different names
 # just so we can assign default values here
-linuxbrew_user: "{{ homebrew_user | default(ansible_user_id) }}"
+linuxbrew_user: "{{ homebrew_user | default(ansible_facts['user_id']) }}"
 linuxbrew_group: "{{ homebrew_group | default('linuxbrew') }}"
 
 homebrew_repo: https://github.com/Homebrew/brew

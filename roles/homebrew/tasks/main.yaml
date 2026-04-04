@@ -21,7 +21,7 @@
     owner: "{{ homebrew_user }}"
     state: directory
   become: true
-  when: ansible_machine == 'arm64'
+  when: ansible_facts['machine'] == 'arm64'
 
 - name: Ensure Homebrew parent directory has correct permissions.
   file:
@@ -96,7 +96,7 @@
 - name: Add missing folder if not on Apple-chipset
   set_fact:
     homebrew_folders_base: "{{ homebrew_folders_base + ['Homebrew'] }}"
-  when: ansible_machine != 'arm64'
+  when: ansible_facts['machine'] != 'arm64'
 
 - name: Ensure proper homebrew folders are in place.
   file:
@@ -114,7 +114,7 @@
 - name: Perform brew installation.
   # Privilege escalation is only required for inner steps when
   # the `homebrew_user` doesn't match the `ansible_user_id`
-  become: "{{ (homebrew_user != ansible_user_id) | bool }}"
+  become: "{{ (homebrew_user != ansible_facts['user_id']) | bool }}"
   become_user: "{{ homebrew_user }}"
   block:
     - name: Force update brew after installation.
