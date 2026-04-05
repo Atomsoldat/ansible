@@ -1,0 +1,12 @@
+  - name: Check if flake is already in nix profile
+    command: nix profile list                                                                                                                                            
+    register: nix_profile_list
+    changed_when: false
+
+  - name: Install nix flake packages 
+    command: nix profile install "{{ playbook_dir }}"
+    when: "'ansible' not in nix_profile_list.stdout"
+
+  - name: Upgrade nix flake packages
+    command: nix profile upgrade ansible
+    when: "'ansible' in nix_profile_list.stdout"

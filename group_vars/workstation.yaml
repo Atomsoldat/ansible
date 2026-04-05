@@ -267,6 +267,7 @@ homebrew_packages:
   - tilt
   - yj
   - lima
+  - restic
   # this is the (nicer) mike farah version
   # https://github.com/mikefarah/yq
   # the one in the package sources is the slightly less nice variant
@@ -293,9 +294,7 @@ homebrew_packages:
   - cilium-cli
   - clusterctl
   - istioctl
-  - k9s
   - kubeconform
-  - kubectl
   - kubent
   - kustomize
   - kind
@@ -304,5 +303,4 @@ homebrew_packages:
   - popeye
   - helm
   - helmfile
-  - minikube
   - stern

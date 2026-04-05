@@ -37,3 +37,5 @@
     state: present
   become: true
 
+- name: Perform nix daemon configuration
+  ansible.builtin.include_tasks: nix_setup.yaml

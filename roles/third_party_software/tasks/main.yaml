@@ -30,3 +30,5 @@
   ansible.builtin.include_tasks: flatpaks.yaml
 - name: Install desired homebrew packages
   ansible.builtin.include_tasks: homebrew.yaml
+- name: Install desired nix packages
+  ansible.builtin.include_tasks: nix.yaml
