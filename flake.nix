@@ -41,7 +41,7 @@
   # so in our case, outputs is equal to a function
   # the arguments of the function come first, and the body of the function comes after the colon
   
-  # ... is a way of saying "its okay when other stuff is in the dicitionary, dont error out ovver that"
+  # ... is a way of saying "its okay when other stuff is in the dictionary, dont error out over that"
   # the squiggly braces thing is an argument destructuring, which defines which arguments with which exact names our function takes
   # see https://nix.dev/tutorials/nix-language.html#attribute-set-argument
   # 

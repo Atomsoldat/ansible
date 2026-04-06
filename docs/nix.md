@@ -1,12 +1,14 @@
 
-Test whether the nix flake works
+Test whether the nix flake works (apparently, the `#default`-bit is implicit, if we do not pass it)
 ```bash
 nix build '.#default'
+nix build .
 ```
 
 Install packages from our flake
 ```bash
 nix profile install '.#default'
+nix profile install .
 ```
 
 
