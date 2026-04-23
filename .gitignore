@@ -5,3 +5,6 @@ snippets/
 roles/homebrew/README_original.md
 **/__pycache__**
 result
+# pixi environments
+.pixi/*
+!.pixi/config.toml
