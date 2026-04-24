@@ -294,6 +294,7 @@ homebrew_packages:
   - cilium-cli
   - clusterctl
   - istioctl
+  - kubectl-cnpg
   - kubeconform
   - kubent
   - kustomize
