@@ -277,6 +277,8 @@ homebrew_packages:
   - micromamba
   - pixi
   - ruff
+  - uv
+  - just
   - npm
   - nvm
   - hadolint
