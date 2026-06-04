@@ -65,6 +65,7 @@ generic_package_names:
   openresolv:
   # development
   git:
+  fzf:
   zsh:
   tmux:
   ripgrep:
@@ -268,6 +269,7 @@ homebrew_packages:
   - yj
   - lima
   - restic
+  - git-delta
   # this is the (nicer) mike farah version
   # https://github.com/mikefarah/yq
   # the one in the package sources is the slightly less nice variant
