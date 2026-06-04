@@ -18,7 +18,6 @@ special_package_blacklist:
   Archlinux:
     podman-docker:
 generic_package_blacklist:
-  firefox-esr:
   # multilanguage input tool and environment
   uim:
   # another multilanguage tool
