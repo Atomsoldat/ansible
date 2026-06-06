@@ -1,7 +1,10 @@
+# We have to be stricter with which distro to use apt sources on
+# with regard to the core repos than third party stuff
 ---
 - name: Configure Debian Repo
   ansible.builtin.include_tasks: debian.yaml
-  when: ansible_facts['os_family'] == 'Debian'
+  when: ansible_facts['distribution']  == 'Debian'
+
 - name: Configure Adoptium Repo
   ansible.builtin.include_tasks: adoptium.yaml
   when: ansible_facts['os_family'] == 'Debian'
@@ -14,9 +17,12 @@
 - name: Configure Google Cloud Repo
   ansible.builtin.include_tasks: google-cloud-sdk.yaml
   when: ansible_facts['os_family'] == 'Debian'
-- name: Configure Opentofu Repo
-  ansible.builtin.include_tasks: opentofu.yaml
-  when: ansible_facts['os_family'] == 'Debian'
+#- name: Configure Opentofu Repo
+#  ansible.builtin.include_tasks: opentofu.yaml
+#  when: ansible_facts['os_family'] == 'Debian'
+
+# works for both debian and ubuntu
+# https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 - name: Configure Nvidia Container Toolkit Repo
   ansible.builtin.include_tasks: nvidia-container-toolkit.yaml
   when: ansible_facts['os_family'] == 'Debian'

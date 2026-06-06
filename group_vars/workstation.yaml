@@ -83,8 +83,6 @@ generic_package_names:
   ansible:
   ansible-lint:
   terraform:
-  tofu:
-    Archlinux: opentofu
   nodejs:
   nodejs-corepack:
     Archlinux: corepack
@@ -276,6 +274,7 @@ homebrew_packages:
   # https://grafana.com/docs/mimir/latest/manage/tools/mimirtool/
   - mimirtool
   - micromamba
+  - opentofu
   - pixi
   - ruff
   - uv
