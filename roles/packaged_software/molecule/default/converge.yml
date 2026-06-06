@@ -1,0 +1,25 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: true
+  vars:
+    # Override with a small subset of packages to keep tests fast.
+    # The full list in group_vars/workstation.yaml includes packages
+    # from third-party repos that repo_setup configures, but installing
+    # all of them would be slow and is not the point of this test.
+    generic_package_names:
+      jq:
+      tmux:
+      git:
+      wget:
+    special_package_names:
+      Debian: {}
+      Archlinux: {}
+    generic_package_blacklist: {}
+    special_package_blacklist:
+      Debian: {}
+      Archlinux: {}
+  roles:
+    - role: essential_packages
+    - role: repo_setup
+    - role: packaged_software

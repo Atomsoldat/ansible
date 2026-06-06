@@ -1,0 +1,14 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check that test packages are installed
+      ansible.builtin.command:
+        cmd: "which {{ item }}"
+      changed_when: false
+      loop:
+        - jq
+        - tmux
+        - git
+        - wget
