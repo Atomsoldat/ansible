@@ -1,0 +1,72 @@
+# TODO: i  am pretty sure this can be done more intelligently with regard to testing
+# for certain files depending on the distro
+# likewise, we currently just assume, that the debian gpg keys already exist
+---
+- name: Verify
+  hosts: all
+  gather_facts: true
+  tasks:
+
+    - name: Check apt sources files exist
+      ansible.builtin.stat:
+        path: "{{ item }}"
+      register: debian_sources_result
+      loop:
+        - /etc/apt/sources.list.d/debian.sources
+        - /etc/apt/preferences.d/99_stable_fallback.pref
+      when: ansible_facts['distribution']  == 'Debian'
+
+
+    - name: Assert debian apt sources files exist
+      ansible.builtin.assert:
+        that: item.stat.exists
+        fail_msg: "Expected file {{ item.item }} does not exist"
+      loop: "{{ debian_sources_result.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+      when: ansible_facts['distribution']  == 'Debian'
+
+    - name: Check apt sources files exist
+      ansible.builtin.stat:
+        path: "{{ item }}"
+      register: sources_result
+      loop:
+        - /etc/apt/sources.list.d/docker.sources
+        - /etc/apt/sources.list.d/hashicorp.sources
+        - /etc/apt/sources.list.d/adoptium.sources
+        - /etc/apt/sources.list.d/google-cloud-sdk.sources
+        - /etc/apt/sources.list.d/syncthing.sources
+        - /etc/apt/sources.list.d/vscodium.sources
+        - /etc/apt/sources.list.d/pgdg.sources
+        - /etc/apt/sources.list.d/nvidia-container-toolkit_stable.sources
+        - /etc/apt/preferences.d/20_syncthing.pref
+
+    - name: Assert all apt sources files exist
+      ansible.builtin.assert:
+        that: item.stat.exists
+        fail_msg: "Expected file {{ item.item }} does not exist"
+      loop: "{{ sources_result.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+    - name: Check GPG keys exist
+      ansible.builtin.stat:
+        path: "{{ item }}"
+      register: gpg_result
+      loop:
+        - /etc/apt/trusted.gpg.d/docker.asc
+        - /etc/apt/trusted.gpg.d/hashicorp.asc
+        - /etc/apt/trusted.gpg.d/adoptium.asc
+        - /etc/apt/trusted.gpg.d/google.asc
+        - /etc/apt/trusted.gpg.d/syncthing.gpg
+        - /etc/apt/trusted.gpg.d/vscodium.asc
+        - /etc/apt/trusted.gpg.d/pgdg.asc
+        - /usr/share/keyrings/nvidia-container-toolkit.asc
+
+    - name: Assert all GPG keys exist
+      ansible.builtin.assert:
+        that: item.stat.exists
+        fail_msg: "Expected GPG key {{ item.item }} does not exist"
+      loop: "{{ gpg_result.results }}"
+      loop_control:
+        label: "{{ item.item }}"

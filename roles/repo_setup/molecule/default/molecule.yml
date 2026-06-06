@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: instance
+    # molecule uses podman as a container runtime
+    # that means, that image URLs need to be fully qualified
+    # otherwise podman will throw a fit
+    image: docker.io/geerlingguy/docker-ubuntu2604-ansible:latest
+    pre_build_image: true
+provisioner:
+  name: ansible
+  # we can set stuff this way too
+  #env: 
+  #  ANSIBLE_ROLES_PATH: "${MOLECULE_PROJECT_DIRECTORY}/../"
+  config_options:
+    defaults:
+      roles_path: "${MOLECULE_PROJECT_DIRECTORY}/../"
+verifier:
+  name: ansible
