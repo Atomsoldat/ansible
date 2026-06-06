@@ -1,0 +1,14 @@
+---
+- name: Install essential packages using apt
+  when: ansible_facts['os_family'] == 'Debian'
+  ansible.builtin.apt:
+    pkg: "{{ essential_packages['Debian'] }}"
+    update_cache: true
+  become: true
+
+- name: Install essential packages using pacman
+  when: ansible_facts['os_family'] == 'Archlinux'
+  community.general.pacman:
+    name: "{{ essential_packages['Archlinux'] }}"
+    state: present
+  become: true

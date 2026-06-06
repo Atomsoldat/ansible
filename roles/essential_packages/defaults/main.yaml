@@ -1,0 +1,8 @@
+---
+essential_packages:
+  Debian:
+    - gpg
+    - curl
+  Archlinux:
+    - gnupg
+    - curl

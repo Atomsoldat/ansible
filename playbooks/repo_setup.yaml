@@ -6,4 +6,5 @@
   gather_facts: true
 
   roles:
+    - ../roles/essential_packages
     - ../roles/repo_setup

@@ -70,8 +70,6 @@ generic_package_names:
   ripgrep:
   shellcheck:
   # admin
-  gpg:
-    Archlinux: gnupg
   nmap:
   htop:
   btop:
@@ -173,7 +171,6 @@ generic_package_names:
     Archlinux: timew
   # files
   wget:
-  curl:
   ncdu:
   7zip:
   pax:
