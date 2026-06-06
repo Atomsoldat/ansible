@@ -3,4 +3,5 @@
   hosts: all
   gather_facts: true
   roles:
+    - role: essential_packages
     - role: repo_setup

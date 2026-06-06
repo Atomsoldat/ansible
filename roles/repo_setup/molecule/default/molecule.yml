@@ -4,10 +4,13 @@ dependency:
 driver:
   name: podman
 platforms:
-  - name: instance
+  - name: debian13
     # molecule uses podman as a container runtime
     # that means, that image URLs need to be fully qualified
     # otherwise podman will throw a fit
+    image: docker.io/geerlingguy/docker-debian13-ansible:latest
+    pre_build_image: true
+  - name: ubuntu2604
     image: docker.io/geerlingguy/docker-ubuntu2604-ansible:latest
     pre_build_image: true
 provisioner:
