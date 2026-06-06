@@ -7,5 +7,6 @@
 
   roles:
     - ../roles/packaged_software
+    - ../roles/nix_setup
     - ../roles/third_party_software
     - ../roles/scripts
