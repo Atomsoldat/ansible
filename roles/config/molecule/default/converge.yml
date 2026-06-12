@@ -1,0 +1,17 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: true
+  pre_tasks:
+    # These groups are normally created by docker/homebrew installation.
+    # Pre-create them so the config role's user task can append to them.
+    - name: Create prerequisite groups
+      ansible.builtin.group:
+        name: "{{ item }}"
+        state: present
+      become: true
+      loop:
+        - docker
+        - linuxbrew
+  roles:
+    - role: config
