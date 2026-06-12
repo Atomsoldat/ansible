@@ -1,0 +1,27 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check all scripts are installed
+      ansible.builtin.stat:
+        path: "/usr/local/bin/{{ item }}"
+      register: script_result
+      loop:
+        - yt-dlp-archive
+        - detect-undead
+        - animate-dead
+        - command-undead
+        - powerword-kill
+        - imperious-glare
+        - beckon-undead
+
+    - name: Assert all scripts exist and are executable
+      ansible.builtin.assert:
+        that:
+          - item.stat.exists
+          - item.stat.executable
+        fail_msg: "Script {{ item.item }} is missing or not executable"
+      loop: "{{ script_result.results }}"
+      loop_control:
+        label: "{{ item.item }}"
