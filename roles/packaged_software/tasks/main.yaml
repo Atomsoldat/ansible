@@ -4,11 +4,11 @@
   ansible.builtin.set_fact:
     # use custom filter for finding package names based on ansible_facts[os_family
     # because that reduces the amount of duplication
-    __packaged_software_pkgs_to_install: "{{ (special_package_names[ansible_facts['os_family']] | dict2items | map(attribute='key') | list) + (generic_package_names | select_package_names(ansible_facts['os_family'])) }}"
+    __packaged_software_pkgs_to_install: "{{ (special_package_names[ansible_facts['distribution']] | dict2items | map(attribute='key') | list) + (generic_package_names | select_package_names(ansible_facts['distribution'])) }}"
 
 - name: Build blacklist of all unwanted packages
   ansible.builtin.set_fact:
-    __packaged_software_pkgs_to_remove: "{{ (special_package_blacklist[ansible_facts['os_family']] | dict2items | map(attribute='key') | list) + (generic_package_blacklist | select_package_names(ansible_facts['os_family'])) }}"
+    __packaged_software_pkgs_to_remove: "{{ (special_package_blacklist[ansible_facts['distribution']] | dict2items | map(attribute='key') | list) + (generic_package_blacklist | select_package_names(ansible_facts['distribution'])) }}"
 
 - name: Uninstall unwanted software using apt
   when: ansible_facts['os_family'] == 'Debian'

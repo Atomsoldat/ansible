@@ -14,10 +14,12 @@
       wget:
     special_package_names:
       Debian: {}
+      Ubuntu: {}
       Archlinux: {}
     generic_package_blacklist: {}
     special_package_blacklist:
       Debian: {}
+      Ubuntu: {}
       Archlinux: {}
   roles:
     - role: essential_packages
