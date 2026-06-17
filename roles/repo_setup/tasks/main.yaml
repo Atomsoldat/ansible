@@ -1,6 +1,12 @@
 # We have to be stricter with which distro to use apt sources on
 # with regard to the core repos than third party stuff
 ---
+
+- name: Debug facts type
+  ansible.builtin.debug:
+    #msg: "{{ ansible_facts | type_debug }} :: keys={{ ansible_facts.keys() | list | first(5) }}"
+    var: ansible_facts
+
 - name: Configure Debian Repo
   ansible.builtin.include_tasks: debian.yaml
   when: ansible_facts['distribution']  == 'Debian'

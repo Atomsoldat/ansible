@@ -1,5 +1,5 @@
 Types: deb
 URIs: https://packages.adoptium.net/artifactory/deb/
-Suites: {{ ansible_distribution_release }}
+Suites: {{ ansible_facts["distribution_release"] }}
 Components: main 
 Signed-By: /etc/apt/trusted.gpg.d/adoptium.asc
