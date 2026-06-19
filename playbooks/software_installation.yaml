@@ -1,9 +1,20 @@
-
 ---
+# Override software_bundles via CLI to select which package domains to install:
+#   -e '{"software_bundles": ["base", "development", "communication"]}'
+# Available: base, development, media, entertainment, communication, organisation
 - name: Desktop PC setup playbook
   hosts: localhost
   remote_user: leon
   gather_facts: true
+
+  vars:
+    software_bundles:
+      - base
+      - development
+      - media
+      - entertainment
+      - communication
+      - organisation
 
   roles:
     - ../roles/packaged_software

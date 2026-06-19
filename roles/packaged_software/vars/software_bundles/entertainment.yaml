@@ -1,0 +1,13 @@
+---
+entertainment_generic_packages:
+  wine:
+  winetricks:
+
+entertainment_special_packages:
+  Debian:
+    oneko:
+    qbrew:
+  Ubuntu:
+    oneko:
+    qbrew:
+  Archlinux: {}

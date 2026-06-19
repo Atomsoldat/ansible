@@ -1,17 +1,23 @@
 ---
+- name: Aggregate flatpaks from all bundles
+  ansible.builtin.set_fact:
+    __agg_flatpaks: "{{ __agg_flatpaks | default([]) + lookup('vars', item) }}"
+  loop: "{{ query('varnames', '.+_flatpaks$') }}"
+
 - name: Add the flathub flatpak repository remote to the system installation
   community.general.flatpak_remote:
     name: flathub
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
   become: true
+  when: __agg_flatpaks | length > 0
 
 - name: Install flatpack packages
   community.general.flatpak:
-    # extract package names from dictionary list items
-    name: "{{ flatpaks | map(attribute='identifier') | list }}"
+    name: "{{ __agg_flatpaks | map(attribute='identifier') | list }}"
     state: latest
   become: true
+  when: __agg_flatpaks | length > 0
 
 - name: Create start scripts in /usr/local/bin for flatpaks
   ansible.builtin.template:
@@ -20,7 +26,7 @@
     owner: root
     group: root
     mode: "0755"
-  with_items: "{{ flatpaks }}"
+  with_items: "{{ __agg_flatpaks }}"
   become: true
 
 - name: Create /usr/local/custom/applications directory if it does not exist

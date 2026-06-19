@@ -1,0 +1,8 @@
+---
+communication_flatpaks:
+  - identifier: org.telegram.desktop
+    alias: telegram
+    command: "flatpak run org.telegram.desktop $@"
+  - identifier: com.discordapp.Discord
+    alias: discord
+    command: "flatpak run com.discordapp.Discord $@"

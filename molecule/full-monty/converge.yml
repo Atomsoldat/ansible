@@ -12,23 +12,16 @@
 - name: Full Monty test
   hosts: all
   gather_facts: true
-  # we are using the actual group_vars
-  #vars:
-    # Use a small package subset to keep the test fast
-    #generic_package_names:
-    #  jq:
-    #  tmux:
-    #  git:
-    #  wget:
-    #special_package_names:
-    #  Debian: {}
-    #  Ubuntu: {}
-    #  Archlinux: {}
-    #generic_package_blacklist: {}
-    #special_package_blacklist:
-    #  Debian: {}
-    #  Ubuntu: {}
-    #  Archlinux: {}
+
+  vars:
+    software_bundles:
+      - base
+      - development
+      - media
+      - entertainment
+      - communication
+      - organisation
+
   pre_tasks:
     - name: Create prerequisite groups
       ansible.builtin.group:
@@ -38,6 +31,7 @@
       loop:
         - docker
         - linuxbrew
+
   roles:
     - role: essential_packages
     - role: repo_setup

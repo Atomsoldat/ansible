@@ -1,0 +1,8 @@
+---
+organisation_flatpaks:
+  - identifier: de.bund.ausweisapp.ausweisapp2
+    alias: ausweisapp
+    command: "flatpak run de.bund.ausweisapp.ausweisapp2 $@"
+  - identifier: info.portfolio_performance.PortfolioPerformance
+    alias: portfolio
+    command: "flatpak run info.portfolio_performance.PortfolioPerformance $@"

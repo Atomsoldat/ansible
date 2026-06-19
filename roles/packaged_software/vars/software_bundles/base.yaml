@@ -1,0 +1,100 @@
+---
+base_generic_packages:
+  openresolv:
+  # core CLI tools
+  git:
+  fzf:
+  zsh:
+  tmux:
+  ripgrep:
+  shellcheck:
+  jq:
+  neovim:
+  xsel:
+  htop:
+  btop:
+  powertop:
+  lshw:
+  # file management
+  wget:
+  deluge:
+  ncdu:
+  7zip:
+  pax:
+  rsync:
+  rclone:
+  s3cmd:
+  thunar:
+  syncthing:
+  nfs-common:
+    Archlinux: nfs-utils
+  # package management
+  flatpak:
+  nix-bin:
+    Ubuntu: nix
+    Archlinux: nix
+  # passwords
+  keepassxc:
+  pwgen:
+  # desktop
+  chromium:
+  flameshot:
+  meld:
+  dex:
+  alacritty:
+  # awesome wm
+  awesome:
+  acpi:
+  brightnessctl:
+  arandr:
+  # networking
+  netcat-openbsd:
+    Archlinux: openbsd-netcat
+  whois:
+  openconnect:
+  wireguard-tools:
+  # peripherals / system
+  solaar:
+  linux-headers-amd64:
+    Ubuntu: linux-headers-generic
+    Archlinux: linux-headers
+
+base_special_packages:
+  Debian:
+    python-is-python3:
+    cachefilesd:
+    ntpsec:
+    apt-file:
+    apt-listchanges:
+    aptitude:
+    wajig:
+    nix-setup-systemd:
+    network-manager:
+    wireguard:
+    libfuse2:
+    fuse:
+    xfce4:
+    xfce4-goodies:
+    firmware-misc-nonfree:
+  Ubuntu:
+    python-is-python3:
+    cachefilesd:
+    ntpsec:
+    apt-file:
+    aptitude:
+    network-manager:
+    wireguard:
+    libfuse2:
+    fuse:
+    linux-firmware:
+  Archlinux: {}
+
+base_generic_blacklist:
+  uim:
+  ibus:
+
+base_special_blacklist:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux:
+    podman-docker:

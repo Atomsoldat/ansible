@@ -1,0 +1,35 @@
+---
+media_generic_packages:
+  simple-scan:
+  okular:
+  vlc:
+  yt-dlp:
+  ffmpeg:
+  feh:
+  ncmpcpp:
+  mpd:
+  gimp:
+  f3d:
+  openscad:
+  libreoffice:
+  texlive-full:
+    Archlinux: texlive-meta
+  texstudio:
+  libimage-exiftool-perl:
+    Archlinux: perl-image-exiftool
+  pandoc:
+
+media_special_packages:
+  Debian:
+    cheese:
+    fonts-ebgaramond:
+    fonts-ebgaramond-extra:
+    fonts-ebgaramond-initials:
+    fonts-ebgaramond-initials-extra:
+    wcalc:
+  Ubuntu:
+    cheese:
+    fonts-ebgaramond:
+    fonts-ebgaramond-extra:
+    wcalc:
+  Archlinux: {}

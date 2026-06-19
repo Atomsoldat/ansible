@@ -1,4 +1,10 @@
 ---
+- name: Load third-party software bundles
+  ansible.builtin.include_vars:
+    file: "software_bundles/{{ item }}.yaml"
+  loop: "{{ software_bundles }}"
+  when: lookup('fileglob', role_path + '/vars/software_bundles/' + item + '.yaml') | length > 0
+
 - name: Ensure /var/ansible-cache exists
   ansible.builtin.file:
     path: /var/ansible-cache

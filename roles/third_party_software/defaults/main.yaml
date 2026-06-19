@@ -1,0 +1,7 @@
+---
+software_bundles:
+  - base
+  - development
+  - entertainment
+  - communication
+  - organisation

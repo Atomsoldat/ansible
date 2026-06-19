@@ -1,0 +1,62 @@
+---
+development_homebrew_taps:
+  - quarkusio/tap
+  - minio/stable
+  - bufbuild/buf
+
+development_homebrew_packages:
+  - zig
+  - rustup
+  - golang
+  - delve
+  - quarkusio/tap/quarkus
+  - cocogitto
+  - tilt
+  - yj
+  - lima
+  - restic
+  - git-delta
+  # this is the (nicer) mike farah version
+  # https://github.com/mikefarah/yq
+  - yq
+  # https://grafana.com/docs/mimir/latest/manage/tools/mimirtool/
+  - mimirtool
+  - micromamba
+  - opentofu
+  - pixi
+  - ruff
+  - uv
+  - just
+  - npm
+  - nvm
+  - hadolint
+  - liquibase
+  - oras
+  - mongosh
+  - minio/stable/mc
+  - sops
+  - dive
+  - grpcurl
+  - bufbuild/buf/buf
+  - lima
+  # kubernetes related
+  - argocd
+  - cilium-cli
+  - clusterctl
+  - istioctl
+  - kubectl-cnpg
+  - kubeconform
+  - kubent
+  - kustomize
+  - kind
+  - kubescape
+  - openbao
+  - popeye
+  - helm
+  - helmfile
+  - stern
+
+development_flatpaks:
+  - identifier: io.dbeaver.DBeaverCommunity
+    alias: dbeaver
+    command: "flatpak run io.dbeaver.DBeaverCommunity $@"

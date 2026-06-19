@@ -1,0 +1,67 @@
+---
+development_generic_packages:
+  pipx:
+    Archlinux: python-pipx
+  maven:
+  java-common:
+    Archlinux: jdk-openjdk
+  cmake:
+  codium:
+    Archlinux: code
+  graphviz:
+  astyle:
+  hugo:
+  yamllint:
+  plantuml:
+  packer:
+  qemu-utils:
+    Debian: qemu-utils
+    Archlinux: qemu-tools
+  git-crypt:
+  age:
+  distrobox:
+  nodejs:
+  nodejs-corepack:
+    Archlinux: corepack
+    Debian: node-corepack
+  # databases
+  mariadb-client:
+    Archlinux: mariadb-clients
+  postgresql-client-17:
+    Archlinux: postgresql-libs
+  # containers
+  podman:
+  docker.io:
+    Archlinux: docker
+  docker-compose:
+  # admin / infrastructure
+  nmap:
+  oathtool:
+    Archlinux: oath-toolkit
+  vault:
+  ansible:
+  ansible-lint:
+  terraform:
+  ipmitool:
+  freeipmi:
+  remmina:
+
+development_special_packages:
+  Debian:
+    temurin-23-jdk:
+    vagrant:
+    alien:
+    google-cloud-cli:
+    google-cloud-sdk-gke-gcloud-auth-plugin:
+    genisoimage:
+    s4cmd:
+    telnet:
+  Ubuntu:
+    temurin-23-jdk:
+    vagrant:
+    google-cloud-cli:
+    google-cloud-sdk-gke-gcloud-auth-plugin:
+    genisoimage:
+    s4cmd:
+    telnet:
+  Archlinux: {}

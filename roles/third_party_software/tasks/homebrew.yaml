@@ -1,14 +1,26 @@
 ---
+- name: Aggregate homebrew taps from all bundles
+  ansible.builtin.set_fact:
+    __agg_homebrew_taps: "{{ __agg_homebrew_taps | default([]) + lookup('vars', item) }}"
+  loop: "{{ query('varnames', '.+_homebrew_taps$') }}"
+
+- name: Aggregate homebrew packages from all bundles
+  ansible.builtin.set_fact:
+    __agg_homebrew_packages: "{{ __agg_homebrew_packages | default([]) + lookup('vars', item) }}"
+  loop: "{{ query('varnames', '.+_homebrew_packages$') }}"
+
 - name: Tap required Homebrew repositories
   community.general.homebrew_tap:
     name: "{{ item }}"
-  with_items: "{{ homebrew_taps }}"
+  with_items: "{{ __agg_homebrew_taps }}"
+  when: __agg_homebrew_taps | length > 0
 
 - name: Install homebrew packages
   community.general.homebrew:
-    name: "{{ homebrew_packages }}"
+    name: "{{ __agg_homebrew_packages }}"
     update_homebrew: true
     upgrade_all: true
   # PATH does not contain the homebrew bin dir at this point yet, that comes from the user's config
   environment:
     PATH: /home/linuxbrew/bin:{{ ansible_facts['env']['PATH'] }}
+  when: __agg_homebrew_packages | length > 0

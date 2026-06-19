@@ -1,0 +1,8 @@
+---
+base_flatpaks:
+  - identifier: com.github.qarmin.czkawka
+    alias: czkawka
+    command: "flatpak run com.github.qarmin.czkawka $@"
+  - identifier: com.github.tchx84.Flatseal
+    alias: flatseal
+    command: "flatpak run com.github.tchx84.Flatseal $@"

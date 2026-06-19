@@ -13,18 +13,19 @@
   hosts: all
   gather_facts: true
   vars:
-    # Use a small package subset to keep the test fast
-    generic_package_names:
+    # Skip bundle loading; use a small inline subset to keep tests fast
+    software_bundles: []
+    test_generic_packages:
       jq:
       tmux:
       git:
       wget:
-    special_package_names:
+    test_special_packages:
       Debian: {}
       Ubuntu: {}
       Archlinux: {}
-    generic_package_blacklist: {}
-    special_package_blacklist:
+    test_generic_blacklist: {}
+    test_special_blacklist:
       Debian: {}
       Ubuntu: {}
       Archlinux: {}

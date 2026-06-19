@@ -1,14 +1,38 @@
 ---
 
+- name: Load package bundles
+  ansible.builtin.include_vars:
+    file: "software_bundles/{{ item }}.yaml"
+  loop: "{{ software_bundles }}"
+  when: lookup('fileglob', role_path + '/vars/software_bundles/' + item + '.yaml') | length > 0
+
+- name: Aggregate generic packages from all bundles
+  ansible.builtin.set_fact:
+    __agg_generic_packages: "{{ __agg_generic_packages | default({}) | combine(lookup('vars', item)) }}"
+  loop: "{{ query('varnames', '.+_generic_packages$') }}"
+
+- name: Aggregate special packages from all bundles
+  ansible.builtin.set_fact:
+    __agg_special_packages: "{{ __agg_special_packages | default({}) | combine(lookup('vars', item), recursive=true) }}"
+  loop: "{{ query('varnames', '.+_special_packages$') }}"
+
+- name: Aggregate generic blacklist from all bundles
+  ansible.builtin.set_fact:
+    __agg_generic_blacklist: "{{ __agg_generic_blacklist | default({}) | combine(lookup('vars', item)) }}"
+  loop: "{{ query('varnames', '.+_generic_blacklist$') }}"
+
+- name: Aggregate special blacklist from all bundles
+  ansible.builtin.set_fact:
+    __agg_special_blacklist: "{{ __agg_special_blacklist | default({}) | combine(lookup('vars', item), recursive=true) }}"
+  loop: "{{ query('varnames', '.+_special_blacklist$') }}"
+
 - name: Build list of all desired packages
   ansible.builtin.set_fact:
-    # use custom filter for finding package names based on ansible_facts[os_family
-    # because that reduces the amount of duplication
-    __packaged_software_pkgs_to_install: "{{ (special_package_names[ansible_facts['distribution']] | dict2items | map(attribute='key') | list) + (generic_package_names | select_package_names(ansible_facts['distribution'])) }}"
+    __packaged_software_pkgs_to_install: "{{ (__agg_special_packages[ansible_facts['distribution']] | default({}) | dict2items | map(attribute='key') | list) + (__agg_generic_packages | select_package_names(ansible_facts['distribution'])) }}"
 
 - name: Build blacklist of all unwanted packages
   ansible.builtin.set_fact:
-    __packaged_software_pkgs_to_remove: "{{ (special_package_blacklist[ansible_facts['distribution']] | dict2items | map(attribute='key') | list) + (generic_package_blacklist | select_package_names(ansible_facts['distribution'])) }}"
+    __packaged_software_pkgs_to_remove: "{{ (__agg_special_blacklist[ansible_facts['distribution']] | default({}) | dict2items | map(attribute='key') | list) + (__agg_generic_blacklist | default({}) | select_package_names(ansible_facts['distribution'])) }}"
 
 - name: Uninstall unwanted software using apt
   when: ansible_facts['os_family'] == 'Debian'
@@ -36,4 +60,3 @@
     name: "{{ __packaged_software_pkgs_to_install }}"
     state: present
   become: true
-

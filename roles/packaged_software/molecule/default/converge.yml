@@ -3,21 +3,19 @@
   hosts: all
   gather_facts: true
   vars:
-    # Override with a small subset of packages to keep tests fast.
-    # The full list in group_vars/workstation.yaml includes packages
-    # from third-party repos that repo_setup configures, but installing
-    # all of them would be slow and is not the point of this test.
-    generic_package_names:
+    # Skip bundle loading; use a small inline subset to keep tests fast.
+    software_bundles: []
+    test_generic_packages:
       jq:
       tmux:
       git:
       wget:
-    special_package_names:
+    test_special_packages:
       Debian: {}
       Ubuntu: {}
       Archlinux: {}
-    generic_package_blacklist: {}
-    special_package_blacklist:
+    test_generic_blacklist: {}
+    test_special_blacklist:
       Debian: {}
       Ubuntu: {}
       Archlinux: {}

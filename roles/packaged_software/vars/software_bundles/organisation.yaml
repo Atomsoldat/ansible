@@ -1,0 +1,7 @@
+---
+organisation_generic_packages:
+  gnucash:
+  taskwarrior:
+    Archlinux: taskwarrior-tui
+  timewarrior:
+    Archlinux: timew

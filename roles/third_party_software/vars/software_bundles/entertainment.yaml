@@ -1,0 +1,8 @@
+---
+entertainment_flatpaks:
+  - identifier: org.prismlauncher.PrismLauncher
+    alias: prismlauncher
+    command: "flatpak run org.prismlauncher.PrismLauncher $@"
+  - identifier: com.github.Matoking.protontricks
+    alias: protontricks
+    command: flatpak run com.github.Matoking.protontricks
