@@ -1,7 +1,11 @@
 ---
 - name: Set timezone to Europe/Berlin
-  community.general.timezone:
-    name: Europe/Berlin
+  ansible.builtin.file:
+    dest: /etc/localtime
+    src: /usr/share/zoneinfo/Europe/Berlin
+    owner: root
+    group: root
+    state: link
   register: timezone
   become: true
 
@@ -9,5 +13,6 @@
   ansible.builtin.service:
     name: cron
     state: restarted
-  when: timezone.changed
+  when: timezone.changed and ansible_facts['virtualization_type'] not in ['docker', 'podman', 'container', 'containerd']
   become: true
+  
