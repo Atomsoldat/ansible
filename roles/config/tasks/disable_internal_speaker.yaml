@@ -1,4 +1,13 @@
 ---
+- name: Ensure xfce4 config-dir exists
+  ansible.builtin.file:
+    path: /etc/modprobe.d
+    state: directory
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
+
 # https://wiki.archlinux.org/title/PC_speaker
 # Normally, the speaker will issue "informative feedback"
 # when trying to e.g. delete characters from an empty text field

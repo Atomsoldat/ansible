@@ -1,4 +1,13 @@
 ---
+- name: Ensure xfce4 config-dir exists
+  ansible.builtin.file:
+    path: /usr/share/xfce4/terminal/colorschemes
+    state: directory
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
+
 - name: Add Gruvbox theme for xfce4-terminal
   ansible.builtin.template:
     src: gruvbox-dark.theme.j2
