@@ -1,0 +1,69 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: true
+  tasks:
+    # repo_setup
+    - name: Check third-party apt sources exist
+      ansible.builtin.stat:
+        path: "{{ item }}"
+      register: sources_result
+      loop:
+        - /etc/apt/sources.list.d/docker.sources
+        - /etc/apt/sources.list.d/hashicorp.sources
+        - /etc/apt/sources.list.d/adoptium.sources
+        - /etc/apt/sources.list.d/syncthing.sources
+        - /etc/apt/sources.list.d/vscodium.sources
+        - /etc/apt/sources.list.d/pgdg.sources
+
+    - name: Assert apt sources exist
+      ansible.builtin.assert:
+        that: item.stat.exists
+        fail_msg: "Expected file {{ item.item }} does not exist"
+      loop: "{{ sources_result.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+    # packaged_software
+    - name: Check test packages are installed
+      ansible.builtin.command:
+        cmd: "which {{ item }}"
+      changed_when: false
+      loop:
+        - jq
+        - tmux
+        - git
+        - wget
+
+    # scripts
+    - name: Check scripts are installed
+      ansible.builtin.stat:
+        path: "/usr/local/bin/{{ item }}"
+      register: scripts_result
+      loop:
+        - detect-undead
+        - animate-dead
+        - powerword-kill
+
+    - name: Assert scripts exist
+      ansible.builtin.assert:
+        that: item.stat.exists
+        fail_msg: "Script {{ item.item }} was not installed"
+      loop: "{{ scripts_result.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+    # config
+    - name: Check user leon exists
+      ansible.builtin.command:
+        cmd: id leon
+      changed_when: false
+
+    - name: Check nobeep.conf exists
+      ansible.builtin.stat:
+        path: /etc/modprobe.d/nobeep.conf
+      register: nobeep_result
+
+    - name: Assert nobeep.conf exists
+      ansible.builtin.assert:
+        that: nobeep_result.stat.exists

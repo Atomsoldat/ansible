@@ -1,0 +1,47 @@
+---
+# Integration test that mirrors the initial_install.sh role ordering.
+# TODO: reduce number of excluded roles
+# Skipped roles:
+#   - third_party_software / homebrew: downloads large binaries, needs network + time
+#   - nix_setup: needs nix installed
+#   - nas-storage: needs NFS / real mounts
+#   - syncthing: needs systemd user services
+#   - nvidia: needs real hardware
+#   - homedir_setup: needs SSH key + git remote
+#   - fonts: needs rsync between host and container
+- name: Full Monty test
+  hosts: all
+  gather_facts: true
+  # we are using the actual group_vars
+  #vars:
+    # Use a small package subset to keep the test fast
+    #generic_package_names:
+    #  jq:
+    #  tmux:
+    #  git:
+    #  wget:
+    #special_package_names:
+    #  Debian: {}
+    #  Ubuntu: {}
+    #  Archlinux: {}
+    #generic_package_blacklist: {}
+    #special_package_blacklist:
+    #  Debian: {}
+    #  Ubuntu: {}
+    #  Archlinux: {}
+  pre_tasks:
+    - name: Create prerequisite groups
+      ansible.builtin.group:
+        name: "{{ item }}"
+        state: present
+      become: true
+      loop:
+        - docker
+        - linuxbrew
+  roles:
+    - role: essential_packages
+    - role: repo_setup
+    - role: packaged_software
+    - role: scripts
+    - role: config
+    - role: time
