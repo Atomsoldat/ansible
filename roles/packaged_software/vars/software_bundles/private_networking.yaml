@@ -1,0 +1,23 @@
+---
+private_networking_generic_packages:
+  openconnect:
+  wireguard-tools:
+
+private_networking_special_packages:
+  Debian:
+    ntpsec:
+    network-manager:
+    wireguard:
+    openresolv: # necessary for wireguard in our setup
+  Ubuntu:
+    ntpsec:
+    network-manager:
+    wireguard:
+  Archlinux: {}
+
+private_networking_generic_blacklist:
+
+private_networking_special_blacklist:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux: {}

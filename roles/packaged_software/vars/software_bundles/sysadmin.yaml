@@ -1,0 +1,47 @@
+---
+sysadmin_generic_packages:
+  # storage
+  nfs-common:
+    Archlinux: nfs-utils
+  # package management
+  distrobox:
+  flatpak:
+  nix-bin:
+    Ubuntu: nix
+    Archlinux: nix
+  # databases
+  mariadb-client:
+    Archlinux: mariadb-clients
+  postgresql-client-17:
+    Archlinux: postgresql-libs
+  # remote management
+  ipmitool:
+  freeipmi:
+  remmina:
+
+sysadmin_special_packages:
+  Debian:
+    apt-file:
+    apt-listchanges:
+    aptitude:
+    wajig:
+    nix-setup-systemd:
+    cachefilesd:   # we want to improve nfs performance with this
+    # cloud provider stuff
+    google-cloud-cli:
+    google-cloud-sdk-gke-gcloud-auth-plugin:
+  Ubuntu:
+    apt-file:
+    aptitude:
+    cachefilesd:   # we want to improve nfs performance with this
+    # cloud provider stuff
+    google-cloud-cli:
+    google-cloud-sdk-gke-gcloud-auth-plugin:
+  Archlinux: {}
+
+sysadmin_generic_blacklist: {}
+
+sysadmin_special_blacklist:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux: {}

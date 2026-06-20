@@ -1,67 +1,78 @@
 ---
 development_generic_packages:
+  # c/c++
+  cmake:
+  astyle: # source code formatter c/c++ java https://astyle.sourceforge.net/
+  shellcheck:
+  # linux
+  linux-headers-amd64:
+    Ubuntu: linux-headers-generic
+    Archlinux: linux-headers
+  # git
+  git:
+  fzf: # requirement for delta (thingy that displays nicer git diffs)
+  git-crypt:
+  # python
   pipx:
     Archlinux: python-pipx
+  # java
   maven:
   java-common:
     Archlinux: jdk-openjdk
-  cmake:
-  codium:
-    Archlinux: code
-  graphviz:
-  astyle:
+  # diagrams
+  graphviz: # https://graphviz.org/
+  plantuml: # https://plantuml.com/
+  # web
   hugo:
-  yamllint:
-  plantuml:
-  packer:
-  qemu-utils:
-    Debian: qemu-utils
-    Archlinux: qemu-tools
-  git-crypt:
-  age:
-  distrobox:
+  # js
   nodejs:
   nodejs-corepack:
     Archlinux: corepack
     Debian: node-corepack
-  # databases
-  mariadb-client:
-    Archlinux: mariadb-clients
-  postgresql-client-17:
-    Archlinux: postgresql-libs
+  # ides
+  codium:
+    Archlinux: code
+  meld:
+  neovim:
+  xsel:    # we use this to make the nvim clipboard and the Xserver clipboard sync
+  # iac
+  ansible:
+  ansible-lint:
+  yamllint:
+  terraform:
   # containers
   podman:
   docker.io:
     Archlinux: docker
   docker-compose:
-  # admin / infrastructure
-  nmap:
+  # vms
+  packer:
+  qemu-utils:
+    Debian: qemu-utils
+    Archlinux: qemu-tools
+  # secrets
   oathtool:
     Archlinux: oath-toolkit
+  age:
   vault:
-  ansible:
-  ansible-lint:
-  terraform:
-  ipmitool:
-  freeipmi:
-  remmina:
+  # 3d printing / modelling
+  f3d:
+  openscad:
 
+# TODO: boil down this list, we should find the relevant packages on Arch
+# alternatively, get rid of stuff / replace
 development_special_packages:
   Debian:
     temurin-26-jdk:
+    python-is-python3:
     vagrant:
     alien:
-    google-cloud-cli:
-    google-cloud-sdk-gke-gcloud-auth-plugin:
     genisoimage:
-    s4cmd:
-    telnet:
+    firmware-misc-nonfree:
   Ubuntu:
     temurin-26-jdk:
+    python-is-python3:
     vagrant:
-    google-cloud-cli:
-    google-cloud-sdk-gke-gcloud-auth-plugin:
     genisoimage:
-    s4cmd:
-    telnet:
+    linux-firmware:
   Archlinux: {}

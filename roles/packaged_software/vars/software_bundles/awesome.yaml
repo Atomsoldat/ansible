@@ -1,0 +1,18 @@
+---
+awesome_generic_packages:
+  awesome:
+  acpi:
+  brightnessctl:
+  arandr:
+
+awesome_special_packages:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux: {}
+
+awesome_generic_blacklist: {}
+
+awesome_special_blacklist:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux: {}

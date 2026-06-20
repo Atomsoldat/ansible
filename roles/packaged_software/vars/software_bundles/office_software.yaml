@@ -1,0 +1,58 @@
+---
+office_software_generic_packages:
+  # organisation
+  gnucash:
+  taskwarrior:
+    Archlinux: taskwarrior-tui
+  timewarrior:
+    Archlinux: timew
+  # web browsers
+  chromium:
+  # file browsers
+  thunar:
+  # images
+  gimp:
+  feh:
+  flameshot:
+  libimage-exiftool-perl:
+    Archlinux: perl-image-exiftool
+  # video
+  vlc:
+  yt-dlp:
+  ffmpeg:
+  # audio
+  ncmpcpp:
+  mpd:
+  # text / documents
+  libreoffice:
+  thunderbird:
+  simple-scan:
+  pandoc:
+  texlive-full:
+    Archlinux: texlive-meta
+  texstudio:
+  okular:
+
+# TODO: we  should compile the latest eb-garamond  font ourselves
+office_software_special_packages:
+  Debian:
+    cheese:
+    fonts-ebgaramond:
+    fonts-ebgaramond-extra:
+    fonts-ebgaramond-initials:
+    fonts-ebgaramond-initials-extra:
+    wcalc:
+  Ubuntu: {}
+    # not available in ubuntu26
+    #cheese:
+    fonts-ebgaramond:
+    fonts-ebgaramond-extra:
+    wcalc:
+  Archlinux: {}
+
+office_software_generic_blacklist: {}
+
+office_software_special_blacklist:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux: {}

@@ -1,0 +1,47 @@
+---
+cli_tools_generic_packages:
+  # file management
+  wget:
+  deluge:
+  ncdu:
+  7zip:
+  pax:
+  rsync:
+  rclone:
+  s3cmd:
+  syncthing:
+  # text manipulation
+  ripgrep:
+  jq:
+  # hardware / os
+  htop:
+  btop:
+  powertop:
+  lshw:
+  # networking
+  netcat-openbsd:
+    Archlinux: openbsd-netcat
+  whois:
+  nmap:
+  # terminal
+  alacritty:
+  zsh:
+  tmux:
+
+# TODO: figure out a way to get telnet on arch without relying on AUR
+# build from source?
+cli_tools_special_packages:
+  Debian:
+    telnet:
+    s4cmd:
+  Ubuntu:
+    telnet:
+    s4cmd:
+  Archlinux: {}
+
+cli_tools_generic_blacklist: {}
+
+cli_tools_special_blacklist:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux: {}
