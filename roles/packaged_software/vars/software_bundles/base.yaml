@@ -1,6 +1,5 @@
 ---
 base_generic_packages:
-  openresolv:
   # core CLI tools
   git:
   fzf:
@@ -71,6 +70,7 @@ base_special_packages:
     nix-setup-systemd:
     network-manager:
     wireguard:
+    openresolv: # necessary for wireguard in our setup
     libfuse2:
     fuse:
     xfce4:

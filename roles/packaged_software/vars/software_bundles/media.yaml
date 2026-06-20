@@ -28,7 +28,8 @@ media_special_packages:
     fonts-ebgaramond-initials-extra:
     wcalc:
   Ubuntu:
-    cheese:
+    # not available in ubuntu26
+    #cheese:
     fonts-ebgaramond:
     fonts-ebgaramond-extra:
     wcalc:
