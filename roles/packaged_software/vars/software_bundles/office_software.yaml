@@ -42,7 +42,7 @@ office_software_special_packages:
     fonts-ebgaramond-initials:
     fonts-ebgaramond-initials-extra:
     wcalc:
-  Ubuntu: {}
+  Ubuntu:
     # not available in ubuntu26
     #cheese:
     fonts-ebgaramond:
