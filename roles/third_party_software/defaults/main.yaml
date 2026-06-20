@@ -3,5 +3,4 @@ software_bundles:
   - base
   - development
   - entertainment
-  - communication
-  - organisation
+  - office_software

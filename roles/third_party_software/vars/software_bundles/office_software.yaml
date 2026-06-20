@@ -1,5 +1,5 @@
 ---
-organisation_flatpaks:
+office_software_flatpaks:
   - identifier: de.bund.ausweisapp.ausweisapp2
     alias: ausweisapp
     command: "flatpak run de.bund.ausweisapp.ausweisapp2 $@"

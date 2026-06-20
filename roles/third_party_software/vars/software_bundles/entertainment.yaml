@@ -6,3 +6,9 @@ entertainment_flatpaks:
   - identifier: com.github.Matoking.protontricks
     alias: protontricks
     command: flatpak run com.github.Matoking.protontricks
+  - identifier: org.telegram.desktop
+    alias: telegram
+    command: "flatpak run org.telegram.desktop $@"
+  - identifier: com.discordapp.Discord
+    alias: discord
+    command: "flatpak run com.discordapp.Discord $@"
