@@ -1,8 +1,10 @@
 ---
 software_bundles:
+  - awesome
   - base
+  - cli_tools
   - development
-  - media
   - entertainment
-  - communication
-  - organisation
+  - office_software
+  - private_networking
+  - sysadmin
