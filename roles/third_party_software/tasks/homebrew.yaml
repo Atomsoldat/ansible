@@ -22,5 +22,11 @@
     upgrade_all: true
   # PATH does not contain the homebrew bin dir at this point yet, that comes from the user's config
   environment:
-    PATH: /home/linuxbrew/bin:{{ ansible_facts['env']['PATH'] }}
+    PATH: /home/linuxbrew/.linuxbrew/bin:{{ ansible_facts['env']['PATH'] }}
+    # TODO: this disables the bubblewrap sandboxing for source-builds in homebrew
+    # we ran into trouble with this on ubuntu, because ubuntu comes with an apparmor profile
+    # for its own bwrap binary, but this is apparently not applied to the bwrap used by homebrew
+    # we could look into that, because security hardenining is worthwhile to know
+    # but that is a rabbit hole for another day
+    HOMEBREW_NO_SANDBOX_LINUX: 1
   when: __agg_homebrew_packages | length > 0
