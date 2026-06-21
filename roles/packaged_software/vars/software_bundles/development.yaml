@@ -4,7 +4,7 @@ development_generic_packages:
   cmake:
   astyle: # source code formatter c/c++ java https://astyle.sourceforge.net/
   # linux
-  build-essential
+  build-essential:
   shellcheck:
   linux-headers-amd64:
     Ubuntu: linux-headers-generic
