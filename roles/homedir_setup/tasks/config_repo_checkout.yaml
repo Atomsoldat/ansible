@@ -6,36 +6,36 @@
     bare: true
     recursive: true
     update: true
-    dest: "{{ user_home_dir }}/.cfg.git"
-  become_user: "{{ user_name }}"
+    dest: "{{ target_home }}/.cfg.git"
+  become_user: "{{ target_user }}"
   become: true
 
 # at least the submodule related commands need to be executed within the homedir, so we just execute all the stuff in there
 - name: Restore files in homedir with state from the repo index
   ansible.builtin.command:
-    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} restore --staged {{ user_home_dir }}"
-    chdir: "{{ user_home_dir }}"
-  become_user: "{{ user_name }}"
+    cmd: "/usr/bin/git --git-dir={{ target_home }}/.cfg.git/ --work-tree={{ target_home }} restore --staged {{ target_home }}"
+    chdir: "{{ target_home }}"
+  become_user: "{{ target_user }}"
   become: true
 
 - name: Checkout working tree
   ansible.builtin.command:
-    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} checkout {{ user_home_dir }}"
-    chdir: "{{ user_home_dir }}"
-  become_user: "{{ user_name }}"
+    cmd: "/usr/bin/git --git-dir={{ target_home }}/.cfg.git/ --work-tree={{ target_home }} checkout {{ target_home }}"
+    chdir: "{{ target_home }}"
+  become_user: "{{ target_user }}"
   become: true
 
 # Not necessary i think
 #- name: Initialise submodules
 #  ansible.builtin.command:
-#    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule init"
-#    chdir: "{{ user_home_dir }}"
-#  become_user: "{{ user_name }}"
+#    cmd: "/usr/bin/git --git-dir={{ target_home }}/.cfg.git/ --work-tree={{ target_home }} submodule init"
+#    chdir: "{{ target_home }}"
+#  become_user: "{{ target_user }}"
 #  become: true
 
 - name: Update submodules
   ansible.builtin.command:
-    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule update --init --recursive"
-    chdir: "{{ user_home_dir }}"
-  become_user: "{{ user_name }}"
+    cmd: "/usr/bin/git --git-dir={{ target_home }}/.cfg.git/ --work-tree={{ target_home }} submodule update --init --recursive"
+    chdir: "{{ target_home }}"
+  become_user: "{{ target_user }}"
   become: true

@@ -3,19 +3,20 @@
   ansible.builtin.file:
     path: /wunderhort
     state: directory
-    owner: leon
-    group: leon
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
     mode: "0755"
   become: true
 
 # our nfs shares squash the root user to "nobody" on the remote server
-# operations must use a user with permissions, i.e. leon
+# that user may not do anything
+# operations must use a user with permissions
 - name: Create /wunderhort/MOUNTPOINT directory if it does not exist
   ansible.builtin.file:
     path: /wunderhort/{{ item }}
     state: directory
-    owner: leon
-    group: leon
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
     mode: "0755"
   with_items: "{{ nas.wunderhort }}"
   become: true

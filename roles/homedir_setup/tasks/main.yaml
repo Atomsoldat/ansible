@@ -1,6 +1,6 @@
 - name: Check existence of user config repo dir
   ansible.builtin.stat:
-    path: "{{ user_home_dir }}/.cfg.git"
+    path: "{{ target_home }}/.cfg.git"
   register: config_repo_dir
 - debug:
     var: config_repo_dir
@@ -12,7 +12,7 @@
 
 - name: Ensure config repo is configured to use SSH for upstream access
   ansible.builtin.lineinfile:
-    path: "{{ user_home_dir }}/.cfg.git/config"
+    path: "{{ target_home }}/.cfg.git/config"
     # \s* matches any number of whitespace
     regexp: '\s*url\s*=\ https:\/\/github\.com\/Atomsoldat\/cfg-files\.git'
     line: '    url = git@github.com:Atomsoldat/cfg-files.git'

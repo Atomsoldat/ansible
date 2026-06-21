@@ -33,7 +33,7 @@
         that: shortcuts_result.stat.exists
         fail_msg: "Custom desktop shortcuts config was not installed"
 
-    - name: Check user leon exists
+    - name: "Check user {{ target_user }} exists"
       ansible.builtin.command:
-        cmd: id leon
+        cmd: "id {{ target_user }}"
       changed_when: false
