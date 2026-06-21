@@ -1,7 +1,6 @@
 ---
 development_homebrew_taps:
   - quarkusio/tap
-  - minio/stable
   - bufbuild/buf
 
 development_homebrew_packages:
