@@ -1,42 +1,18 @@
----
-# INFO: Note, that the homedir_setup role needs a valid SSH key in the ssh-agent
-- name: Perform bare checkout of cfg-files git repo
-  ansible.builtin.git:
-    repo: "git@github.com:Atomsoldat/cfg-files.git"
-    accept_newhostkey: true
-    bare: true
-    recursive: true
-    update: true
-    dest: "{{ user_home_dir }}/.cfg.git"
-  become_user: "{{ user_name }}"
-  become: true
+- name: Check existence of user config repo dir
+  ansible.builtin.stat:
+    path: "{{ user_home_dir }}/.cfg.git"
+  register: config_repo_dir
+- debug:
+    var: config_repo_dir
+  
 
-# at least the submodule related commands need to be executed within the homedir, so we just execute all the stuff in there
-- name: Restore files in homedir with state from the repo index
-  ansible.builtin.command:
-    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} restore --staged {{ user_home_dir }}"
-    chdir: "{{ user_home_dir }}"
-  become_user: "{{ user_name }}"
-  become: true
+- name: Perform user config repo checkout
+  ansible.builtin.include_tasks: config_repo_checkout.yaml
+  when: config_repo_dir.stat.exists == false
 
-- name: Checkout working tree
-  ansible.builtin.command:
-    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} checkout {{ user_home_dir }}"
-    chdir: "{{ user_home_dir }}"
-  become_user: "{{ user_name }}"
-  become: true
-
-# Not necessary i think
-#- name: Initialise submodules
-#  ansible.builtin.command:
-#    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule init"
-#    chdir: "{{ user_home_dir }}"
-#  become_user: "{{ user_name }}"
-#  become: true
-
-- name: Update submodules
-  ansible.builtin.command:
-    cmd: "/usr/bin/git --git-dir={{ user_home_dir }}/.cfg.git/ --work-tree={{ user_home_dir }} submodule update --init --recursive"
-    chdir: "{{ user_home_dir }}"
-  become_user: "{{ user_name }}"
-  become: true
+- name: Ensure config repo is configured to use SSH for upstream access
+  ansible.builtin.lineinfile:
+    path: "{{ user_home_dir }}/.cfg.git/config"
+    # \s* matches any number of whitespace
+    regexp: '\s*url\s*=\ https:\/\/github\.com\/Atomsoldat\/cfg-files\.git'
+    line: '    url = git@github.com:Atomsoldat/cfg-files.git'

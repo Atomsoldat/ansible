@@ -53,9 +53,6 @@ case "$subcommand" in
     config)   run_playbook config.yaml ;;
     storage)  run_playbook storage.yaml ;;
     fonts)    run_playbook fonts.yaml ;;
-    home)
-        echo "INFO: Note, that the homedir_setup role needs a valid SSH key in the ssh-agent"
-        run_playbook homedir_setup.yaml
-        ;;
+    home)     run_playbook homedir_setup.yaml ;;
     *) usage ;;
 esac
