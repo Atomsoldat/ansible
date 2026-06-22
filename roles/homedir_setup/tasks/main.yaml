@@ -2,10 +2,7 @@
   ansible.builtin.stat:
     path: "{{ target_home }}/.cfg.git"
   register: config_repo_dir
-- debug:
-    var: config_repo_dir
   
-
 - name: Perform user config repo checkout
   ansible.builtin.include_tasks: config_repo_checkout.yaml
   when: config_repo_dir.stat.exists == false
@@ -14,5 +11,5 @@
   ansible.builtin.lineinfile:
     path: "{{ target_home }}/.cfg.git/config"
     # \s* matches any number of whitespace
-    regexp: '\s*url\s*=\ https:\/\/github\.com\/Atomsoldat\/cfg-files\.git'
+    regexp: '\s*url\s*=\s*https:\/\/github\.com\/Atomsoldat\/cfg-files\.git'
     line: '    url = git@github.com:Atomsoldat/cfg-files.git'

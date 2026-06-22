@@ -33,9 +33,23 @@
 #  become_user: "{{ target_user }}"
 #  become: true
 
+- name: Reconfigure prezto submodule to use https temporarily
+  ansible.builtin.lineinfile:
+    path: "{{ target_home }}/.gitmodules"
+    # \s* matches any number of whitespace
+    regexp: '\s*url\s*=\s*git@github\.com:Atomsoldat\/prezto\.git'
+    line: '    url = https://github.com/Atomsoldat/prezto'
+
 - name: Update submodules
   ansible.builtin.command:
     cmd: "/usr/bin/git --git-dir={{ target_home }}/.cfg.git/ --work-tree={{ target_home }} submodule update --init --recursive"
     chdir: "{{ target_home }}"
   become_user: "{{ target_user }}"
   become: true
+
+- name: Reconfigure prezto submodule to use ssh again
+  ansible.builtin.lineinfile:
+    path: "{{ target_home }}/.gitmodules"
+    # \s* matches any number of whitespace
+    regexp: '\s*url\s*=\s*https:\/\/github\.com\/Atomsoldat\/prezto\.git'
+    line: '    url = git@github.com:Atomsoldat/prezto.git'
