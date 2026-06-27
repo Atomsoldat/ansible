@@ -6,3 +6,10 @@
     enabled: true
     daemon_reload: true
   become: true
+
+- name: "Add the user {{ target_user }} to nix-users"
+  ansible.builtin.user:
+    name: "{{ target_user }}"
+    groups: nix-users
+    append: true
+  become: true

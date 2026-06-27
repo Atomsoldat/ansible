@@ -1,12 +1,16 @@
+
+# It's a bit hacky to set the nix-users group for each command,
+# but  it works for both localhost and remote hosts, which is neat
+
   - name: Check if flake is already in nix profile
-    command: nix profile list
+    command: newgrp nix-users -c "nix profile list"
     register: nix_profile_list
     changed_when: false
 
   - name: Install nix flake packages 
-    command: nix profile add "{{ playbook_dir }}"
+    command: newgrp nix-users -c "nix profile add {{ playbook_dir }}"
     when: "'ansible' not in nix_profile_list.stdout"
 
   - name: Upgrade nix flake packages
-    command: nix profile upgrade ansible
+    command: newgrp nix-users -c "nix profile upgrade ansible"
     when: "'ansible' in nix_profile_list.stdout"

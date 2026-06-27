@@ -8,6 +8,8 @@
   become: true
   when: ansible_facts['os_family'] == 'Debian'
 
+# TODO: these tasks  should be split up
+# adding to package manager groups should be in the relevant package manager setup role and so on
 - name: "Add the user {{ target_user }} with a zsh shell, appending groups needed for our config"  
   ansible.builtin.user:
     name: "{{ target_user }}"
