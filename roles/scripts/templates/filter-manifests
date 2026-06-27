@@ -20,7 +20,7 @@ fi
 
 
 
-resource_filepath=./manifests/${component}/resources.yaml
+resource_filepath=./manifests/${component}/manifests.yaml
 
 # https://mikefarah.gitbook.io/yq/operators/string-operators#test-regex
 startfilter='select(.kind | test("'
