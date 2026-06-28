@@ -3,6 +3,8 @@ essential_packages:
   Debian:
     - gpg
     - curl
+    - git
   Archlinux:
     - gnupg
     - curl
+    - git
