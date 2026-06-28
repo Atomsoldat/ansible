@@ -2,6 +2,8 @@
 entertainment_generic_packages:
   wine:
   winetricks:
+  # peripherals / system
+  solaar:
 
 entertainment_special_packages:
   Debian:

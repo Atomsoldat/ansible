@@ -27,6 +27,9 @@ cli_tools_generic_packages:
   alacritty:
   zsh:
   tmux:
+  pwgen:
+  # desktop
+  dex:
 
 # TODO: figure out a way to get telnet on arch without relying on AUR
 # build from source?

@@ -21,6 +21,8 @@ sysadmin_generic_packages:
 
 sysadmin_special_packages:
   Debian:
+    libfuse2:
+    fuse:
     apt-file:
     apt-listchanges:
     aptitude:
@@ -31,6 +33,8 @@ sysadmin_special_packages:
     google-cloud-cli:
     google-cloud-sdk-gke-gcloud-auth-plugin:
   Ubuntu:
+    libfuse2:
+    fuse:
     apt-file:
     aptitude:
     cachefilesd:   # we want to improve nfs performance with this

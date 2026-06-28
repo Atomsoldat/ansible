@@ -1,0 +1,24 @@
+---
+desktop_environment_generic_packages:
+  # awesome
+  awesome:
+  acpi:
+  brightnessctl:
+  arandr:
+
+desktop_environment_special_packages:
+  Debian:
+    # xfce4
+    xfce4:
+    xfce4-goodies:
+  Ubuntu:
+    # xfce4
+    xubuntu-desktop:
+  Archlinux: {}
+
+desktop_environment_generic_blacklist: {}
+
+desktop_environment_special_blacklist:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux: {}

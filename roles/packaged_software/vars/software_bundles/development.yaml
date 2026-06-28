@@ -77,3 +77,11 @@ development_special_packages:
     genisoimage:
     linux-firmware:
   Archlinux: {}
+
+development_generic_blacklist:
+
+development_special_blacklist:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux:
+    podman-docker:

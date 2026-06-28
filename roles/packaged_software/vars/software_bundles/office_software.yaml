@@ -28,9 +28,6 @@ office_software_generic_packages:
   thunderbird:
   simple-scan:
   pandoc:
-  texlive-full:
-    Archlinux: texlive-meta
-  texstudio:
   okular:
 
 # TODO: we  should compile the latest eb-garamond  font ourselves

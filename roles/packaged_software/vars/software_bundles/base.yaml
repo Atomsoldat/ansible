@@ -2,21 +2,10 @@
 base_generic_packages:
   # passwords
   keepassxc:
-  pwgen:
-  # desktop
-  dex:
-  # peripherals / system
-  solaar:
 
 base_special_packages:
-  Debian:
-    libfuse2:
-    fuse:
-    xfce4:
-    xfce4-goodies:
-  Ubuntu:
-    libfuse2:
-    fuse:
+  Debian: {}
+  Ubuntu: {}
   Archlinux: {}
 
 # TODO: explain why we blacklisted these. I think these have something to do with multilanguage input
@@ -28,5 +17,4 @@ base_generic_blacklist:
 base_special_blacklist:
   Debian: {}
   Ubuntu: {}
-  Archlinux:
-    podman-docker:
+  Archlinux: {}

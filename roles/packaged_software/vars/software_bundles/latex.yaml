@@ -1,0 +1,18 @@
+---
+latex_generic_packages:
+  texlive-full:
+    Archlinux: texlive-meta
+  texstudio:
+
+# TODO: we  should compile the latest eb-garamond  font ourselves
+latex_special_packages:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux: {}
+
+latex_generic_blacklist: {}
+
+latex_special_blacklist:
+  Debian: {}
+  Ubuntu: {}
+  Archlinux: {}
