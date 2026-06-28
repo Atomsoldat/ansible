@@ -2,5 +2,5 @@
 software_bundles:
   - base
   - development
-  - entertainment
+  #- entertainment
   - office_software

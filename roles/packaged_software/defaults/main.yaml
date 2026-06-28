@@ -1,10 +1,11 @@
 ---
 software_bundles:
-  - awesome
   - base
   - cli_tools
+  - desktop_environment
   - development
-  - entertainment
+  #- entertainment
+  #- latex
   - office_software
-  - private_networking
+  #- private_networking
   - sysadmin
