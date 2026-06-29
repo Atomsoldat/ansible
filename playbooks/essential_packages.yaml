@@ -1,8 +1,7 @@
 
 ---
-- name: Install basic packages required by other roles
+- name: Install essential packages required by other roles
   hosts: localhost
-  remote_user: leon
   gather_facts: true
 
   roles:

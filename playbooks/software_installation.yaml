@@ -3,7 +3,6 @@
 #   -e '{"software_bundles": ["base", "development", "communication"]}'
 - name: Desktop PC setup playbook
   hosts: localhost
-  remote_user: leon
   gather_facts: true
 
   vars:

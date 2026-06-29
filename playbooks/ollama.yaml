@@ -2,7 +2,6 @@
 ---
 - name: Ollama Software installation
   hosts: localhost
-  remote_user: leon
 
   roles:
     - ../roles/ollama
