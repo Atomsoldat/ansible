@@ -12,3 +12,6 @@ entertainment_flatpaks:
   - identifier: com.discordapp.Discord
     alias: discord
     command: "flatpak run com.discordapp.Discord $@"
+  - identifier: com.prusa3d.PrusaSlicer
+    alias: prusaslicer
+    command: "flatpak run com.prusa3d.PrusaSlicer $@"
