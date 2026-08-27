@@ -1,4 +1,4 @@
-These ansible roles are used to install necessary software and perform configuration on a fresh Debian installation.
+These ansible roles are used to install necessary software and perform configuration on a fresh Debian / Ubuntu / Arch installation.
 The goal is to make reinstalling my Operating System less annoying.
 
 **NOTE:** These roles expect to be invoked on localhost as the desired everyday user intended to be used. They will use the env vars `USER` and `HOME` to determine the correct username and home dir when needed. Do not run as root. 
