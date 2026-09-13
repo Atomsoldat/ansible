@@ -40,7 +40,6 @@ development_generic_packages:
   ansible:
   ansible-lint:
   yamllint:
-  terraform:
   # containers
   podman:
   docker.io:
@@ -55,7 +54,6 @@ development_generic_packages:
   oathtool:
     Archlinux: oath-toolkit
   age:
-  vault:
   # 3d printing / modelling
   f3d:
   openscad:
@@ -66,14 +64,12 @@ development_special_packages:
   Debian:
     temurin-26-jdk:
     python-is-python3:
-    vagrant:
     alien:
     genisoimage:
     firmware-misc-nonfree:
   Ubuntu:
     temurin-26-jdk:
     python-is-python3:
-    vagrant:
     genisoimage:
     linux-firmware:
   Archlinux: {}

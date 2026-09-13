@@ -9,9 +9,6 @@
 - name: Configure Adoptium Repo
   ansible.builtin.include_tasks: adoptium.yaml
   when: ansible_facts['os_family'] == 'Debian'
-- name: Configure Hashicorp Repo
-  ansible.builtin.include_tasks: hashicorp.yaml
-  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure Docker Repo
   ansible.builtin.include_tasks: docker.yaml
   when: ansible_facts['os_family'] == 'Debian'
