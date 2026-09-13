@@ -31,7 +31,6 @@ sysadmin_special_packages:
     cachefilesd:   # we want to improve nfs performance with this
     # cloud provider stuff
     google-cloud-cli:
-    google-cloud-sdk-gke-gcloud-auth-plugin:
   Ubuntu:
     libfuse2:
     fuse:
@@ -40,7 +39,6 @@ sysadmin_special_packages:
     cachefilesd:   # we want to improve nfs performance with this
     # cloud provider stuff
     google-cloud-cli:
-    google-cloud-sdk-gke-gcloud-auth-plugin:
   Archlinux: {}
 
 sysadmin_generic_blacklist: {}

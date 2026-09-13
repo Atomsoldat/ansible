@@ -46,7 +46,6 @@ development_generic_packages:
     Archlinux: docker
   docker-compose:
   # vms
-  packer:
   qemu-utils:
     Debian: qemu-utils
     Archlinux: qemu-tools
