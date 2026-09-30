@@ -13,6 +13,7 @@ development_homebrew_packages:
   - tilt
   - yj
   - lima
+  - hermes-agent
   - restic
   - git-delta
   # this is the (nicer) mike farah version
