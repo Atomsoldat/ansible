@@ -4,6 +4,8 @@ entertainment_generic_packages:
   winetricks:
   # peripherals / system
   solaar:
+  # 1337 ascii lettering
+  figlet:
 
 entertainment_special_packages:
   Debian:
