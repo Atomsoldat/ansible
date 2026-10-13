@@ -1,5 +1,7 @@
 ---
 sysadmin_generic_packages:
+  # disk wrangling
+  gdisk
   # storage
   nfs-common:
     Archlinux: nfs-utils
