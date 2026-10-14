@@ -19,6 +19,8 @@
 # https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 - name: Configure Nvidia Container Toolkit Repo
   ansible.builtin.include_tasks: nvidia-container-toolkit.yaml
+- name: Configure Nvidia Datacenter Driver Repo
+  ansible.builtin.include_tasks: nvidia-datacenter-driver.yaml
   when: ansible_facts['os_family'] == 'Debian'
 - name: Configure Syncthing Repo
   ansible.builtin.include_tasks: syncthing.yaml
