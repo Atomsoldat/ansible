@@ -6,12 +6,12 @@
   ansible.builtin.include_tasks: debian.yaml
   when: ansible_facts['distribution']  == 'Debian'
 
-- name: Configure Adoptium Repo
-  ansible.builtin.include_tasks: adoptium.yaml
-  when: ansible_facts['os_family'] == 'Debian'
-- name: Configure Docker Repo
-  ansible.builtin.include_tasks: docker.yaml
-  when: ansible_facts['os_family'] == 'Debian'
+#- name: Configure Adoptium Repo
+#  ansible.builtin.include_tasks: adoptium.yaml
+#  when: ansible_facts['os_family'] == 'Debian'
+#- name: Configure Docker Repo
+#  ansible.builtin.include_tasks: docker.yaml
+#  when: ansible_facts['os_family'] == 'Debian'
 - name: Configure Google Cloud Repo
   ansible.builtin.include_tasks: google-cloud-sdk.yaml
   when: ansible_facts['os_family'] == 'Debian'
@@ -26,9 +26,9 @@
 - name: Configure VSCodium Repo
   ansible.builtin.include_tasks: vscodium.yaml
   when: ansible_facts['os_family'] == 'Debian'
-- name: Configure PGDG Repo
-  ansible.builtin.include_tasks: pgdg.yaml
-  when: ansible_facts['os_family'] == 'Debian'
+#- name: Configure PGDG Repo
+#  ansible.builtin.include_tasks: pgdg.yaml
+#  when: ansible_facts['os_family'] == 'Debian'
 - name: Update apt cache
   ansible.builtin.apt:
     update_cache: true
